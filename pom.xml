@@ -181,6 +181,14 @@
                     <strictCucumber6Behavior>true</strictCucumber6Behavior>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version> <!-- Bu satırı değiştirin -->
+                <configuration>
+                    <!-- Diğer konfigürasyon ayarları -->
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
