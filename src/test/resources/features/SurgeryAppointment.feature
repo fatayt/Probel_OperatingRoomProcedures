@@ -97,6 +97,13 @@ Feature: Surgery Appointment
   Scenario: User can not delete the unit with an appointment
     When click settings button
     And click unit definitions button
+
+    And click new add button
+    And enter service code "132" to service code box
+    And enter the daily capacity "1"
+    And click save button
+    Then assert the new surgery service unit "132"
+
     And enter service code "132" to unit code box
     And click delete button
     Then assert the popup message "Bu kaydı silmek istediğinize emin misiniz?"
@@ -109,11 +116,11 @@ Feature: Surgery Appointment
   Scenario: User can switch the passive the unit
     When click settings button
     And click unit definitions button
-    And enter service code "9055" to unit code box
+    And enter service code "9071" to unit code box
     And click edit button
     And click passive box
     And click save button
-    And enter service code "9055" to unit code box
+    And enter service code "9071" to unit code box
     Then assert the service was deleted "Görüntülenecek veri yok"
 
   @toActive
@@ -121,7 +128,7 @@ Feature: Surgery Appointment
   Scenario: User can switch the active the unit
     When click settings button
     And click unit definitions button
-    And enter service code "9055" to unit code box
+    And enter service code "9071" to unit code box
     And click edit button
     And click active box
     And click save button
