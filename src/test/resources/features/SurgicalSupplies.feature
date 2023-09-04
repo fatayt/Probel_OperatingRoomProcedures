@@ -6,8 +6,7 @@ Feature: Surgery Appointment
     Given The user logs in
     And The user goes Surgical Supplies page
 
-  @selectTemplate
-  @TC0084 @US_012
+  @Smoke @selectTemplate @TC0084 @US_012
   Scenario: User can add the material and medicine to surgery from template
     When select the surgery date "11.09.2023"
     And click refresh button
@@ -29,8 +28,7 @@ Feature: Surgery Appointment
     And assert the popup message "İlaç işlenemedi"
     And click okey button
 
-  @deleteSupply
-  @TC0085 @US_012
+  @Smoke @deleteSupply @TC0085 @US_012
   Scenario: User can delete the material and medicine from surgery from template
     When select the surgery date "11.09.2023"
     And click refresh button
@@ -54,8 +52,7 @@ Feature: Surgery Appointment
     And click yes button
     And assert the material or medicine deleted "27233"
 
-  @addMaterials
-  @TC0086 @US_012
+  @Bug @addMaterials @TC0086 @US_012
   Scenario: User can select and add the materials from stock list
     When select the surgery date "11.09.2023"
     And click refresh button
@@ -100,8 +97,7 @@ Feature: Surgery Appointment
     And close the warning message
 
 
-  @templateProcess
-  @TC0087 @US_012
+  @Bug @templateProcess @TC0087 @US_012
   Scenario: User can create, edit and delete the template materials
     When click template definitions button
     And assert popup page "Ameliyat Malzeme Şablon Tanımları"

@@ -6,8 +6,7 @@ Feature: Surgery Appointment
     Given The user logs in
     And The user goes Surgery Appointment page
 
-  @newUnit
-  @TC0067 @US_009
+  @Smoke @newUnit @TC0067 @US_009
   Scenario: User can create new surgery service unit
     When click settings button
     And click unit definitions button
@@ -17,8 +16,7 @@ Feature: Surgery Appointment
     And click save button
     Then assert the new surgery service unit "187"
 
-  @newUnitNoInfo
-  @TC0068 @US_009
+  @Regression @newUnitNoInfo @TC0068 @US_009
   Scenario: User can not create new surgery service unit without information
     When click settings button
     And click unit definitions button
@@ -30,8 +28,7 @@ Feature: Surgery Appointment
     And click save button
     Then assert the new surgery service unit
 
-  @noSameUnit
-  @TC0069 @US_009
+  @Regression @noSameUnit @TC0069 @US_009
   Scenario: User can not create same surgery service unit
     When click settings button
     And click unit definitions button
@@ -41,8 +38,7 @@ Feature: Surgery Appointment
     And click save button
     Then assert the warning message "Aynı Kayıttan Daha Önce Girilmiş"
 
-  @changeCapacity
-  @TC0070 @US_009
+  @Bug @changeCapacity @TC0070 @US_009
   Scenario: User can change the daily surgery capacity of service unit
     When click settings button
     And click unit definitions button
@@ -60,8 +56,7 @@ Feature: Surgery Appointment
       | 999999 |
 
 
-  @noApptMoreThanCapacity
-  @TC0071 @US_009
+  @Smoke @noApptMoreThanCapacity @TC0071 @US_009
   Scenario: User can not create more appointments than the capacity
     And select the service code "132"
     And click new appointment button
@@ -81,8 +76,7 @@ Feature: Surgery Appointment
     Then assert the warning message "Kayıt yapılamaz! Günlük maximum kayıt sayısı :1"
 
 
-  @deleteUnit
-  @TC0072 @US_009
+  @Smoke @deleteUnit @TC0072 @US_009
   Scenario: User can delete the surgery service unit
     When click settings button
     And click unit definitions button
@@ -92,8 +86,7 @@ Feature: Surgery Appointment
     And click yes button
     Then assert the service was deleted "Görüntülenecek veri yok"
 
-  @canNotDeleteUnitWithAppt
-  @TC0073 @US_009
+  @Bug @canNotDeleteUnitWithAppt @TC0073 @US_009
   Scenario: User can not delete the unit with an appointment
     When click settings button
     And click unit definitions button
@@ -111,8 +104,7 @@ Feature: Surgery Appointment
     Then assert the service can not be deleted "HATA"
 
 
-  @toPassive
-  @TC0074 @US_009
+  @Bug @toPassive @TC0074 @US_009
   Scenario: User can switch the passive the unit
     When click settings button
     And click unit definitions button
@@ -123,8 +115,7 @@ Feature: Surgery Appointment
     And enter service code "9071" to unit code box
     Then assert the service was deleted "Görüntülenecek veri yok"
 
-  @toActive
-  @TC0075 @US_009
+  @Bug @toActive @TC0075 @US_009
   Scenario: User can switch the active the unit
     When click settings button
     And click unit definitions button
@@ -134,8 +125,7 @@ Feature: Surgery Appointment
     And click save button
     Then assert the unit is active
 
-  @newGroup
-  @TC0076 @US_010
+  @Smoke @newGroup @TC0076 @US_010
   Scenario: User can create new group
     When click settings button
     And click group definitions button
@@ -145,8 +135,7 @@ Feature: Surgery Appointment
     And click save button
     Then assert the new group "Dermatoloji"
 
-  @newGroupNoInfo
-  @TC0077 @US_010
+  @Regression @newGroupNoInfo @TC0077 @US_010
   Scenario: User can create new group without no information
     When click settings button
     And click group definitions button
@@ -155,8 +144,7 @@ Feature: Surgery Appointment
     And click save button
     Then assert the new group "Dermatoloji"
 
-  @noSameGroup
-  @TC0078 @US_010
+  @Regression @noSameGroup @TC0078 @US_010
   Scenario: User can not create same group
     When click settings button
     And click group definitions button
@@ -166,8 +154,7 @@ Feature: Surgery Appointment
     And click save button
     Then assert the new group "Dermatoloji"
 
-  @editGroup
-  @TC0079 @US_010
+  @Regression @editGroup @TC0079 @US_010
   Scenario: User can edit the group
     When click settings button
     And click group definitions button
@@ -180,8 +167,7 @@ Feature: Surgery Appointment
       | ^+       |
       | ^+%&#    |
 
-  @createReason
-  @TC0080 @US_011
+  @Smoke @createReason @TC0080 @US_011
   Scenario: User can create the reason for surgery cancellation
     When click settings button
     And click cancellation reason button
@@ -190,8 +176,7 @@ Feature: Surgery Appointment
     And click save button
     Then assert the reason "feeling better now"
 
-  @createSameReason
-  @TC0081 @US_011
+  @Bug @createSameReason @TC0081 @US_011
   Scenario: User can not create the same reason for surgery cancellation
     When click settings button
     And click cancellation reason button
@@ -200,8 +185,7 @@ Feature: Surgery Appointment
     And click save button
     Then assert the reason "feeling better now"
 
-  @editReason
-  @TC0082 @US_011
+  @Regression @editReason @TC0082 @US_011
   Scenario: User can edit the reason
     When click settings button
     And click cancellation reason button
@@ -212,8 +196,7 @@ Feature: Surgery Appointment
     And click save button
     Then assert the reason "feeling perfect now"
 
-  @deleteReason
-  @TC0083 @US_011
+  @Smoke @deleteReason @TC0083 @US_011
   Scenario: User can delete the reason for surgery cancellation
     When click settings button
     And click cancellation reason button
