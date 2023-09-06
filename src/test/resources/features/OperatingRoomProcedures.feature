@@ -1,22 +1,19 @@
-@probel_ameliyathaneIslemleri
-Feature: probel_ameliyatHaneIslemleri
+@OperatingRoomProcedures
+Feature: Operating Room Procedures
+
   Background:
     Given The user logs in
-    And The user goes Hasta islemleri, Ameliyathane islemleri and then click Ameliyathane islemleri
-
-
-
+    And The user goes Operating Room Procedures page
 
   @TR0025
   Scenario: TR0025 The user can confirm the patient's salon.
-
     And User enters date
     And User clicks the refresh button
     And User selects hall
     And User selects patient
     And User clicks on salon operations
     And User hall approves
-   Then User verifies patient
+    Then User verifies patient
 
 
   @TR0026
@@ -91,7 +88,7 @@ Feature: probel_ameliyatHaneIslemleri
     And User hall approves
     And User selects patient
     And User clicks on the button Patient entered the operating room
-    And The user goes Hasta islemleri, Ameliyathane islemleri and then click Ameliyathane islemleri
+    And The user goes Operating Room Procedures page
     And User enters date
     And User clicks the refresh button
     And user finds patient with protocol number
@@ -100,7 +97,6 @@ Feature: probel_ameliyatHaneIslemleri
     And User hall approves
     And User selects patient
     And User clicks the patient operating room login cancel button
-
 
 
   @TR0032
@@ -113,7 +109,7 @@ Feature: probel_ameliyatHaneIslemleri
     And User hall approves
     And User selects patient
     And User clicks on the button Patient entered the operating room
-    And The user goes Hasta islemleri, Ameliyathane islemleri and then click Ameliyathane islemleri
+    And The user goes Operating Room Procedures page
     And User enters date
     And User clicks the refresh button
     And user finds patient with protocol number

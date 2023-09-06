@@ -1,4 +1,5 @@
 package stepdefinitions;
+
 import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -6,9 +7,9 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.asserts.Assertion;
-import pages.OperatingRoomProcedures_Page;
 import pages.BasePage;
 import pages.Login_Page;
+import pages.OperatingRoomProcedures_Page;
 import utilities.Driver;
 
 
@@ -22,14 +23,7 @@ public class OperatingRoomProcedures_StepDefinitions {
     Faker faker = new Faker();
 
 
-    @Given("The user goes Hasta islemleri, Ameliyathane islemleri and then click Ameliyathane islemleri")
-    public void the_user_goes_hasta_islemleri_ameliyathane_islemleri_and_then_click_ameliyathane_islemleri() {
-        actions.moveToElement(basePage.hastaIslemleri).
-                moveToElement(basePage.ameliyathaneIslemleri1).
-                moveToElement(basePage.ameliyathaneIslemleri2).
-                perform();
-        basePage.ameliyathaneIslemleri2.click();
-    }
+
 
     @Given("User enters date")
     public void user_enters_date() throws InterruptedException {
@@ -80,14 +74,7 @@ public class OperatingRoomProcedures_StepDefinitions {
 
     }
 
-    @Given("The user goes Hasta islemleri, Ameliyathane islemleri and then click doktor ameliyathane islemleri")
-    public void the_user_goes_hasta_islemleri_ameliyathane_islemleri_and_then_click_doktor_ameliyathane_islemleri() {
-        actions.moveToElement(basePage.hastaIslemleri).
-                moveToElement(basePage.ameliyathaneIslemleri1).
-                moveToElement(operatingRoomProcedures_page_.doctorSurgeryProceduresPage).
-                perform();
-        operatingRoomProcedures_page_.doctorSurgeryProceduresPage.click();
-    }
+
 
     @Given("User verifies patient")
     public void user_verifies_patient() {
