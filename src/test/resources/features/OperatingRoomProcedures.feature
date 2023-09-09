@@ -18,8 +18,6 @@ Feature: Operating Room Procedures
 
   @TR0026
   Scenario: TR0026 User can cancel the patient's salon
-
-
     And User enters date
     And User clicks the refresh button
     And User selects hall
@@ -55,7 +53,7 @@ Feature: Operating Room Procedures
   Scenario: TR0029 User can change the patient's lounge
     And User enters date
     And User clicks the refresh button
-    And user finds patient with protocol number
+    And User selects hall
     And The user clicks on the patient operations button
     And  User clicks on change hall button
     And User selects new hall
@@ -67,7 +65,7 @@ Feature: Operating Room Procedures
   Scenario: TR0030 User enters patient's surgery details
     And User enters date
     And User clicks the refresh button
-    And user finds patient with protocol number
+    And User selects hall
     And User selects patient
     And User clicks on the surgery details button
     And User selects Diagnosis
@@ -78,25 +76,16 @@ Feature: Operating Room Procedures
  # And User clicks the Close button on the surgery details page
 
 
+
   @TR0031
   Scenario: TR0031 User makes the patient's patient's entrance to the operating room
     And User enters date
     And User clicks the refresh button
     And user finds patient with protocol number
     And User selects patient
-    And User clicks on salon operations
-    And User hall approves
-    And User selects patient
     And User clicks on the button Patient entered the operating room
-    And The user goes Operating Room Procedures page
-    And User enters date
-    And User clicks the refresh button
-    And user finds patient with protocol number
-    And User selects patient
-    And User clicks on salon operations
-    And User hall approves
-    And User selects patient
-    And User clicks the patient operating room login cancel button
+
+
 
 
   @TR0032
@@ -105,19 +94,11 @@ Feature: Operating Room Procedures
     And User clicks the refresh button
     And user finds patient with protocol number
     And User selects patient
-    And User clicks on salon operations
-    And User hall approves
-    And User selects patient
-    And User clicks on the button Patient entered the operating room
-    And The user goes Operating Room Procedures page
-    And User enters date
-    And User clicks the refresh button
-    And user finds patient with protocol number
-    And User selects patient
-    And User clicks on salon operations
-    And User hall approves
-    And User selects patient
-    And User clicks the patient operating room login cancel button
+    And User cancels the patient's entrance to the operating room of the patient
+
+
+
+
 
   @TR0033
   Scenario: TR0033 User can add patients to the list on the operating room operations page.
@@ -161,7 +142,7 @@ Feature: Operating Room Procedures
     And User clicks the service button
     And User selects the EMERGENCY CHILD DAY CARE Service
     And the user selects the salon popup add list page
-    And The user enters the protocol number of the patient they want to add1
+  #  And The user enters the protocol number of the patient they want to add1
     And User verifies that the patient has been added to the list
 
 
@@ -169,7 +150,8 @@ Feature: Operating Room Procedures
   Scenario: TR0035Bug User can add patients to the list on the operating room operations page and chooses an obstetrician
     And User enters date
     And User clicks the refresh button
- #  And The user enters the protocol number of the patient they want to add1
+   # And The user enters the protocol number of the patient they want to add1
+    And User selects hall
     And The user clicks on the patient operations button
     And User clicks the exit from the table button
     And User clicks on Add patient to list button
@@ -178,5 +160,5 @@ Feature: Operating Room Procedures
     And User clicks the service button
     And User selects the GUNUBIRLIK KADIN HAST.VE DOGUM SERVISI Service
     And the user selects the salon popup add list page
-    And The user enters the protocol number of the patient they want to add1
+   # And The user enters the protocol number of the patient they want to add1
     And User verifies GUNUBIRLIK KADIN HAST.VE DOGUM SERVISI that the patient has been added to the list

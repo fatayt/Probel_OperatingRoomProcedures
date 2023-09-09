@@ -33,6 +33,8 @@ public class OperatingRoomProcedures_Page {
     @FindBy(xpath = "/html/body/div[1]/div[4]/section/div[4]/div[2]/div[2]/div[2]/table/tbody/tr/td/div[2]/table/tbody/tr[3]/td[3]")
     public WebElement protocolNo;
 
+
+
     @FindBy(xpath = "//a[contains(text(),'Salon İşlemleri')]")
     public WebElement HallOperations;
 
@@ -212,6 +214,17 @@ public class OperatingRoomProcedures_Page {
     public WebElement poupKadınDogumServiceButton;
 
 
+
+    @FindBy(xpath = "//*[@id=\"AMELIYAT_SALON_LISTESI_DXDataRow0\"]/td[1]")
+    public WebElement selectHallOne;
+
+
+
+    @FindBy(xpath = "//td[text()='15384267']")
+    public WebElement selectilyas;
+
+    @FindBy(xpath = "//*[@id=\"dxGridAmeliyatHastaListesi_DXDataRow0\"]/td[3]")
+    public WebElement selectPatient;
 
 
 
