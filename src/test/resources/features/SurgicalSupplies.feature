@@ -124,9 +124,3 @@ Feature: Surgery Appointment
     And assert the popup message "Bu kaydı silmek istediğinize emin misiniz?"
     And click yes button
     Then assert the template deleted "Abeyis Automation Test"
-
-
-
-
-
-
