@@ -25,6 +25,8 @@ public class SurgicalSupplies_Page {
     @FindBy(id = "btnLstYenile")
     WebElement refresh_button;
 
+
+
     @FindBy(xpath = "//td[text()='Salon_1']")
     WebElement saloon1;
 
