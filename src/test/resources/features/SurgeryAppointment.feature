@@ -1,5 +1,5 @@
 @SurgeryAppointment
-
+@Regression
 Feature: Surgery Appointment
 
   Background:
@@ -20,7 +20,7 @@ Feature: Surgery Appointment
     And delete a unit "187"
 
 
-  @Regression @newUnitNoInfo @TC0068 @US_009
+  @newUnitNoInfo @TC0068 @US_009
   Scenario: User can not create new surgery service unit without information
     #When click settings button
     #And click unit definitions button
@@ -36,7 +36,7 @@ Feature: Surgery Appointment
     And delete a unit "168"
 
 
-  @Regression @noSameUnit @TC0069 @US_009
+  @noSameUnit @TC0069 @US_009
   Scenario: User can not create same surgery service unit
     And create new unit "110" "10"
     Then assert the new surgery service unit "110"
@@ -164,7 +164,7 @@ Feature: Surgery Appointment
     And click yes button
 
 
-  @Regression @newGroupNoInfo @TC0077 @US_010
+  @newGroupNoInfo @TC0077 @US_010
   Scenario: User can create new group without no information
     When click settings button
     And click group definitions button
@@ -176,7 +176,7 @@ Feature: Surgery Appointment
     And click yes button
 
 
-  @Regression @noSameGroup @TC0078 @US_010
+  @noSameGroup @TC0078 @US_010
   Scenario: User can not create same group
     When click settings button
     And click group definitions button
@@ -196,7 +196,7 @@ Feature: Surgery Appointment
     And click yes button
 
 
-  @Regression @editGroup @TC0079 @US_010
+  @editGroup @TC0079 @US_010
   Scenario: User can edit the group
     When click settings button
     And click group definitions button
@@ -237,7 +237,7 @@ Feature: Surgery Appointment
     And click delete button
     And click yes button
 
-  @Regression @editReason @TC0082 @US_011
+  @editReason @TC0082 @US_011
   Scenario: User can edit the reason
     When click settings button
     And click cancellation reason button

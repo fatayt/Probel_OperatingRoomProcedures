@@ -1,5 +1,5 @@
 @CreateSurgeryList
-
+@Regression
 Feature: Create Surgery List
 
   Background:

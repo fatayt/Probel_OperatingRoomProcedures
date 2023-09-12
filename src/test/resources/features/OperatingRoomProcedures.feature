@@ -1,4 +1,5 @@
 @OperatingRoomProcedures
+@Regression
 Feature: Operating Room Procedures
 
   Background:
@@ -129,7 +130,7 @@ Feature: Operating Room Procedures
  # And  User verifies that the patient has been sent to the service
 
 
-  @TR0034Bug
+  @TR0034 @Bug
   Scenario: TR0034Bug User can add patients to the list on the Operating Room Procedures page and chooses the necessary doctor.
     And User enters date
     And User clicks the refresh button
@@ -146,7 +147,7 @@ Feature: Operating Room Procedures
     And User verifies that the patient has been added to the list
 
 
-  @TR0035Bug
+  @TR0035 @Bug
   Scenario: TR0035Bug User can add patients to the list on the operating room operations page and chooses an obstetrician
     And User enters date
     And User clicks the refresh button

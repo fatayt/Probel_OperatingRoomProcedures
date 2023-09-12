@@ -87,11 +87,10 @@
                     </includes>
                 </configuration>
             </plugin>
-
             <plugin>
                 <groupId>tech.grasshopper</groupId>
                 <artifactId>extentreports-cucumberjson-plugin</artifactId>
-                <version>2.11.0</version>
+                <version>2.15.0</version>
                 <executions>
                     <execution>
                         <id>report</id>
@@ -111,9 +110,8 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.11.0</version> <!-- Bu satırı değiştirin -->
+                <version>3.11.0</version>
                 <configuration>
-                    <!-- Diğer konfigürasyon ayarları -->
                 </configuration>
             </plugin>
         </plugins>
