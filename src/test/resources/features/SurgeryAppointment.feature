@@ -1,5 +1,5 @@
 @SurgeryAppointment
-
+@Regression
 Feature: Surgery Appointment
 
   Background:
@@ -34,6 +34,7 @@ Feature: Surgery Appointment
     Then assert the new surgery service unit "168"
     And close popup page
     And delete a unit "168"
+
 
 
    @noSameUnit @TC0069 @US_009
@@ -165,6 +166,7 @@ Feature: Surgery Appointment
     And click yes button
 
 
+
    @newGroupNoInfo @TC0077 @US_010
   Scenario: User can create new group without no information
     When click settings button
@@ -175,6 +177,7 @@ Feature: Surgery Appointment
     Then assert the new group "Dermatoloji"
     And click delete button
     And click yes button
+
 
 
    @noSameGroup @TC0078 @US_010
@@ -197,7 +200,8 @@ Feature: Surgery Appointment
     And click yes button
 
 
-   @editGroup @TC0079 @US_010
+
+  @editGroup @TC0079 @US_010
   Scenario: User can edit the group
     When click settings button
     And click group definitions button
@@ -238,7 +242,11 @@ Feature: Surgery Appointment
     And click delete button
     And click yes button
 
+
    @editReason @TC0082 @US_011
+
+  @editReason @TC0082 @US_011
+
   Scenario: User can edit the reason
     When click settings button
     And click cancellation reason button
