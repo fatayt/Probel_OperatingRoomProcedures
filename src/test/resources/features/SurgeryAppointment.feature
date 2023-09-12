@@ -102,6 +102,7 @@ Feature: Surgery Appointment
     Then assert the service was deleted "Görüntülenecek veri yok"
 
 
+
   @Smoke @deleteUnit @TC0072 @US_009
   Scenario: User can delete the surgery service unit
     And create new unit "187" "5"
@@ -321,9 +322,7 @@ Feature: Surgery Appointment
 
     #And verify that your appointment has been canceled
 
-   #And delete appointment
-   #  | code | start date | end  date  | protocol |
-   #  | 1028 | 31.10.2023 | 31.10.2023 | 15388830 |
+
 
 
   @TC0060
