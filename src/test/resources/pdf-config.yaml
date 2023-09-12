@@ -9,7 +9,7 @@ displayAttached: true
 displayExpanded: false
 
 dashboardConfig:
-   title: Probel Operating Room Procedures Bug Report
+   title: Probel Operating Room Procedures Regression Report
    dataBackgroundColor: 4F0CC8
    titleColor: FF0000
    dateColor: 969696
