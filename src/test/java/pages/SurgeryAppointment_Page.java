@@ -289,6 +289,8 @@ public class SurgeryAppointment_Page {
         ReusableMethods.waitFor(2);
         // ReusableMethods.waitForClickablility(newAppointment_button, 2);
         ReusableMethods.jseWithClick(Driver.getDriver(), newAppointment_button);
+        ReusableMethods.waitFor(1);
+
     }
 
     public void selectTheDate(String arg0) {
@@ -306,6 +308,7 @@ public class SurgeryAppointment_Page {
     }
 
     public void clickHoursButton() {
+        ReusableMethods.waitFor(1);
         hours_button.click();
         ReusableMethods.waitFor(1);
     }
@@ -630,6 +633,7 @@ public class SurgeryAppointment_Page {
 
     public void searchTheProtocolNumber(String arg0) {
         ReusableMethods.waitFor(2);
+        protocolNumber_box_main.clear();
         protocolNumber_box_main.sendKeys(arg0 + Keys.ENTER);
         ReusableMethods.waitFor(2);
     }
