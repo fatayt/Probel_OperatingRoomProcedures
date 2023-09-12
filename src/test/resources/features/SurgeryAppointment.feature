@@ -20,7 +20,7 @@ Feature: Surgery Appointment
     And delete a unit "187"
 
 
-  @Regression @newUnitNoInfo @TC0068 @US_009
+  @newUnitNoInfo @TC0068 @US_009
   Scenario: User can not create new surgery service unit without information
     #When click settings button
     #And click unit definitions button
@@ -36,7 +36,7 @@ Feature: Surgery Appointment
     And delete a unit "168"
 
 
-  @Regression @noSameUnit @TC0069 @US_009
+   @noSameUnit @TC0069 @US_009
   Scenario: User can not create same surgery service unit
     And create new unit "110" "10"
     Then assert the new surgery service unit "110"
@@ -165,7 +165,7 @@ Feature: Surgery Appointment
     And click yes button
 
 
-  @Regression @newGroupNoInfo @TC0077 @US_010
+   @newGroupNoInfo @TC0077 @US_010
   Scenario: User can create new group without no information
     When click settings button
     And click group definitions button
@@ -177,7 +177,7 @@ Feature: Surgery Appointment
     And click yes button
 
 
-  @Regression @noSameGroup @TC0078 @US_010
+   @noSameGroup @TC0078 @US_010
   Scenario: User can not create same group
     When click settings button
     And click group definitions button
@@ -197,7 +197,7 @@ Feature: Surgery Appointment
     And click yes button
 
 
-  @Regression @editGroup @TC0079 @US_010
+   @editGroup @TC0079 @US_010
   Scenario: User can edit the group
     When click settings button
     And click group definitions button
@@ -238,7 +238,7 @@ Feature: Surgery Appointment
     And click delete button
     And click yes button
 
-  @Regression @editReason @TC0082 @US_011
+   @editReason @TC0082 @US_011
   Scenario: User can edit the reason
     When click settings button
     And click cancellation reason button
@@ -278,7 +278,7 @@ Feature: Surgery Appointment
 
     ###EYUP
 
-  @TC0057
+  @Smoke @TC0057
   Scenario: TC0057 - User may postpone patient appointment
     When create a new appointment
       | code | date       | protocol | surgery | time    |
@@ -300,7 +300,7 @@ Feature: Surgery Appointment
     And click the delete appointment button
     And click yes button
 
-  @TC0058
+  @Smoke @TC0058
   Scenario: User can cancel patient appointment
     When create a new appointment
       | code | date       | protocol | surgery | time    |
@@ -325,7 +325,7 @@ Feature: Surgery Appointment
 
 
 
-  @TC0060
+  @Smoke @TC0060
   Scenario:TC0060 - The appointment can be edited
     When create a new appointment
       | code | date       | protocol | surgery | time    |
@@ -384,20 +384,37 @@ Feature: Surgery Appointment
 
 
 
-  @TC0061
+  @Bug @TC0061
   Scenario: TC0061 - user can not create a same appointment
     When create a new appointment
       | code | date       | protocol | surgery | time    |
       | 163  | 20.09.2023 | 15388830 | 613180  | 09 : 00 |
-    When create a new appointment
-      | code | date       | protocol | surgery | time    |
-      | 163  | 20.09.2023 | 15388830 | 613180  | 09 : 00 |
-    When create a new appointment
-      | code | date       | protocol | surgery | time    |
-      | 163  | 20.09.2023 | 14028483 | 613180  | 09 : 00 |
+
     When create a new appointment
       | code | date       | protocol | surgery | time    |
       | 163  | 20.09.2023 | 14028483 | 613180  | 09 : 00 |
+
+    When create a new appointment
+      | code | date       | protocol | surgery | time    |
+      | 163  | 20.09.2023 | 15388636 | 613180  | 09 : 00 |
+
+    And search the protocol number "15388830"
+    And click patient settings button
+    And click the delete appointment button
+    And click yes button
+    Then assert the service was deleted "Görüntülenecek veri yok"
+
+    And search the protocol number "14028483"
+    And click patient settings button
+    And click the delete appointment button
+    And click yes button
+    Then assert the service was deleted "Görüntülenecek veri yok"
+
+ And search the protocol number "15388636"
+    And click patient settings button
+    And click the delete appointment button
+    And click yes button
+    Then assert the service was deleted "Görüntülenecek veri yok"
 
 
 
