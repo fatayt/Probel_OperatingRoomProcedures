@@ -27,13 +27,14 @@ public class OperatingRoomProcedures_StepDefinitions {
 
     @Given("User enters date")
     public void user_enters_date() throws InterruptedException {
+       Thread.sleep(2000);
+       operatingRoomProcedures_page_.requestDate.click();
         Thread.sleep(2000);
-        operatingRoomProcedures_page_.requestDate.click();
-        Thread.sleep(1000);
         operatingRoomProcedures_page_.requestDate.sendKeys("15.09.2023");
         Thread.sleep(2000);
 
     }
+
 
     @Given("User clicks the refresh button")
     public void user_clicks_the_refresh_button() throws InterruptedException {
@@ -302,12 +303,7 @@ public class OperatingRoomProcedures_StepDefinitions {
         operatingRoomProcedures_page_.popup1addPatientListButton.click();
     }
 
-    @Given("User clicks the POstop button")
-    public void user_clicks_the_p_ostop_button() throws InterruptedException {
-        operatingRoomProcedures_page_.POstopButton.click();
-        Thread.sleep(1000);
 
-    }
 
     @Given("User enter data POstop page")
     public void user_enter_data_p_ostop_page() throws InterruptedException {
