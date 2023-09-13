@@ -238,10 +238,7 @@ public class SurgeryAppointment_StepDefinitions {
 
     }
 
-    @Then("click on the cancel appointment button")
-    public void click_on_the_cancel_appointment_button() {
-        sap.randevuiptalet.click();
-    }
+
 
     @Given("click the delete appointment button")
     public void click_the_delete_appointment_button() {
@@ -479,6 +476,21 @@ public class SurgeryAppointment_StepDefinitions {
     @And("assert description of appointment {string}")
     public void assertDescriptionOfAppointment(String arg0) {
         sap.assertDescriptionOfAppointment(arg0);
+    }
+
+    @And("click clear button")
+    public void clickClearButton() {
+        sap.clickClearButton();
+    }
+
+    @And("assert the patient in the appointment list {string}")
+    public void assertThePatientInTheAppointmentList(String arg0) {
+        sap.assertThePatientInTheAppointmentList(arg0);
+    }
+
+    @And("click on the cancel appointment button")
+    public void clickOnTheCancelAppointmentButton() {
+        sap.clickOnTheCancelAppointmentButton();
     }
 }
 
