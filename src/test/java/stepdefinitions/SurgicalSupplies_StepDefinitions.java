@@ -36,9 +36,9 @@ public class SurgicalSupplies_StepDefinitions {
         ssp.clickApplyTemplate();
     }
 
-    @And("click template code {string}")
-    public void clickTemplateCode(String arg0) {
-        ssp.clickTemplateCode(arg0);
+    @And("click template name {string}")
+    public void clickTemplateName(String arg0) {
+        ssp.clickTemplateName(arg0);
     }
 
     @And("click approve box for materials")

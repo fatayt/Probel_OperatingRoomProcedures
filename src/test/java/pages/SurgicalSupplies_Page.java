@@ -36,7 +36,8 @@ public class SurgicalSupplies_Page {
     @FindBy(linkText = "Şablon Uygula")
     WebElement template_button;
 
-    @FindBy(id = "lstMalzemeSablonListe_DXFREditorcol0_I")
+    @FindBy(id = "lstMalzemeSablonListe_DXFREditorcol1_I")
+
     WebElement templateCode_box;
 
     @FindBy(xpath = "//input[@class='inpt wpx300']")
@@ -158,7 +159,7 @@ public class SurgicalSupplies_Page {
         template_button.click();
     }
 
-    public void clickTemplateCode(String arg0) {
+    public void clickTemplateName(String arg0) {
         templateCode_box.sendKeys(arg0 + Keys.ENTER);
         ReusableMethods.waitFor(2);
         select_button.click();
@@ -221,6 +222,7 @@ public class SurgicalSupplies_Page {
     public void assertPopupPage(String arg0) {
         ReusableMethods.waitFor(3);
         System.out.println("actual result = " + popUpPage_title.getAttribute("textContent"));
+        System.out.println("expected result = " + arg0);
         Assert.assertTrue(popUpPage_title.getAttribute("textContent").contains(arg0));
     }
 
@@ -305,6 +307,7 @@ public class SurgicalSupplies_Page {
     public void assertNewTemplateByName(String arg0) {
         WebElement templateName = driver.findElement(By.xpath("//td[text()='" + arg0 + "']"));
         System.out.println("actual result = " + templateName.getAttribute("textContent"));
+        System.out.println("expected result = " + arg0);
         Assert.assertTrue(templateName.getAttribute("textContent").contains(arg0));
     }
 

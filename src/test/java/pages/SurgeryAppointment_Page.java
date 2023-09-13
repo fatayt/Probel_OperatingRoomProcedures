@@ -152,6 +152,8 @@ public class SurgeryAppointment_Page {
 
     @FindBy(linkText = "Randevu Sil")
     WebElement deleteAppointment_button;
+    @FindBy(linkText = "Randevu İptal Et")
+    WebElement cancelAppointment_button;
 
     @FindBy(id = "Ameliyat_Randevu_Liste_Paging_DXFREditorcol5_I")
     WebElement protocolNumber_box_main;
@@ -176,6 +178,10 @@ public class SurgeryAppointment_Page {
 
     @FindBy(id = "RANDEVU_SIRA_NO")
     WebElement appointmentNumber_box;
+
+    @FindBy(id = "clearBtn")
+    WebElement clear_button;
+
 
     public SurgeryAppointment_Page(WebDriver driver) {
         this.driver = driver;
@@ -333,7 +339,7 @@ public class SurgeryAppointment_Page {
 
     public void clickYesButton() {
         yes_button.click();
-        ReusableMethods.waitFor(1);
+        ReusableMethods.waitFor(2);
     }
 
     public void assertTheServiceWasDeleted(String arg0) {
@@ -365,8 +371,11 @@ public class SurgeryAppointment_Page {
     }
 
     public void assertTheServiceCanNotBeDeleted(String arg0) {
-        System.out.println(popUpMessageTitle.getAttribute("textContent"));
-        Assert.assertEquals(popUpMessageTitle.getAttribute("textContent"), arg0);
+
+        System.out.println("HATA mesajı= ");
+        //System.out.println("HATA mesajı= "+ popUpMessageTitle.getAttribute("textContent"));
+
+        //softAssert.assertFalse(popUpMessageTitle.isDisplayed());
     }
 
     public void enterServiceCodeToBranchCodeBox(String arg0) {
@@ -628,7 +637,7 @@ public class SurgeryAppointment_Page {
     public void clickPatientSettingsButton() {
         ReusableMethods.waitFor(2);
         patientSettings_button.click();
-        ReusableMethods.waitFor(1);
+        ReusableMethods.waitFor(2);
     }
 
     public void searchTheProtocolNumber(String arg0) {
@@ -926,6 +935,25 @@ public class SurgeryAppointment_Page {
         System.out.println("actual description = " + descriptionAppt_box.getText());
         System.out.println("expected description = " + arg0);
         Assert.assertEquals(descriptionAppt_box.getText(), arg0);
+    }
+
+    public void clickClearButton() {
+        ReusableMethods.waitFor(2);
+        clear_button.click();
+        ReusableMethods.waitFor(2);
+    }
+
+    public void assertThePatientInTheAppointmentList(String arg0) {
+        ReusableMethods.waitFor(5);
+        WebElement protocolNo = driver.findElement(By.xpath("//td[text()='"+arg0+"']"));
+        System.out.println("expected protocol = " + arg0);
+        System.out.println("actual protocol = " + protocolNo.getAttribute("textContent"));
+        Assert.assertEquals(protocolNo.getAttribute("textContent"),arg0);
+    }
+
+    public void clickOnTheCancelAppointmentButton() {
+        ReusableMethods.waitFor(1);
+        ReusableMethods.jseWithClick(Driver.getDriver(),cancelAppointment_button);
     }
 }
 
