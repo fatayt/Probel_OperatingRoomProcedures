@@ -141,7 +141,6 @@ public class DoctorOperatingRoomProcedures_StepDefinitions {
         dorp.verifiesThatNewDetailsAreDisplayed();
     }
 
-
     @And("User selects the doctor")
     public void userSelectsTheDoctor() {
         dorp.selectsTheDoctor();
@@ -179,7 +178,7 @@ public class DoctorOperatingRoomProcedures_StepDefinitions {
 
     @Then("Verifies that the anesthesia doctor is added")
     public void verifiesThatTheAnesthesiaDoctorIsAdded() {
-dorp.verifiesThatTheAnesthesiaDoctorIsAdded();
+        dorp.verifiesThatTheAnesthesiaDoctorIsAdded();
     }
 
     @And("User clicks on the trash icon in the Anesthesia surgery team section")
@@ -302,6 +301,63 @@ dorp.verifiesThatTheAnesthesiaDoctorIsAdded();
     @And("User clicks the trash icon for selected doctor")
     public void userClicksTheTrashIconForSelectedDoctor() {
         dorp.clicksTheTrashIconForSelectedDoctor();
+    }
+
+    @And("User clean the page")
+    public void userCleanThePage() {
+        dorp.cleanThePage();
+
+    }
+
+    @And("User cleans the page")
+    public void userCleansThePage() {
+        dorp.cleansThePage();
+    }
+
+    @And("User clicks refresh button on Doctor Operating Room Procedures page")
+    public void userClicksRefreshButtonOnDoctorOperatingRoomProceduresPage() {
+        dorp.clicksRefreshButtonOnDoctorOperatingRoomProceduresPage();
+    }
+
+    @Then("Verify that the selected doctor is deleted")
+    public void verifyThatTheSelectedDoctorIsDeleted() {
+        dorp.verifyThatTheSelectedDoctorIsDeleted();
+    }
+
+    @Then("Verifys that the message Goruntulenecek veri yok is not displayed")
+    public void verifysThatTheMessageGoruntulenecekVeriYokIsNotDisplayed() {
+        dorp.verifysThatTheMessageGörüntülenecekVeriYokIsNotDisplayed();
+    }
+
+
+    @And("User clicks select saloon button \\(saloon eight)")
+    public void userClicksSelectSaloonButtonSaloonEight() {
+        dorp.clicksSelectSaloonButtonSaloonEight();
+    }
+
+    @Then("Verifys that the surgical team^s doctor is deleted")
+    public void verifysThatTheSurgicalTeamSDoctorIsDeleted() {
+        dorp.verifysThatTheSurgicalTeamSDoctorIsDeleted();
+    }
+
+    @And("User clicks the sended service radio Button")
+    public void userClicksTheSendedServiceRadioButton() {
+        dorp.clicksTheSendedServiceRadioButton();
+    }
+
+    @Then("Verifies that the situation")
+    public void verifiesThatTheSituation() {
+        dorp.verifiesThatTheSituation();
+    }
+
+    @And("User selects the new doctor")
+    public void userSelectsTheNewDoctor() {
+        dorp.selectsTheNewDoctor();
+    }
+
+    @And("User clicks select and close button for new doktor")
+    public void userClicksSelectAndCloseButtonForNewDoktor() {
+        dorp.clicksSelectAndCloseButtonForNewDoktor();
     }
 }
 

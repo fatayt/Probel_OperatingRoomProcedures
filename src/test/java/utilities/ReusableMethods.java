@@ -5,6 +5,7 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.*;
+import pages.CreateSurgeryList_Page;
 
 import java.io.File;
 import java.io.IOException;
@@ -12,6 +13,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.time.LocalDate;
+import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
@@ -286,21 +288,107 @@ public class ReusableMethods {
         return element.getText();
     }
 
-    public static void jseWithClick(WebDriver driver,WebElement element){
+    public static void jseWithClick(WebDriver driver, WebElement element) {
 
-        JavascriptExecutor jse =(JavascriptExecutor)driver;
-        jse.executeScript("arguments[0].click();",element);
+        JavascriptExecutor jse = (JavascriptExecutor) driver;
+        jse.executeScript("arguments[0].click();", element);
 
     }
 
-    public static void doubleClickWithJS(WebDriver driver,WebElement element) {
+    public static void doubleClickWithJS(WebDriver driver, WebElement element) {
         JavascriptExecutor executor = (JavascriptExecutor) driver;
         executor.executeScript("arguments[0].dispatchEvent(new MouseEvent('dblclick', { bubbles: true }));", element);
     }
 
     public static void scrollPageDownWithJS(WebDriver driver) {
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("window.scrollBy(0,25)", ""); }
+        js.executeScript("window.scrollBy(0,25)", "");
+    }
+
+    public static String generateProtokolNo() throws InterruptedException {
+        Faker faker = new Faker();
+        WebDriver driver = Driver.getDriver();
+        ReusableMethods.jseWithClick(driver, driver.findElement(By.xpath("(//a[@class='open'])[1]")));
+        ReusableMethods.jseWithClick(driver, driver.findElement(By.xpath("(//a[@href='/HBYS_WEB_PRODUCT/POL/POL/POLIKLINIKMUAYENE'])")));
+        ReusableMethods.jseWithClick(driver, driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[4]/section[1]/form[1]/div[3]/div[1]/div[1]/div[1]/div[4]/a[2]")));
+        driver.findElement(By.id("TXT_HASTA_KAYIT_ANA_KURUM_KODU")).sendKeys("27");
+        driver.findElement(By.xpath("(//input[@class='inpt wpx50'])[4]")).sendKeys("0" + Keys.ENTER);
+        ReusableMethods.sendKeysWithJS(driver, driver.findElement(By.id("TXT_HASTA_KAYIT_DOGUM_TARIHI")), "17.05.2000");
+        String mobilePhone = "5" + faker.number().digits(9);
+        driver.findElement(By.xpath("//input[@id='TXT_HASTA_KAYIT_CEP_TEL']")).sendKeys(mobilePhone + Keys.ENTER);
+        Select select = new Select(driver.findElement(By.id("CMB_HASTA_KAYIT_CINSIYET")));
+        select.selectByVisibleText("ERKEK");
+        String lastName = faker.name().lastName();
+        driver.findElement(By.id("TXT_HASTA_KAYIT_SOYADI")).sendKeys(lastName + Keys.ENTER);
+        String firstName = faker.name().firstName();
+        driver.findElement(By.id("TXT_HASTA_KAYIT_ADI")).sendKeys(firstName + Keys.ENTER);
+        ReusableMethods.jseWithClick(driver, driver.findElement(By.id("TXT_HASTA_KAYIT_TC_KIMLIK_NO")));
+        driver.findElement(By.id("TXT_HASTA_KAYIT_TC_KIMLIK_NO")).sendKeys(ReusableMethods.generateValidId());
+        ReusableMethods.jseWithClick(driver, driver.findElement(By.id("PopupSaveButton_0"))); //Save
+        ReusableMethods.jseWithClick(driver, driver.findElement(By.xpath("//span[@class='info item']"))); //Close
+        ReusableMethods.jseWithClick(driver, driver.findElement(By.xpath("//span[normalize-space()='Kapat']")));
+        Thread.sleep(1000);
+        driver.findElement(By.id("POLIKLINIK_KODU")).sendKeys("107" + Keys.ENTER);
+        ReusableMethods.jseWithClick(driver, driver.findElement(By.xpath("//a[@title='Kaydet(F10)']")));
+        ReusableMethods.jseWithClick(driver, driver.findElement(By.xpath("//*[contains(text(),'Kapat')]")));
+        WebElement protocolNoElement = driver.findElement(By.xpath("//input[@id='PROTOKOL_NO']"));
+        ReusableMethods.waitForVisibility(protocolNoElement, 3).click();
+        String protocolNo = protocolNoElement.getAttribute("value");
+        System.out.println("protocolNo: " + protocolNo);
+        return protocolNo;
+    }
+
+    public static void sendKeysWithJS(WebDriver driver, WebElement element, String text) {
+        JavascriptExecutor jse = (JavascriptExecutor) driver;
+        jse.executeScript("arguments[0].value = arguments[1]", element, text);
+    }
+
+    public static long periodBetweenDates(String dateStr) throws ParseException {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+        LocalDate localDate = LocalDate.parse(dateStr, formatter);
+        LocalDate currentDate = LocalDate.now();
+        Period period = localDate.until(currentDate);
+        long totalDays = period.getYears() * 365L + period.getMonths() * 30L + period.getDays();
+
+        return totalDays;
+    }
+
+    public static WebElement locateServiceByText(String text) {
+        return Driver.getDriver().findElement(By.xpath("//*[contains(@id,'lstServis_DXMainTable')]//td[contains(.,'" + text + "')]"));
+    }
+
+    public static WebElement locatePatientByText(String text) {
+        return Driver.getDriver().findElement(By.xpath("//*[contains(@id,'dxGridHastaListe_DXMainTable')]//td[contains(.,'" + text + "')]"));
+    }
+
+
+    public static WebElement locateSelectHallByText(String text) {
+        return Driver.getDriver().findElement(By.xpath("//*[contains(@id,'lstSalonMasaListesi_DXData')]//td[contains(.,'" + text + "')]"));
+    }
+
+
+    public static WebElement locateHallOptionsByText(String text) {
+        return Driver.getDriver().findElement(By.xpath("//div[@class='content blckAcilirMenu']//a[contains(.,'" + text + "')]"));
+    }
+
+    public static WebElement locateChangeHallByText(String text) {
+        return Driver.getDriver().findElement(By.xpath("//table[@id='SALONDEG_DXMainTable']//td[contains(.,'" + text + "')]"));
+    }
+
+    public static void clickCurrentPage(int p) throws InterruptedException {
+        String pageNumberCountText = Integer.toString(p);
+        WebElement pageNumberNext = Driver.getDriver().findElement(By.xpath("//div[@id='lstServis_DXPagerBottom']//*[contains(@class,'dxp-num')][text()='" + pageNumberCountText + "']"));
+        ReusableMethods.jseWithClick(Driver.getDriver(), pageNumberNext);
+        CreateSurgeryList_Page surgeryList_Page = new CreateSurgeryList_Page();
+        ReusableMethods.jseWithClick(Driver.getDriver(), surgeryList_Page.refreshButton);
+        Thread.sleep(2000);
+    }
+
+
+    public static WebElement locateSelectHallFromHallListByText(String text) {
+        return Driver.getDriver().findElement(By.xpath("//*[contains(@id,'amlSalonList')]//li[contains(.,'" + text + "')]"));
+    }
+
 }
 
 
