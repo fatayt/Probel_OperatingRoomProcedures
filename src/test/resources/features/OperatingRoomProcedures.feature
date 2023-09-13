@@ -33,8 +33,8 @@ Feature: Operating Room Procedures
   Scenario: TR0027 The user can approve all halls.
     And User enters date
     And User clicks the refresh button
-    And User selects hall
-    And User selects patient
+   # And User selects hall
+ #   And User selects patient
     And User clicks on salon operations
     And  User confirms all halls
   #  Then User verifies patient
@@ -78,15 +78,16 @@ Feature: Operating Room Procedures
 
 
 
-  @TR0031
+  @TR0031  @Smoke
   Scenario: TR0031 User makes the patient's patient's entrance to the operating room
     And User enters date
     And User clicks the refresh button
     And user finds patient with protocol number
     And User selects patient
+    And User clicks on salon operations
+    And User hall approves
+    And User selects patient
     And User clicks on the button Patient entered the operating room
-
-
 
 
   @TR0032
@@ -98,10 +99,7 @@ Feature: Operating Room Procedures
     And User cancels the patient's entrance to the operating room of the patient
 
 
-
-
-
-  @TR0033
+  @TR0033  @Smoke
   Scenario: TR0033 User can add patients to the list on the operating room operations page.
     And User enters date
     And User clicks the refresh button
@@ -116,7 +114,7 @@ Feature: Operating Room Procedures
 
 
 
-  @TR0036
+  @TR0036  @Smoke
   Scenario: TR0036 User can send the patient to the ward
     And User enters date
     And User clicks the refresh button
@@ -147,7 +145,8 @@ Feature: Operating Room Procedures
     And User verifies that the patient has been added to the list
 
 
-  @TR0035 @Bug
+
+  @TR0035   @Bug
   Scenario: TR0035Bug User can add patients to the list on the operating room operations page and chooses an obstetrician
     And User enters date
     And User clicks the refresh button
