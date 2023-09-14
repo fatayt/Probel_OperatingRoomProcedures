@@ -156,7 +156,7 @@ public class ReusableMethods {
         return element;
     }
 
-    public static void doubleClick(WebElement element) {
+    public static void doubleClick(WebDriver driver, WebElement element) {
         new Actions(Driver.getDriver()).doubleClick(element).build().perform();
     }
 
@@ -389,7 +389,10 @@ public class ReusableMethods {
         return Driver.getDriver().findElement(By.xpath("//*[contains(@id,'amlSalonList')]//li[contains(.,'" + text + "')]"));
     }
 
+    public static WebElement locateElementByText(String text) {
+        return Driver.getDriver().findElement(By.xpath("//*[contains(@id,'lstSalonMasaListesi_DXData')]//td[contains(.,'" + text + "')]"));
+
+    }
+
+
 }
-
-
-

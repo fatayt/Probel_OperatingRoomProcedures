@@ -4,6 +4,7 @@ Feature: Create Surgery List
 
   Background:
     Given The user logs in
+    And The user goes Surgery Appointment page
 
   @TC0001 @Smoke
   Scenario: The User should be able to create surgery list
@@ -190,6 +191,74 @@ Feature: Create Surgery List
     And The user selects an appointment date "25.10.2023" on Surgery List Page
     Then Any service should be selected on  Surgery List Page
 
+
+
+
+  @Smoke @TC0020
+  Scenario: TC0020  Add surgery
+    When User clicks on Patient transactions
+    And The user clicks on Operation
+    And  User clicks to create an operation list
+    And User Selects Date from Appointment Patients section
+    And The User clicks the refresh button
+    And User Selects Service
+    And User adds new hall
+    And User double clicks on Patient
+    And The user adds a surgery team on Surgery List Page
+    And The user selects a surgical team leader on Surgery List Page
+    And The user adds an anesthesia team on Surgery List Page
+    And  The user selects an anesthesia team leader on Surgery List Page
+    And The user sends the operating room Report on Surgery List Page
+    Then Surgery List should be created on Surgery List Page
+
+
+@:TC0022
+  Scenario:TC0022  Removing a Patient from the Table in the Operations Tab
+    When User clicks on Patient transactions
+    And The user clicks on Operation
+    And  User clicks to create an operation list
+    And User Selects Date from Appointment Patients section
+    And The User clicks the refresh button
+    And User Selects Service
+    And User adds new hall
+    And User double clicks on Patient
+    And User clicks operations button
+    And User clicks islemler masadan cikar
+    And User clicks uyari popup evet butonuna
+    And thr user clicks masadan cikar  ekle button tab
+    And the user clicks devam edilsinmi popup
+    And User verifies ameliyat edilecek hasta listesi
+
+
+@TC0023
+  Scenario:TC0023  Hall cancellation procedures
+    When User clicks on Patient transactions
+    And The user clicks on Operation
+    And  User clicks to create an operation list
+    And User Selects Date from Appointment Patients section
+    And The User clicks the refresh button
+    And User Selects Service
+    And User adds new hall
+    And The user clicks on Operating Room Procedures   Page
+    And User clicks on the Cancel Hall button
+    And User Hall gives consent to the popup whether to be cancelled
+    And User confirms hall cancellation
+
+
+  @TC0024
+  Scenario: TC0024  Hall Change
+    When User clicks on Patient transactions
+    And The user clicks on Operation
+    And  User clicks to create an operation list
+    And User Selects Date from Appointment Patients section
+    And The User clicks the refresh button
+    And User Selects Service
+    And User adds new hall
+    And User double clicks on Patient
+    And User clicks on Hall operations
+    And  User clicks Add "Salon_3" lounge
+    And The user change "Salonu Değiştir"  the hall "Salon_2" with the hall "Salon_3" on Surgery List Page
+    Then The user verifies "Salon_2" is empty and  "Salon_3" has a patient on Surgery List Page
 
 
 
