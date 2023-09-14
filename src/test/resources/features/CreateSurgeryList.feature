@@ -6,7 +6,7 @@ Feature: Create Surgery List
     Given The user logs in
     And The user goes Surgery Appointment page
 
-  @TC0001 @Smoke
+  @TC0001 @Smoke @US_001
   Scenario: The User should be able to create surgery list
     Given The user clicks on Operating Room Operations   Page
     And The user clicks on Creating a Surgery List Page
@@ -25,7 +25,7 @@ Feature: Create Surgery List
     Then Surgery List should be created on Surgery List Page
 
 
-  @TC0002
+  @TC0002  @US_001
   Scenario: The user can cancel the surgery for which he/she has approved the surgery.
     Given The user clicks on Operating Room Operations   Page
     And The user clicks on Creating a Surgery List Page
@@ -44,7 +44,7 @@ Feature: Create Surgery List
     And The user can cancel  the approved surgery on Surgery List Page.
     Then The user verifies that the approved surgery is canceled on Surgery List Page.
 
-  @TC0003 @Smoke
+  @TC0003 @Smoke  @US_001
   Scenario Outline: The user cannot create a surgery list for a past date.
     Given The user clicks on Operating Room Operations   Page
     And The user clicks on Creating a Surgery List Page
@@ -66,7 +66,7 @@ Feature: Create Surgery List
       | 01.04.2008   |
       | 13.08.2000   |
 
-  @TC0004 @Bug
+  @TC0004 @Bug  @US_001
   Scenario: The option to postpone the surgery should not be displayed in the transactions section, when the user postpones the surgery.
     Given The user clicks on Operating Room Operations   Page
     And The user clicks on Creating a Surgery List Page
@@ -84,7 +84,7 @@ Feature: Create Surgery List
     And The user can cancel  the approved surgery on Surgery List Page.
     Then The option to postpone the surgery should not be displayed in the transactions section
 
-  @TC0005 @Bug @Smoke
+  @TC0005 @Bug @Smoke  @US_001
   Scenario Outline: When a past date is selected for the request date,the user should not be able to enter any data on the page.
     Given The user clicks on Operating Room Operations   Page
     And The user clicks on Creating a Surgery List Page
@@ -100,7 +100,7 @@ Feature: Create Surgery List
       | 13.08.2003   |
 
 
-  @TC0006 @Bug
+  @TC0006 @Bug  @US_001
   Scenario:The user cannot add a patient to more than one hall at the same time on Surgery List Page
     Given The user clicks on Operating Room Operations   Page
     And The user clicks on Creating a Surgery List Page
@@ -116,7 +116,7 @@ Feature: Create Surgery List
     And The user enters  "13:30" as a surgery time on Surgery List Page
     Then More than one hall should not be seen on Surgery List Page
 
-  @TC0007 @Bug
+  @TC0007 @Bug  @US_001
   Scenario: More than one patient should not be added to the same hall at the same time.
     Given The user clicks on Operating Room Operations   Page
     And The user clicks on Creating a Surgery List Page
@@ -131,7 +131,7 @@ Feature: Create Surgery List
     And The user enters  "10:30" as a surgery time on Surgery List Page
     Then Only one patient should be added to a hall on Surgery List Page.
 
-  @TC0008 @Bug
+  @TC0008 @Bug  @US_001
   Scenario: Surgery list should not be created on public holidays.
     Given The user clicks on Operating Room Operations   Page
     And The user clicks on Creating a Surgery List Page
@@ -143,7 +143,7 @@ Feature: Create Surgery List
     And The user sends the operating room Report on Surgery List Page
     Then Surgery List should not be created on Surgery List Page
 
-  @TC0009 @Bug @Smoke
+  @TC0009 @Bug @Smoke  @US_001
   Scenario:A patient cannot have more than one operation on the same day and time.
     Given The user clicks on Operating Room Operations   Page
     And The user clicks on Creating a Surgery List Page
@@ -161,7 +161,7 @@ Feature: Create Surgery List
     Then Surgery List should not be created on Surgery List Page
 
 
-  @TC0010
+  @TC0010  @US_001
   Scenario: A hall that can be added for the surgery list should  be changed with any  hall from Hall List.
     Given The user clicks on Operating Room Operations   Page
     And The user clicks on Creating a Surgery List Page
@@ -174,7 +174,7 @@ Feature: Create Surgery List
     And The user change "Salonu Değiştir"  the hall "Salon_2" with the hall "Salon_7" on Surgery List Page
     Then The user verifies "Salon_2" is empty and  "Salon_7" has a patient on Surgery List Page
 
-  @TC0011
+  @TC0011  @US_001
   Scenario: A hall added for the surgery list should be able to be canceled
     Given The user clicks on Operating Room Operations   Page
     And The user clicks on Creating a Surgery List Page
@@ -184,7 +184,7 @@ Feature: Create Surgery List
     Then The user can cancel the hall on Surgery List Page
 
 
-  @TC0012
+  @TC0012  @US_001
   Scenario: Any service from service list should be selected on  Surgery List Page
     Given The user clicks on Operating Room Operations   Page
     And The user clicks on Creating a Surgery List Page
@@ -194,7 +194,7 @@ Feature: Create Surgery List
 
 
 
-  @Smoke @TC0020
+  @Smoke @TC0020 @US_002
   Scenario: TC0020  Add surgery
     When User clicks on Patient transactions
     And The user clicks on Operation
@@ -212,7 +212,7 @@ Feature: Create Surgery List
     Then Surgery List should be created on Surgery List Page
 
 
-@:TC0022
+@:TC0022 @US_002
   Scenario:TC0022  Removing a Patient from the Table in the Operations Tab
     When User clicks on Patient transactions
     And The user clicks on Operation
@@ -230,7 +230,7 @@ Feature: Create Surgery List
     And User verifies ameliyat edilecek hasta listesi
 
 
-@TC0023
+@TC0023  @US_002
   Scenario:TC0023  Hall cancellation procedures
     When User clicks on Patient transactions
     And The user clicks on Operation
@@ -245,7 +245,7 @@ Feature: Create Surgery List
     And User confirms hall cancellation
 
 
-  @TC0024
+  @TC0024  @US_002
   Scenario: TC0024  Hall Change
     When User clicks on Patient transactions
     And The user clicks on Operation
