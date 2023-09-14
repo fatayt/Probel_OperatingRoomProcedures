@@ -95,16 +95,16 @@
         <execution>
             <id>generate-report</id>
             <goals>
-                <goal>generate</goal>
+                <goal>extentreport</goal>
             </goals>
             <configuration>
                 <outputDirectory>${project.build.directory}/reports/cucumber</outputDirectory>
                 <jsonReportDirectory>${project.build.directory}/cucumber-json-report</jsonReportDirectory>
-                <forceGenerate>true</forceGenerate>
             </configuration>
         </execution>
     </executions>
 </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
