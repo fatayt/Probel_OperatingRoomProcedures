@@ -93,13 +93,16 @@
     <version>2.16.0</version>
     <executions>
         <execution>
-            <id>generate-report</id>
+            <id>report</id>
+            <phase>post-integration-test</phase>
             <goals>
                 <goal>extentreport</goal>
             </goals>
             <configuration>
-                <outputDirectory>${project.build.directory}/reports/cucumber</outputDirectory>
-                <jsonReportDirectory>${project.build.directory}/cucumber-json-report</jsonReportDirectory>
+                    <cucumberJsonReportDirectory>${project.build.directory}/json-report</cucumberJsonReportDirectory>
+                    <extentPropertiesDirectory>${}</extentPropertiesDirectory>
+                    <displayAllHooks>false</displayAllHooks>
+                    <strictCucumber6Behavior>true</strictCucumber6Behavior>
             </configuration>
         </execution>
     </executions>
