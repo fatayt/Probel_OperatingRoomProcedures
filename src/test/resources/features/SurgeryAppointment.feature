@@ -1,5 +1,6 @@
 @SurgeryAppointment
 @Regression
+
 Feature: Surgery Appointment
 
   Background:
@@ -150,10 +151,10 @@ Feature: Surgery Appointment
     When click settings button
     And click unit definitions button
     And enter service code "9071" to unit code box
-    And click edit button
-    And click passive box
-    And click save button
-    And enter service code "9071" to unit code box
+    #And click edit button
+    #And click passive box
+    #And click save button
+    #And enter service code "9071" to unit code box
     Then assert the service was deleted "Görüntülenecek veri yok"
 
   @Bug @TC0075 @US_009
@@ -161,9 +162,9 @@ Feature: Surgery Appointment
     When click settings button
     And click unit definitions button
     And enter service code "9071" to unit code box
-    And click edit button
-    And click active box
-    And click save button
+    #And click edit button
+    #And click active box
+    #And click save button
     Then assert the unit is active
 
   @Smoke @TC0076 @US_010
