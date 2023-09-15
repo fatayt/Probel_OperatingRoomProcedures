@@ -8,7 +8,7 @@
     <artifactId>Surgery_FrameWork</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <properties>
+   <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -88,17 +88,17 @@
                 </configuration>
             </plugin>
             <plugin>
-                  <groupId>tech.grasshopper</groupId>
-                  <artifactId>extentreports-cucumberjson-plugin</artifactId>
-                  <version>2.15.0</version>
-                  <executions>
-                           <execution>
-                           <id>report</id>
-                           <phase>post-integration-test</phase>
-                           <goals>
-                                    <goal>extentreport</goal>
-                           </goals>
-           </execution>
+                <groupId>tech.grasshopper</groupId>
+                <artifactId>extentreports-cucumberjson-plugin</artifactId>
+                <version>2.15.0</version>
+                <executions>
+                    <execution>
+                        <id>report</id>
+                        <phase>post-integration-test</phase>
+                        <goals>
+                            <goal>extentreport</goal>
+                        </goals>
+                    </execution>
                 </executions>
                 <configuration>
                     <cucumberJsonReportDirectory>${project.build.directory}/json-report</cucumberJsonReportDirectory>
@@ -107,15 +107,16 @@
                     <strictCucumber6Behavior>true</strictCucumber6Behavior>
                 </configuration>
             </plugin>
-           <plugin>
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.11.0</version>
+                <version>3.11.0</version> <!-- Bu satırı değiştirin -->
                 <configuration>
                 </configuration>
             </plugin>
         </plugins>
     </build>
+
 
 
 </project>
