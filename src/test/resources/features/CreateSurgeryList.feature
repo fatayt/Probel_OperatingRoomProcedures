@@ -7,7 +7,7 @@ Feature: Create Surgery List
     And The user goes Surgery Appointment page
 
   @TC0001 @Smoke @US_001
-  Scenario: The User should be able to create surgery list
+  Scenario: TC0001 The User should be able to create surgery list
     Given The user clicks on Operating Room Operations   Page
     And The user clicks on Creating a Surgery List Page
     And The user selects an appointment date "25.10.2023" on Surgery List Page
@@ -26,7 +26,7 @@ Feature: Create Surgery List
 
 
   @TC0002  @US_001
-  Scenario: The user can cancel the surgery for which he/she has approved the surgery.
+  Scenario: TC0002 The user can cancel the surgery for which he/she has approved the surgery.
     Given The user clicks on Operating Room Operations   Page
     And The user clicks on Creating a Surgery List Page
     And The user selects an appointment date "25.10.2023" on Surgery List Page
@@ -45,7 +45,7 @@ Feature: Create Surgery List
     Then The user verifies that the approved surgery is canceled on Surgery List Page.
 
   @TC0003 @Smoke  @US_001
-  Scenario Outline: The user cannot create a surgery list for a past date.
+  Scenario Outline: TC0003 The user cannot create a surgery list for a past date.
     Given The user clicks on Operating Room Operations   Page
     And The user clicks on Creating a Surgery List Page
     And The user selects a past appointment date "<Request Date>" on Surgery List Page
@@ -67,7 +67,7 @@ Feature: Create Surgery List
       | 13.08.2000   |
 
   @TC0004 @Bug  @US_001
-  Scenario: The option to postpone the surgery should not be displayed in the transactions section, when the user postpones the surgery.
+  Scenario: TC0004 The option to postpone the surgery should not be displayed in the transactions section, when the user postpones the surgery.
     Given The user clicks on Operating Room Operations   Page
     And The user clicks on Creating a Surgery List Page
     And The user selects an appointment date "25.10.2023" on Surgery List Page
@@ -85,7 +85,7 @@ Feature: Create Surgery List
     Then The option to postpone the surgery should not be displayed in the transactions section
 
   @TC0005 @Bug @Smoke  @US_001
-  Scenario Outline: When a past date is selected for the request date,the user should not be able to enter any data on the page.
+  Scenario Outline: TC0005 When a past date is selected for the request date,the user should not be able to enter any data on the page.
     Given The user clicks on Operating Room Operations   Page
     And The user clicks on Creating a Surgery List Page
     And The user selects a past appointment date "<Request Date>" on Surgery List Page
@@ -101,7 +101,7 @@ Feature: Create Surgery List
 
 
   @TC0006 @Bug  @US_001
-  Scenario:The user cannot add a patient to more than one hall at the same time on Surgery List Page
+  Scenario: TC0006 The user cannot add a patient to more than one hall at the same time on Surgery List Page
     Given The user clicks on Operating Room Operations   Page
     And The user clicks on Creating a Surgery List Page
     And The user selects an appointment date "25.10.2023" on Surgery List Page
@@ -117,7 +117,7 @@ Feature: Create Surgery List
     Then More than one hall should not be seen on Surgery List Page
 
   @TC0007 @Bug  @US_001
-  Scenario: More than one patient should not be added to the same hall at the same time.
+  Scenario: TC0007 More than one patient should not be added to the same hall at the same time.
     Given The user clicks on Operating Room Operations   Page
     And The user clicks on Creating a Surgery List Page
     And The user selects an appointment date "25.10.2023" on Surgery List Page
@@ -132,7 +132,7 @@ Feature: Create Surgery List
     Then Only one patient should be added to a hall on Surgery List Page.
 
   @TC0008 @Bug  @US_001
-  Scenario: Surgery list should not be created on public holidays.
+  Scenario: TC0008 Surgery list should not be created on public holidays.
     Given The user clicks on Operating Room Operations   Page
     And The user clicks on Creating a Surgery List Page
     And The user selects an appointment date on a Public Holiday day  "01.01.2025" on Surgery List Page
@@ -144,7 +144,7 @@ Feature: Create Surgery List
     Then Surgery List should not be created on Surgery List Page
 
   @TC0009 @Bug @Smoke  @US_001
-  Scenario:A patient cannot have more than one operation on the same day and time.
+  Scenario: TC0009 A patient cannot have more than one operation on the same day and time.
     Given The user clicks on Operating Room Operations   Page
     And The user clicks on Creating a Surgery List Page
     And The user selects an appointment date "26.10.2023" on Surgery List Page
@@ -162,7 +162,7 @@ Feature: Create Surgery List
 
 
   @TC0010  @US_001
-  Scenario: A hall that can be added for the surgery list should  be changed with any  hall from Hall List.
+  Scenario:  TC0010 A hall that can be added for the surgery list should  be changed with any  hall from Hall List.
     Given The user clicks on Operating Room Operations   Page
     And The user clicks on Creating a Surgery List Page
     And The user selects an appointment date "25.10.2023" on Surgery List Page
@@ -175,7 +175,7 @@ Feature: Create Surgery List
     Then The user verifies "Salon_2" is empty and  "Salon_7" has a patient on Surgery List Page
 
   @TC0011  @US_001
-  Scenario: A hall added for the surgery list should be able to be canceled
+  Scenario: TC0011 A hall added for the surgery list should be able to be canceled
     Given The user clicks on Operating Room Operations   Page
     And The user clicks on Creating a Surgery List Page
     And The user selects an appointment date "25.10.2023" on Surgery List Page
@@ -185,7 +185,7 @@ Feature: Create Surgery List
 
 
   @TC0012  @US_001
-  Scenario: Any service from service list should be selected on  Surgery List Page
+  Scenario: TC0012 Any service from service list should be selected on  Surgery List Page
     Given The user clicks on Operating Room Operations   Page
     And The user clicks on Creating a Surgery List Page
     And The user selects an appointment date "25.10.2023" on Surgery List Page
