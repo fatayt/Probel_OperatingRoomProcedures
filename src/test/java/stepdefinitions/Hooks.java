@@ -9,7 +9,7 @@ import utilities.ConfigReader;
 import utilities.Driver;
 
 import java.io.IOException;
-import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 
 public class Hooks {
 
@@ -18,11 +18,11 @@ public class Hooks {
     public void setUp(Scenario scenario) {
 
         Driver.getDriver().manage().window().maximize();
-        Driver.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+        Driver.getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         Driver.getDriver().get(ConfigReader.getProperty("probel_WebUrl"));
 
         System.out.println("scenario started");
-        // System.out.println("scenario id =" + scenario.getId());
+       // System.out.println("scenario id =" + scenario.getId());
         System.out.println("scenario name =" + scenario.getName());
 
 
