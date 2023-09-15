@@ -7,7 +7,7 @@ Feature: Surgery Appointment
     And The user goes Surgical Supplies page
 
   @Smoke @TC0084 @TC0085 @US_012
-  Scenario: User can add delete the material and medicine to surgery from template
+  Scenario: TC0084 TC0085 User can add delete the material and medicine to surgery from template
     When select the surgery date "11.09.2023"
     And click refresh button
     And click saloon
@@ -51,7 +51,7 @@ Feature: Surgery Appointment
 
 
   @Bug @TC0086 @US_012
-  Scenario: User can select and add the materials from stock list
+  Scenario: TC0086 User can select and add the materials from stock list
     When select the surgery date "11.09.2023"
     And click refresh button
     And click saloon
@@ -96,7 +96,7 @@ Feature: Surgery Appointment
 
 
   @Bug @TC0087 @US_012
-  Scenario: User can create, edit and delete the template materials
+  Scenario: TC0087 User can create, edit and delete the template materials
     When click template definitions button
     And assert popup page "Ameliyat Malzeme Şablon Tanımları"
     And click new template add button

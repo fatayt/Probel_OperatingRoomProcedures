@@ -8,7 +8,7 @@ Feature: Surgery Appointment
     And The user goes Surgery Appointment page
 
   @Smoke @TC0067 @US_009
-  Scenario: User can create new surgery service unit
+  Scenario: TC0067 User can create new surgery service unit
     When click settings button
     And click unit definitions button
     And click new add button
@@ -22,7 +22,7 @@ Feature: Surgery Appointment
 
 
   @TC0068 @US_009
-  Scenario: User can not create new surgery service unit without information
+  Scenario: TC0068 User can not create new surgery service unit without information
     #When click settings button
     #And click unit definitions button
     #And click new add button
@@ -38,7 +38,7 @@ Feature: Surgery Appointment
 
 
   @TC0069 @US_009
-  Scenario: User can not create same surgery service unit
+  Scenario: TC0069 User can not create same surgery service unit
     And create new unit "110" "10"
     Then assert the new surgery service unit "110"
     #When click settings button
@@ -58,7 +58,7 @@ Feature: Surgery Appointment
 
 
   @Bug @TC0070 @US_009
-  Scenario: User can change the daily surgery capacity of service unit
+  Scenario: TC0070 User can change the daily surgery capacity of service unit
     #When click settings button
     #And click unit definitions button
     And create new unit "187" ""
@@ -79,7 +79,7 @@ Feature: Surgery Appointment
     And click yes button
 
   @Smoke @TC0071 @TC0059 @US_009
-  Scenario: User can not create more appointments than the capacity and delete the appointment
+  Scenario: TC0059 TC0071 User can not create more appointments than the capacity and delete the appointment
 
     When create a new appointment
       | code | date       | protocol | surgery | time    |
@@ -104,7 +104,7 @@ Feature: Surgery Appointment
 
 
   @Smoke @TC0072 @US_009
-  Scenario: User can delete the surgery service unit
+  Scenario: TC0072 User can delete the surgery service unit
     And create new unit "187" "5"
     And enter service code "187" to unit code box
     And click delete button
@@ -113,7 +113,7 @@ Feature: Surgery Appointment
     Then assert the service was deleted "Görüntülenecek veri yok"
 
   @Bug @TC0073 @US_009
-  Scenario: User can not delete the unit with an appointment
+  Scenario: TC0073 User can not delete the unit with an appointment
     When create new unit "1028" "3"
     And close popup page
 
@@ -147,7 +147,7 @@ Feature: Surgery Appointment
 
 
   @Bug @TC0074 @US_009
-  Scenario: User can switch the passive the unit
+  Scenario: TC0074 User can switch the passive the unit
     When click settings button
     And click unit definitions button
     And enter service code "9071" to unit code box
@@ -158,7 +158,7 @@ Feature: Surgery Appointment
     Then assert the service was deleted "Görüntülenecek veri yok"
 
   @Bug @TC0075 @US_009
-  Scenario: User can switch the active the unit
+  Scenario: TC0075 User can switch the active the unit
     When click settings button
     And click unit definitions button
     And enter service code "9071" to unit code box
@@ -168,7 +168,7 @@ Feature: Surgery Appointment
     Then assert the unit is active
 
   @Smoke @TC0076 @US_010
-  Scenario: User can create new group
+  Scenario: TC0076 User can create new group
     When click settings button
     And click group definitions button
     And click new add button
@@ -180,7 +180,7 @@ Feature: Surgery Appointment
     And click yes button
 
   @TC0077 @US_010
-  Scenario: User can create new group without no information
+  Scenario: TC0077 User can create new group without no information
     When click settings button
     And click group definitions button
     And click new add button
@@ -191,7 +191,7 @@ Feature: Surgery Appointment
     And click yes button
 
   @TC0078 @US_010
-  Scenario: User can not create same group
+  Scenario: TC0078 User can not create same group
     When click settings button
     And click group definitions button
     And click new add button
@@ -211,7 +211,7 @@ Feature: Surgery Appointment
 
 
   @TC0079 @US_010
-  Scenario: User can edit the group
+  Scenario: TC0079 User can edit the group
     When click settings button
     And click group definitions button
     And enter group code "13" to group code box
@@ -224,7 +224,7 @@ Feature: Surgery Appointment
       | ^+%&#    |
 
   @Smoke @TC0080 @US_011
-  Scenario: User can create the reason for surgery cancellation
+  Scenario: TC0080 User can create the reason for surgery cancellation
     When click settings button
     And click cancellation reason button
     And click new add button
@@ -235,7 +235,7 @@ Feature: Surgery Appointment
     And click yes button
 
   @Bug @TC0081 @US_011
-  Scenario: User can not create the same reason for surgery cancellation
+  Scenario: TC0081 User can not create the same reason for surgery cancellation
     When click settings button
     And click cancellation reason button
     And click new add button
@@ -252,7 +252,7 @@ Feature: Surgery Appointment
     And click yes button
 
   @TC0082 @US_011
-  Scenario: User can edit the reason
+  Scenario: TC0082 User can edit the reason
     When click settings button
     And click cancellation reason button
     And click new add button
@@ -269,7 +269,7 @@ Feature: Surgery Appointment
     And click yes button
 
   @Smoke @TC0083 @US_011
-  Scenario: User can delete the reason for surgery cancellation
+  Scenario: TC0083 User can delete the reason for surgery cancellation
     When click settings button
     And click cancellation reason button
     And click new add button
@@ -310,7 +310,7 @@ Feature: Surgery Appointment
     And click yes button
 
   @Smoke @TC0058
-  Scenario: User can cancel patient appointment
+  Scenario: TC0058 User can cancel patient appointment
     When create a new appointment
       | code | date       | protocol | surgery | time    |
       | 163  | 23.10.2023 | 15388830 | 613180  | 09 : 00 |
