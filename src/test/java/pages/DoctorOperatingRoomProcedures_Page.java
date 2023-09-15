@@ -30,6 +30,9 @@ public class DoctorOperatingRoomProcedures_Page {
     @FindBy(id = "MEVCUT_SALON_LISTESI_tccell0_5")
     WebElement chooseTableButton;
 
+    @FindBy(id = "MEVCUT_SALON_LISTESI_tccell1_5")
+    WebElement chooseSaloonButtonEight;
+
     @FindBy(xpath = "//td[@id='dxGridAmeliyatHastaListesi_tccell0_1']")
     WebElement patientInformation;
 
@@ -41,6 +44,9 @@ public class DoctorOperatingRoomProcedures_Page {
 
     @FindBy(xpath = "//td[@id='AmeliyatKodList_tccell14_3']//a[1]")
     WebElement decidedSurgeryChooseButton;
+
+    @FindBy(xpath = "//td[@id='AmeliyatKodList_tccell4_3']//a[1]")
+    WebElement addAfterVerify;
 
     @FindBy(id = "OrganYon")
     WebElement organDirection;
@@ -109,6 +115,12 @@ public class DoctorOperatingRoomProcedures_Page {
     @FindBy(id = "784")
     WebElement addDoctor;
 
+    @FindBy(id = "322")
+    WebElement newDoctor;
+
+    @FindBy(xpath = "//td[text()='793']")
+    WebElement verifyDeletedDoctor;
+
     @FindBy(xpath = "//td[text()='784']")
     WebElement surgicalDoctor;
 
@@ -130,7 +142,7 @@ public class DoctorOperatingRoomProcedures_Page {
     @FindBy(xpath = "//span[text()='Tamam']")
     WebElement okeyButton;
 
-    @FindBy(xpath = "//label[@for='cbEkipSorumlu_61313']")
+    @FindBy(xpath = "//label[@for='cbEkipSorumlu_61429']")
     WebElement responseDoctor;
 
     @FindBy(xpath = "//p[text()='Sorumlu anestezi doktoru seçmediniz. İşleminiz durduruldu.']")
@@ -166,19 +178,47 @@ public class DoctorOperatingRoomProcedures_Page {
     @FindBy(xpath = "//td[text()='ÇOCUK SAĞ. VE CER.SERVİS']")
     WebElement postopPatient;
 
-    @FindBy ( xpath = "//a[contains(text(),'Hastayı Servise Gönder')]")
+    @FindBy(xpath = "//a[contains(text(),'Hastayı Servise Gönder')]")
     WebElement sendServiceButton;
 
-    @FindBy (xpath = "//div[@title='Servise Gönderildi']")
+    @FindBy(xpath = "//div[@title='Servise Gönderildi']")
     WebElement postopServiceSitutionMessage;
 
-    @FindBy (xpath = "//td[@id='dxGridAmeliyatEkibiAnestezi_tccell0_4']//a[1]")
+    @FindBy(xpath = "//td[@id='dxGridAmeliyatEkibiAnestezi_tccell0_4']//a[1]")
     WebElement trashIconOnAnesth;
 
-    @FindBy (xpath = "//td[@id='dxGridAmeliyatEkibi_tccell0_5']//a[1]")
+    @FindBy(xpath = "//td[@id='dxGridAmeliyatEkibi_tccell1_5']//a[1]")
     WebElement trashIconOnSurgical;
 
+    @FindBy(xpath = "//div[text()='Iptal']")
+    WebElement cancel;
 
+    @FindBy(id = "AMELIYAT_TANI")
+    WebElement cleanArea;
+
+    @FindBy(id = "btnLstYenile")
+    WebElement refreshButtonOnMainPage;
+
+    @FindBy(xpath = "//div[text()='Uz.Dr. Serjpa BUAKXUKS']")
+    WebElement verifyAnesthDoctor;
+
+    @FindBy(xpath = "//div[text()[normalize-space()='Görüntülenecek veri yok']]")
+    WebElement surgeryTeamMessage;
+
+    @FindBy(xpath = "//td[@colspan='5']//div[1]")
+    WebElement anesthTeamMessage;
+
+    @FindBy(tagName = "p")
+    WebElement sameDoctorAddedMessage;
+
+    @FindBy(tagName = "p")
+    WebElement hospitlzdWarningMessage;
+
+    @FindBy(xpath = "//label[text()='Servise Gönderilen']")
+    WebElement sendToServisRadoButton;
+
+    @FindBy(xpath = "//div[text()='Servise Gönderildi']")
+    WebElement sendedServiseMessage;
 
 
     public void clickTheCloseButtom() {
@@ -222,7 +262,7 @@ public class DoctorOperatingRoomProcedures_Page {
 
     public void clickTheSelectButtonOfTheSurgeryToBePerformed() {
         ReusableMethods.waitForVisibility(decidedSurgery, 10);
-        ReusableMethods.jseWithClick(Driver.getDriver(),decidedSurgery);
+        ReusableMethods.jseWithClick(Driver.getDriver(), decidedSurgery);
         ReusableMethods.waitFor(3);
         decidedSurgeryChooseButton.click();
         ReusableMethods.waitFor(3);
@@ -253,8 +293,8 @@ public class DoctorOperatingRoomProcedures_Page {
     }
 
     public void clickTheTrashIconOfTheOperationWillBeDeleted() {
-        ReusableMethods.waitForVisibility(crashIcon,3);
-        ReusableMethods.jseWithClick(Driver.getDriver(),crashIcon);
+        ReusableMethods.waitForVisibility(crashIcon, 3);
+        ReusableMethods.jseWithClick(Driver.getDriver(), crashIcon);
     }
 
 
@@ -276,11 +316,21 @@ public class DoctorOperatingRoomProcedures_Page {
         ReusableMethods.waitFor(10);
         String messegas = message.getText();
         Assert.assertEquals("Görüntülenecek veri yok", messegas);
+        ReusableMethods.waitForVisibility(addSurgeryButton, 3);
+        ReusableMethods.jseWithClick(Driver.getDriver(), addSurgeryButton);
+        ReusableMethods.waitForVisibility(decidedSurgery, 10);
+        ReusableMethods.jseWithClick(Driver.getDriver(), decidedSurgery);
+        ReusableMethods.waitFor(3);
+        addAfterVerify.click();
+        ReusableMethods.waitFor(3);
+        saveButtonOnDecidePage.click();
+
+
     }
 
     public void clicksOnSurgeryName() {
         ReusableMethods.waitFor(3);
-        surgeryName.click();
+        ReusableMethods.jseWithClick(Driver.getDriver(), surgeryName);
     }
 
     public void clicksDetailSurgeryButton() {
@@ -302,6 +352,13 @@ public class DoctorOperatingRoomProcedures_Page {
         informationAdmissionNotes.click();
         String notes = keyboard.getText();
         Assert.assertTrue(notes.contains("Durum stabil"));
+
+    }
+
+    public void cleansThePage() {
+        ReusableMethods.jseWithClick(Driver.getDriver(), admissionNote);
+        admissionNote.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+        ReusableMethods.jseWithClick(Driver.getDriver(), saveButtonOnSurgeryDetails);
     }
 
     public void clickAddDiagnosisButton() {
@@ -325,9 +382,15 @@ public class DoctorOperatingRoomProcedures_Page {
         Assert.assertTrue(notes.contains("Tifo"));
     }
 
+    public void cleanThePage() {
+        ReusableMethods.jseWithClick(Driver.getDriver(), cleanArea);
+        cleanArea.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+        ReusableMethods.jseWithClick(Driver.getDriver(), saveButtonOnSurgeryDetails);
+    }
+
     public void clicksAddDoctorButtonOnSurgicalTeamSection() {
         ReusableMethods.waitForVisibility(addButtonOnSurgicalTeam, 5);
-        addButtonOnSurgicalTeam.click();
+        ReusableMethods.jseWithClick(Driver.getDriver(), addButtonOnSurgicalTeam);
     }
 
     public void selectsTheDoctor() {
@@ -350,10 +413,6 @@ public class DoctorOperatingRoomProcedures_Page {
         addAnesthDoctor.click();
     }
 
-    public void verifiesThatTheAnesthesiaDoctorIsAdded() {
-        ReusableMethods.waitFor(5);
-        Assert.assertTrue(anesthesiaDoctor.isDisplayed());
-    }
 
     public void clickTheStartSession() {
         ReusableMethods.waitFor(5);
@@ -362,8 +421,8 @@ public class DoctorOperatingRoomProcedures_Page {
     }
 
     public void verifiesThatTheWarningMesseageOfPatientIsNotHospitalized() {
-        ReusableMethods.waitForVisibility(responseMessage, 3);
-        Assert.assertTrue(responseMessage.isDisplayed());
+        ReusableMethods.waitForVisibility(hospitlzdWarningMessage, 3);
+        Assert.assertTrue(hospitlzdWarningMessage.isDisplayed());
     }
 
     public void clickOkeyButton() {
@@ -378,6 +437,9 @@ public class DoctorOperatingRoomProcedures_Page {
     public void verifiesThatTheWarningMesseageOfYouMustChooseTheResponsiblePerson() {
         ReusableMethods.waitForVisibility(responseAnesthMessage, 3);
         Assert.assertTrue(responseAnesthMessage.isDisplayed());
+        okeyButton.click();
+        responseDoctor.click();
+
     }
 
     public void clicksPostop() {
@@ -452,20 +514,77 @@ public class DoctorOperatingRoomProcedures_Page {
 
 
     public void clickOnTheTrashIconInTheSurgicalTeamSection() {
-        ReusableMethods.waitForVisibility(trashIconOnAnesth,3);
-        ReusableMethods.jseWithClick(Driver.getDriver(),trashIconOnAnesth);
+        ReusableMethods.waitForVisibility(trashIconOnAnesth, 3);
+        ReusableMethods.jseWithClick(Driver.getDriver(), trashIconOnAnesth);
     }
 
     public void verifyThatOnlyTheSelectedDoctorIsDeleted() {
-        Assert.assertFalse(postopScrrenMessage.isDisplayed());
+        ReusableMethods.waitForVisibility(anesthTeamMessage, 3);
+        String message = anesthTeamMessage.getText();
+        System.out.println(message);
+        Assert.assertFalse(anesthTeamMessage.isDisplayed());
     }
 
     public void clicksOnTheTrashIconInTheSurgicalTeamSection() {
-        ReusableMethods.waitForVisibility(trashIconOnSurgical,3);
-        ReusableMethods.jseWithClick(Driver.getDriver(),trashIconOnSurgical);
+        ReusableMethods.waitForVisibility(trashIconOnSurgical, 3);
+        ReusableMethods.jseWithClick(Driver.getDriver(), trashIconOnSurgical);
     }
 
     public void clicksTheTrashIconForSelectedDoctor() {
+
+    }
+
+
+    public void clicksRefreshButtonOnDoctorOperatingRoomProceduresPage() {
+        ReusableMethods.waitForVisibility(refreshButtonOnMainPage, 3);
+        ReusableMethods.jseWithClick(Driver.getDriver(), refreshButtonOnMainPage);
+    }
+
+    public void verifyThatTheSelectedDoctorIsDeleted() {
+        ReusableMethods.waitFor(3);
+        Assert.assertFalse(verifyAnesthDoctor.isDisplayed());
+    }
+
+    public void verifysThatTheMessageGörüntülenecekVeriYokIsNotDisplayed() {
+        ReusableMethods.waitForVisibility(surgeryTeamMessage, 3);
+        String message = surgeryTeamMessage.getText();
+        System.out.println(message);
+        Assert.assertFalse(surgeryTeamMessage.isDisplayed());
+    }
+
+    public void clicksSelectSaloonButtonSaloonEight() {
+        ReusableMethods.waitForVisibility(chooseSaloonButton, 3);
+        chooseSaloonButton.click();
+        chooseSaloonButtonEight.click();
+        ReusableMethods.waitFor(3);
+    }
+
+    public void verifysThatTheSurgicalTeamSDoctorIsDeleted() {
+        String text = verifyDeletedDoctor.getText();
+        Assert.assertEquals("793", text);
+    }
+
+    public void verifiesThatTheAnesthesiaDoctorIsAdded() {
+        ReusableMethods.waitForVisibility(sameDoctorAddedMessage,3);
+        Assert.assertTrue(sameDoctorAddedMessage.isDisplayed());
+    }
+
+    public void clicksTheSendedServiceRadioButton() {
+        ReusableMethods.waitForVisibility(sendToServisRadoButton,3);
+        ReusableMethods.jseWithClick(Driver.getDriver(),sendToServisRadoButton);
+    }
+
+    public void verifiesThatTheSituation() {
+        ReusableMethods.waitForVisibility(sendedServiseMessage,3);
+        Assert.assertTrue(sendedServiseMessage.isDisplayed());
+    }
+
+    public void selectsTheNewDoctor() {
+        ReusableMethods.waitFor(5);
+        newDoctor.click();
+    }
+
+    public void clicksSelectAndCloseButtonForNewDoktor() {
 
     }
 }

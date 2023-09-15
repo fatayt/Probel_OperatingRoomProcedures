@@ -2,10 +2,15 @@ package stepdefinitions;
 
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 import pages.SurgeryAppointment_Page;
 import utilities.Driver;
+import utilities.ReusableMethods;
 
 public class SurgeryAppointment_StepDefinitions {
     SurgeryAppointment_Page sap = new SurgeryAppointment_Page(Driver.getDriver());
@@ -205,6 +210,275 @@ public class SurgeryAppointment_StepDefinitions {
     @And("enter {string} to reason of cancellation search box")
     public void enterToReasonOfCancellationSearchBox(String arg0) {
         sap.enterToReasonOfCancellationSearchBox(arg0);
+    }
+
+
+    //todo EYUP
+
+    Actions actions = new Actions(Driver.getDriver());
+
+    @Then("appointment postponement click")
+    public void appointment_postponement_click() {
+        sap.randevuErtele.click();
+    }
+    @Then("Check the surgery appointment page")
+    public void check_the_surgery_appointment_page() {
+        Assert.assertTrue(sap.ameliyetRandevuErtelemePop.isDisplayed());
+    }
+
+    @Then("choose the reason for procrastination")
+    public void choose_the_reason_for_procrastination() {
+        Select select = new Select(sap.reasonPostpone);
+        select.selectByIndex(1);
+    }
+
+    @Then("click on the refresh button")
+    public void click_on_the_refresh_button() {
+        sap.click_on_the_refresh_button();
+
+    }
+
+    @Then("click on the cancel appointment button")
+    public void click_on_the_cancel_appointment_button() {
+        sap.randevuiptalet.click();
+    }
+
+    @Given("click the delete appointment button")
+    public void click_the_delete_appointment_button() {
+        sap.click_the_delete_appointment_button();
+    }
+
+    @Given("click the fix appointment button")
+    public void click_the_fix_appointment_button() {
+        sap.apptEdit_button.click();
+    }
+
+    @Given("refresh page")
+    public void refresh_page() {
+        ReusableMethods.waitFor(2);
+        sap.yenileButton.click();
+    }
+
+    @And("select the start date {string}")
+    public void selectTheStartDate(String arg0) {
+        sap.selectTheStartDate(arg0);
+    }
+
+    @And("select the end date {string}")
+    public void selectTheEndDate(String arg0) {
+        sap.selectTheEndDate(arg0);
+    }
+
+    @And("click patient settings button")
+    public void clickPatientSettingsButton() {
+        sap.clickPatientSettingsButton();
+    }
+
+    @And("search the protocol number {string}")
+    public void searchTheProtocolNumber(String arg0) {
+        sap.searchTheProtocolNumber(arg0);
+    }
+
+    @And("click on refresh button main")
+    public void clickOnRefreshButtonMain() {
+        sap.clickOnRefreshButtonMain();
+    }
+
+    @And("select the postpone date {string}")
+    public void selectThePostponeDate(String arg0) {
+        sap.selectThePostponeDate(arg0);
+    }
+
+    @Then("assert the appointment date {string}")
+    public void assertTheAppointmentDate(String arg0) {
+        sap.assertTheAppointmentDate(arg0);
+    }
+
+    @And("create new unit {string} {string}")
+    public void createNewUnit(String code, String capacity) {
+        sap.createNewUnit(code,capacity);
+
+    }
+
+    @And("delete a unit {string}")
+    public void deleteAUnit(String code) {
+        sap.deleteAUnit(code);
+    }
+
+    @And("close unit popUp edit page")
+    public void closeUnitPopUpEditPage() {
+        sap.closeUnitPopUpEditPage();
+    }
+
+    @When("create a new appointment")
+    public void createANewAppointment(DataTable dataTable) {
+        sap.createANewAppointment(dataTable);
+    }
+
+    @And("select cancel reason {string}")
+    public void selectCancelReason(String arg0) {
+        sap.selectCancelReason(arg0);
+    }
+
+    @And("click check box cancel appointment")
+    public void clickCheckBoxCancelAppointment() {
+        sap.clickCheckBoxCancelAppointment();
+    }
+
+    @And("assert the appointment title {string}")
+    public void assertTheAppointmentTitle(String arg0) {
+        sap.assertTheAppointmentTitle(arg0);
+    }
+
+    @And("add a postpone description {string}")
+    public void addAPostponeDescription(String arg0) {
+        sap.addAPostponeDescription(arg0);
+    }
+
+    @And("add a cancel description {string}")
+    public void addACancelDescription(String arg0) {
+        sap.addACancelDescription(arg0);
+    }
+
+    @And("select the surgery decision date and time {string}")
+    public void selectTheSurgeryDecisionDateAndTime(String arg0) {
+        sap.selectTheSurgeryDecisionDateAndTime(arg0);
+    }
+
+    @And("assert the surgery decision date and time {string}")
+    public void assertTheSurgeryDecisionDateAndTime(String arg0) {
+        sap.assertTheSurgeryDecisionDateAndTime(arg0);
+    }
+
+    @And("change the appointment number {string}")
+    public void changeTheAppointmentNumber(String arg0) {
+        sap.changeTheAppointmentNumber(arg0);
+    }
+
+    @And("assert the appointment number {string}")
+    public void assertTheAppointmentNumber(String arg0) {
+        sap.assertTheAppointmentNumber(arg0);
+    }
+
+    @And("select the second surgery {string}")
+    public void selectTheSecondSurgery(String arg0) {
+        sap.selectTheSecondSurgery(arg0);
+    }
+
+    @And("select the type of anesthesia {string}")
+    public void selectTheTypeOfAnesthesia(String arg0) {
+        sap.selectTheTypeOfAnesthesia(arg0);
+    }
+
+    @And("select the side {string}")
+    public void selectTheSide(String arg0) {
+        sap.selectTheSide(arg0);
+    }
+
+    @And("change the service date {string}")
+    public void changeTheServiceDate(String arg0) {
+        sap.changeTheServiceDate(arg0);
+    }
+
+    @And("add edit phone numbers {string} {string}")
+    public void addEditPhoneNumbers(String phone1, String phone2) {
+        sap.addEditPhoneNumbers(phone1,phone2);
+    }
+
+    @And("select group {string}")
+    public void selectGroup(String arg0) {
+        sap.selectGroup(arg0);
+    }
+
+    @And("select saloon {string}")
+    public void selectSaloon(String arg0) {
+        sap.selectSaloon(arg0);
+
+    }
+
+    @And("enter room no {string}")
+    public void enterRoomNo(String arg0) {
+        sap.enterRoomNo(arg0);
+    }
+
+    @And("change the doctor {string}")
+    public void changeTheDoctor(String arg0) {
+        sap.changeTheDoctor(arg0);
+    }
+
+    @And("enter surgery duration minute {string}")
+    public void enterSurgeryDurationMinute(String arg0) {
+        sap.enterSurgeryDurationMinute(arg0);
+    }
+
+    @And("enter description of appointment {string}")
+    public void enterDescriptionOfAppointment(String arg0) {
+        sap.enterDescriptionOfAppointment(arg0);
+    }
+
+    @And("assert the second surgery {string}")
+    public void assertTheSecondSurgery(String arg0) {
+    sap.assertTheSecondSurgery(arg0);
+    }
+
+    @And("assert the illness {string}")
+    public void assertTheIllness(String arg0) {
+        sap.assertTheIllness(arg0);
+    }
+
+    @And("assert the type of anesthesia {string}")
+    public void assertTheTypeOfAnesthesia(String arg0) {
+        sap.assertTheTypeOfAnesthesia(arg0);
+    }
+
+    @And("assert the side {string}")
+    public void assertTheSide(String arg0) {
+        sap.assertTheSide(arg0);
+    }
+
+    @And("assert the service date {string}")
+    public void assertTheServiceDate(String arg0) {
+        sap.assertTheServiceDate(arg0);
+    }
+
+    @And("assert phone numbers {string} {string}")
+    public void assertPhoneNumbers(String phone1, String phone2) {
+        sap.assertPhoneNumbers(phone1,phone2);
+    }
+
+    @And("assert group {string}")
+    public void assertGroup(String arg0) {
+        sap.assertGroup(arg0);
+    }
+
+    @And("assert saloon {string}")
+    public void assertSaloon(String arg0) {
+        sap.assertSaloon(arg0);
+    }
+
+    @And("assert room no {string}")
+    public void assertRoomNo(String arg0) {
+        sap.assertRoomNo(arg0);
+    }
+
+    @And("assert the doctor {string}")
+    public void assertTheDoctor(String arg0) {
+        sap.assertTheDoctor(arg0);
+    }
+
+    @And("assert appointment time {string}")
+    public void assertAppointmentTime(String arg0) {
+        sap.assertAppointmentTime(arg0);
+    }
+
+    @And("assert surgery duration minute {string}")
+    public void assertSurgeryDurationMinute(String arg0) {
+        sap.assertSurgeryDurationMinute(arg0);
+    }
+
+    @And("assert description of appointment {string}")
+    public void assertDescriptionOfAppointment(String arg0) {
+        sap.assertDescriptionOfAppointment(arg0);
     }
 }
 

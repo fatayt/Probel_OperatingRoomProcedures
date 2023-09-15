@@ -1,4 +1,5 @@
 @OperatingRoomProcedures
+@Regression
 Feature: Operating Room Procedures
 
   Background:
@@ -142,6 +143,7 @@ Feature: Operating Room Procedures
     And the user selects the salon popup add list page
   #  And The user enters the protocol number of the patient they want to add1
     And User verifies that the patient has been added to the list
+
 
 
   @TR0035   @Bug
