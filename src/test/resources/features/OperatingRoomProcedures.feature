@@ -7,7 +7,7 @@ Feature: Operating Room Procedures
     And The user goes Operating Room Procedures page
 
   @TR0025
-  Scenario: TR0025 The user can confirm the patient's salon.
+  Scenario: US_003  The user can confirm the patient's salon.
     And User enters date
     And User clicks the refresh button
     And User selects hall
@@ -18,7 +18,7 @@ Feature: Operating Room Procedures
 
 
   @TR0026
-  Scenario: TR0026 User can cancel the patient's salon
+  Scenario: US_003 User can cancel the patient's salon
     And User enters date
     And User clicks the refresh button
     And User selects hall
@@ -30,7 +30,7 @@ Feature: Operating Room Procedures
 
 
   @TR0027
-  Scenario: TR0027 The user can approve all halls.
+  Scenario: US_003 The user can approve all halls.
     And User enters date
     And User clicks the refresh button
    # And User selects hall
@@ -41,7 +41,7 @@ Feature: Operating Room Procedures
 
 
   @TR0028
-  Scenario: TR0028 User can cancel all halls
+  Scenario: US_003 User can cancel all halls
     And User enters date
     And User clicks the refresh button
     And User selects hall
@@ -51,7 +51,7 @@ Feature: Operating Room Procedures
     Then User verifies patient
 
   @TR0029
-  Scenario: TR0029 User can change the patient's lounge
+  Scenario: US_003 User can change the patient's lounge
     And User enters date
     And User clicks the refresh button
     And User selects hall
@@ -63,7 +63,7 @@ Feature: Operating Room Procedures
   # And Confirms that the user left has changed
 
   @TR0030
-  Scenario: TR0030 User enters patient's surgery details
+  Scenario: US_003 User enters patient's surgery details
     And User enters date
     And User clicks the refresh button
     And User selects hall
@@ -79,7 +79,7 @@ Feature: Operating Room Procedures
 
 
   @TR0031  @Smoke
-  Scenario: TR0031 User makes the patient's patient's entrance to the operating room
+  Scenario: US_003 User makes the patient's patient's entrance to the operating room
     And User enters date
     And User clicks the refresh button
     And user finds patient with protocol number
@@ -91,7 +91,7 @@ Feature: Operating Room Procedures
 
 
   @TR0032
-  Scenario: TR0032 User cancels the patient's entry to the operating room
+  Scenario: US_003 User cancels the patient's entry to the operating room
     And User enters date
     And User clicks the refresh button
     And user finds patient with protocol number
@@ -100,7 +100,7 @@ Feature: Operating Room Procedures
 
 
   @TR0033  @Smoke
-  Scenario: TR0033 User can add patients to the list on the operating room operations page.
+  Scenario: US_004 User can add patients to the list on the operating room operations page.
     And User enters date
     And User clicks the refresh button
     And User clicks on Add patient to list button
@@ -115,7 +115,7 @@ Feature: Operating Room Procedures
 
 
   @TR0036  @Smoke
-  Scenario: TR0036 User can send the patient to the ward
+  Scenario: US_004 User can send the patient to the ward
     And User enters date
     And User clicks the refresh button
     And User clicks the POstop button
@@ -129,7 +129,7 @@ Feature: Operating Room Procedures
 
 
   @TR0034 @Bug
-  Scenario: TR0034Bug User can add patients to the list on the Operating Room Procedures page and chooses the necessary doctor.
+  Scenario: US_004 User can add patients to the list on the Operating Room Procedures page and chooses the necessary doctor.
     And User enters date
     And User clicks the refresh button
     And The user enters the protocol number of the patient they want to add1
@@ -147,7 +147,7 @@ Feature: Operating Room Procedures
 
 
   @TR0035   @Bug
-  Scenario: TR0035Bug User can add patients to the list on the operating room operations page and chooses an obstetrician
+  Scenario: US_004 User can add patients to the list on the operating room operations page and chooses an obstetrician
     And User enters date
     And User clicks the refresh button
    # And The user enters the protocol number of the patient they want to add1
