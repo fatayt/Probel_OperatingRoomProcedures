@@ -36,8 +36,8 @@ public class OperatingRoomProcedures_StepDefinitions {
     }
 
 
-    @Given("User clicks the refresh button")
-    public void user_clicks_the_refresh_button() throws InterruptedException {
+    @Given(" The User clicks the refresh button")
+    public void Theuser_clicks_the_refresh_button() throws InterruptedException {
         operatingRoomProcedures_page_.refreshButton.click();
         Thread.sleep(1000);
 

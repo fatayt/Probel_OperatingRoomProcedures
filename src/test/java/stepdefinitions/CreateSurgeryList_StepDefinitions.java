@@ -4,6 +4,7 @@ package stepdefinitions;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import pages.CreateSurgeryList_Page;
 
 import java.text.ParseException;
@@ -227,6 +228,252 @@ public class CreateSurgeryList_StepDefinitions {
     }
 
 
+    @When("User clicks on Surgery appointment procedures")
+    public void userClicksOnSurgeryAppointmentProcedures() {
+
+        createSurgeryList_Page.SurgeryAppointmentProcedures();
+
+
+    }
+
+
+
+
+
+    @And("User clicks on th e New Appointment tab")
+    public void userClicksOnThENewAppointmentTab() {
+        createSurgeryList_Page.ClicksOnThENewAppointmentTab();
+    }
+
+
+    @And("User enters Appointment Date")
+    public void userEntersAppointmentDate() {
+        createSurgeryList_Page.EntersAppointmentDate();
+    }
+
+
+
+    @And("User enters Protocol no.")
+    public void userEntersProtocolNo() {
+        createSurgeryList_Page.EntersProtocolNo();
+    }
+
+    @And("User cliks patient no")
+    public void userCliksPatientNo() throws InterruptedException {
+        createSurgeryList_Page.CliksPatientNo();
+    }
+
+    @And("User enters Surgery")
+    public void userEntersSurgery() {
+        createSurgeryList_Page.EntersSurgery();
+    }
+
+    @And("User clicks clocks")
+    public void userClicksClocks() throws InterruptedException {
+        createSurgeryList_Page.ClicksClocks();
+    }
+
+    @And("User enters plan time")
+    public void userEntersPlanTime() {
+        createSurgeryList_Page.EntersPlanTime();
+    }
+
+    @And("User presses the save button")
+    public void userPressesTheSaveButton() {
+    }
+
+
+    @And("User Operation goes to list creation")
+    public void userOperationGoesToListCreation() {
+    }
+
+    @And("User enters date from Appointment Patients Section")
+    public void userEntersDateFromAppointmentPatientsSection() {
+    }
+
+    @And("User verifies the Saved Patient")
+    public void userVerifiesTheSavedPatient() {
+    }
+    //*************************************************
+
+
+    @When("User clicks on Patient transactions")
+    public void userClicksOnPatientTransactions() {
+        createSurgeryList_Page.ClicksOnPatientTransactions();
+
+
+    }
+
+    @And("The user clicks on Operation")
+    public void theUserClicksOnOperation() {
+        createSurgeryList_Page.ClicksOnOperation();
+    }
+
+    @And("User clicks to create an operation list")
+    public void userClicksToCreateAnOperationList() {
+        createSurgeryList_Page.ClicksToCreateAnOperationList();
+    }
+
+
+    @And("User Selects Date from Appointment Patients section")
+    public void userSelectsDateFromAppointmentPatientsSection() {
+        createSurgeryList_Page.DateFromAppointmentPatientsSection();
+    }
+
+
+    @And("User Selects Service")
+    public void userSelectsService() {
+        createSurgeryList_Page.SelectsService();
+
+
+    }
+
+
+    @And("User adds new hall")
+    public void userAddsNewHall() {
+        createSurgeryList_Page.clickNewHall();
+    }
+
+
+
+
+    @And("User double clicks on Patient")
+    public void userDoubleClicksOnPatient() {
+        createSurgeryList_Page.DoubleClicksOnPatient();
+
+    }
+
+    @And("The user clicks on the operations tab")
+    public void theUserClicksOnTheOperationsTab() {
+        createSurgeryList_Page.UserClicksOnTheOperationsTab();
+
+    }
+
+
+    @And("User Verifies Patient's Arrival")
+    public void userVerifiesPatientSArrival() {
+
+        createSurgeryList_Page.VerifiesPatientSArrival();
+
+    }
+//*************************************************
+
+
+    @And("the user clicks devam edilsinmi popup")
+    public void theUserClicksDevamEdilsinmiPopup() {
+        createSurgeryList_Page.UserClicksDevamEdilsinmiPopup();
+    }
+
+    @And("User Selects  {string}Hall")
+    public void userSelectsHall(String string) throws InterruptedException {
+        createSurgeryList_Page.UserSelectsHall(string);
+
+    }
+
+    @And("User Selects a hall")
+    public void userSelectsAHall() throws InterruptedException {
+        createSurgeryList_Page.addSelectsAHall();
+    }
+
+    @And("User clicks operations button")
+    public void userClicksOperationsButton() {
+        createSurgeryList_Page.ClicksOperationsButton();
+    }
+
+    @And("User clicks islemler masadan cikar")
+    public void userClicksIslemlerMasadanCikar() {
+        createSurgeryList_Page.ClicksIslemlerMasadanCikar();
+    }
+
+    @And("User clicks uyari popup evet butonuna")
+    public void userClicksUyariPopupEvetButonuna() {
+        createSurgeryList_Page.ClicksUyariPopupEvetButonuna();
+
+    }
+
+    @And("thr user clicks masadan cikar  ekle button tab")
+    public void thrUserClicksMasadanCikarEkleButtonTab() {
+        createSurgeryList_Page.UserClicksMasadanCikarEkleButtonTab();
+
+    }
+
+    @And("User verifies ameliyat edilecek hasta listesi")
+    public void userVerifiesAmeliyatEdilecekHastaListesi() {
+        createSurgeryList_Page.VerifiesAmeliyatEdilecekHastaListesi();
+
+    }
+
+    @And("The user clicks on Operating Room Procedures   Page")
+    public void theUserClicksOnOperatingRoomProceduresPage() {
+        createSurgeryList_Page.ClicksOnOperatingRoomProceduresPage();
+    }
+
+
+    @And("User clicks on the Cancel Hall button")
+    public void userClicksOnTheCancelHallButton() {
+        createSurgeryList_Page.ClicksOnUserCancelHall();
+    }
+
+    @And("User Hall gives consent to the popup whether to be cancelled")
+    public void userHallGivesConsentToThePopupWhetherToBeCancelled() {
+        createSurgeryList_Page.HallGivesConsentToThePopupWhetherToBeCancelled();
+    }
+
+    @And("User confirms hall cancellation")
+    public void userConfirmsHallCancellation() {
+        createSurgeryList_Page.ConfirmsHallCancellation();
+    }
+
+    @And("User clicks on Hall operations")
+    public void userClicksOnHallOperations() {
+        createSurgeryList_Page.ClicksOnHallOperations();
+    }
+
+
+    @And("User selects a different hall")
+    public void userSelectsADifferentHall() {
+        createSurgeryList_Page.SelectsADifferentHall();
+
+    }
+
+    @And("User Salon Change secer")
+    public void userSalonChangeSecer() {
+        createSurgeryList_Page.UserSalonChangeSecer();
+    }
+
+
+    @And("User gives consent from the Warning tab")
+    public void userGivesConsentFromTheWarningTab() {
+
+        createSurgeryList_Page.UserGivesConsentFromTheWarningTab();
+    }
+
+    @And("The user confirms that the patient's Hall has changed")
+    public void theUserConfirmsThatThePatientSHallHasChanged() {
+        createSurgeryList_Page.theUserConfirmsThatThePatientSHallHasChanged();
+    }
+
+    @And("User clicks Add {string} lounge")
+    public void userClicksAddLounge(String string) throws InterruptedException {
+        createSurgeryList_Page.ClicksAddLounge(string);
+
+    }
+
+
+    //@And("User service name")
+ //   public void userServiceName() throws InterruptedException {
+   //     createSurgeryList_Page.UserServiceName();
+
+
+
+
+
+
+
+    @And("The User clicks the refresh button")
+    public void theUserClicksTheRefreshButton() {
+        createSurgeryList_Page.ClicksTheRefreshButton();
+    }
 }
 
 

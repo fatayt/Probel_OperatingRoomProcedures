@@ -1,6 +1,7 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -39,7 +40,7 @@ public class CreateSurgeryList_Page {
     public WebElement creatingSurgeryListTitle;
 
 
-    //@FindBy(xpath = "//div[@id='GelisTarihiBlock']//div[@class='datepicker']")
+
     @FindBy(xpath = "//input[@name='AMELIYAT_LST_TARIH']")
     public WebElement requestDateBox;
 
@@ -47,11 +48,7 @@ public class CreateSurgeryList_Page {
     public WebElement serviceBox;
 
 
-    @FindBy(xpath = "//input[@id='lstServis-SERVIS_KODU']")
-    public WebElement serviceNameBox;
 
-    @FindBy(xpath = "//tr[contains(@id,'lstServis_DXDataRow')]")
-    public List<WebElement> serviceListrow;
 
     @FindBy(xpath = "//tr[contains(@id,'lstServis_DXDataRow')]")
     public List<WebElement> serviceListTable;
@@ -62,8 +59,7 @@ public class CreateSurgeryList_Page {
     @FindBy(xpath = "//a[@id='btnLstYenile']")
     public WebElement refreshButton;
 
-    @FindBy(xpath = "//tr[contains(@id,'dxGridHastaListe')]")
-    public WebElement servicePatientListTable;
+
 
     @FindBy(xpath = "//td[normalize-space()='HÜLCHOYA TÜXBJ']")
     public WebElement patientFromList;
@@ -71,8 +67,7 @@ public class CreateSurgeryList_Page {
     @FindBy(xpath = "//td[normalize-space()='EMCFNOP KAWSFTM']")
     public WebElement otherPatientFromList;
 
-    @FindBy(xpath = "//table[@id='dxGridAmeliyatHastaListesi']")
-    public List<WebElement> patientFromListeTable;
+
 
     @FindBy(xpath = "//*[contains(text(),'1538')]")
     public WebElement patientFromListe;
@@ -93,18 +88,14 @@ public class CreateSurgeryList_Page {
     @FindBy(xpath = "//td/table/tbody/tr/td/input")
     public WebElement operationTimeBox;
 
-    @FindBy(xpath = "//td/table/tbody/tr/td/input")
-    public WebElement otherOperationTimeBox;
 
-    @FindBy(xpath = "//table[@id='lstSalonMasaListesi_DXMainTable']")
-    public WebElement hallTable;
+
+
 
     @FindBy(xpath = "//table[@id='lstSalonMasaListesi_DXMainTable']//tr[3]//td[5]")
     public WebElement selectHallButton;
 
-    @FindBy(xpath = "//table[@id='lstSalonMasaListesi_DXMainTable']//tr[3]//td[5]")
-    // @FindBy(xpath = "//a[contains(@id,'lstSalonMasaListesi')]")
-    public WebElement selectAnyHallButton;
+
 
     @FindBy(xpath = "//*[contains(text(),'Kapat')]")
     public WebElement closePopupButton;
@@ -112,13 +103,9 @@ public class CreateSurgeryList_Page {
     @FindBy(xpath = "//a[contains(text(),'Salonu İptal Et')]")
     public WebElement cancellHallButton;
 
-    @FindBy(xpath = "//table[@id='dxGridAmeliyatHastaListesi']")
-    public WebElement patientsTobeOperatedListTable;
-    @FindBy(xpath = "//table[@id='dxGridAmeliyatHastaListesi']//tr[2]//td[3]")
-    public WebElement patientTobeOperated;
 
-    @FindBy(id = "ListeAnesteziTipiCombo")
-    public WebElement anesthesiaTypeDropDown;
+
+
 
     @FindBy(xpath = "(//a[contains(text(),'İşlemler')])[11]")
     public WebElement transactionsButton;
@@ -130,11 +117,9 @@ public class CreateSurgeryList_Page {
     @FindBy(xpath = "//a[normalize-space()='Ameliyat Ekle']")
     public WebElement addOperationButton;
 
-    @FindBy(xpath = "//a[contains(text(),'Ameliyatları Sil')]")
-    public WebElement deleteOperationButton;
 
-    @FindBy(xpath = "//a[contains(text(),'Ameliyat Detayları')]")
-    public WebElement surgeryDetailsButton;
+
+
 
     @FindBy(xpath = "//a[@id='btnAmeliyathaneBildir']")
     public WebElement sendToOperationRoomButton;
@@ -151,20 +136,16 @@ public class CreateSurgeryList_Page {
     @FindBy(xpath = "//span[contains(text(),'Evet')]")
     public WebElement verifyAlert;
 
-    @FindBy(xpath = "//table[@id='dxGridAmeliyatHastaListesi_DXMainTable']//tr[2]")
-    public WebElement patientfirst;
 
-    @FindBy(xpath = "//table[@id='dxGridAmeliyatHastaListesi_DXMainTable']//tr[3]")
-    public WebElement patientfsecond;
 
-    @FindBy(xpath = "//table[@id='dxGridYapilacakAmeliyat']")
-    public WebElement toBeOperatedPatientsListTable;
+
+
+
 
     @FindBy(xpath = "//div[@id='HastaAmeliyatForm']//input[@type='button']")
     public WebElement toBeDoneOperation;
 
-    @FindBy(xpath = "//table[@id='AmeliyatKodList_DXMainTable']")
-    public WebElement toBeDoneOperationTable;
+
 
     @FindBy(xpath = "//table[@id='AmeliyatKodList_DXMainTable']//tr[8]//td[4]")
     public WebElement toBeDoneOperationSelect;
@@ -178,14 +159,12 @@ public class CreateSurgeryList_Page {
     @FindBy(xpath = "//a[@onclick='funcAnesteziDoktorEkle(this)']")
     public WebElement addAnesthesiaTeamButton;
 
-    @FindBy(xpath = "//table[@id='dxGridAmeliyatEkibi_DXMainTable']")
-    public WebElement selectResponsibleDocTable;
+
 
     @FindBy(xpath = "//table[@id='dxGridAmeliyatEkibi_DXMainTable']//tr[2]//td[3]")
     public WebElement selectResponsibleDoc;
 
-    @FindBy(xpath = "//table[@id='dxGridAmeliyatEkibiAnestezi_DXMainTable']")
-    public WebElement selectResponsibleAnesthesiaDocTable;
+
 
     @FindBy(xpath = "//table[@id='dxGridAmeliyatEkibiAnestezi_DXMainTable']//tr[2]//td[3]")
     public WebElement selectResponsibleAnesthesiaDoc;
@@ -208,11 +187,9 @@ public class CreateSurgeryList_Page {
     @FindBy(xpath = "//div[2]/table/tbody/tr/td/div[2]/table/tbody/tr[3]/td[2]")
     public WebElement numberOfPatients;
 
-    @FindBy(xpath = "(//a[contains(text(),'Ameliyathane İşlemleri')])[2]")
-    public WebElement operatingRoomOperationsPageTitle;
 
-    @FindBy(xpath = "//td[normalize-space()='Salon_2']")
-    public WebElement hallButton;
+
+
 
     @FindBy(xpath = "//*[contains(text(),'1538')]")
     public WebElement patientProtocolNo;
@@ -220,11 +197,13 @@ public class CreateSurgeryList_Page {
     @FindBy(xpath = " //span[contains(text(),'Ameliyathane bildirimi tamamlanmıştır.')]")
     public WebElement notificationPopup;
 
-    @FindBy(xpath = "//a[contains(text(),'Ö. Hastanın Ekibini Kopyala')]")
-    public WebElement copyPatientteamBox;
 
-    @FindBy(xpath = "//a[contains(text(),'Ö. Hastanın Ekibini Kopyala')]")
-    public WebElement patientByAppointmentTable;
+    @FindBy(xpath = "(//div[@title='AHMET MEHMET'])[1](//div[@title='AHMET MEHMET'])[1]")
+    public WebElement patientName;
+
+
+
+
 
 
     public void clickPatientProceduresTitle() {
@@ -236,13 +215,13 @@ public class CreateSurgeryList_Page {
         ReusableMethods.jseWithClick(Driver.getDriver(), creatingSurgeryListTitle);
     }
 
-    public void clickService() throws InterruptedException {
+    public void clickService()  {
         ReusableMethods.jseWithClick(Driver.getDriver(), serviceBox);
         ReusableMethods.jseWithClick(Driver.getDriver(), internalService);
         ReusableMethods.waitFor(3);
     }
 
-    public void selectAppointmentDate() throws InterruptedException {
+    public void selectAppointmentDate()  {
         ReusableMethods.sendKeysWithJS(Driver.getDriver(), requestDateBox, "25.10.2023");
     }
 
@@ -265,7 +244,7 @@ public class CreateSurgeryList_Page {
         selectHallButton.click();
     }
 
-    public void addsPatientToHall() throws InterruptedException {
+    public void addsPatientToHall()  {
         ReusableMethods.jseWithClick(Driver.getDriver(), refreshButton);
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(3));
         wait.until(ExpectedConditions.visibilityOf(addedHallButton));
@@ -338,6 +317,7 @@ public class CreateSurgeryList_Page {
         ReusableMethods.jseWithClick(Driver.getDriver(), transactionsButton);
         Thread.sleep(2000);
         ReusableMethods.jseWithClick(Driver.getDriver(), sendToOperationRoomButton);
+        ReusableMethods.jseWithClick(Driver.getDriver(),popupsalonyes);
     }
 
 
@@ -400,7 +380,7 @@ public class CreateSurgeryList_Page {
         ReusableMethods.jseWithClick(Driver.getDriver(), otherPatientFromList);
     }
 
-    public void verifyPatientMoreThanOneHall() throws InterruptedException {
+    public void verifyPatientMoreThanOneHall() {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(3));
         wait.until(ExpectedConditions.visibilityOf(addedHallButton));
 
@@ -408,7 +388,7 @@ public class CreateSurgeryList_Page {
         Assert.assertTrue(numberOfPatient == 1);
     }
 
-    public void enterSurgeryTime(String time) throws InterruptedException {
+    public void enterSurgeryTime(String time)  {
         ReusableMethods.waitForVisibility(operationTimeBox, 2);
         try {
             ReusableMethods.jseWithClick(Driver.getDriver(), operationTimeBox);
@@ -447,16 +427,15 @@ public class CreateSurgeryList_Page {
         Assert.assertTrue(numberOfHall.size() <= 1);
     }
 
-    public void changeTheHallWithTheOtherHall(String text, String hall1, String hall2) throws InterruptedException {
-        refreshButton.click();
+    public void changeTheHallWithTheOtherHall(String text, String hall1, String hall2)  {
+        ReusableMethods.jseWithClick(Driver.getDriver(),refreshButton);
         ReusableMethods.jseWithClick(Driver.getDriver(), patientTransactionButton);
         WebElement elementToOption = ReusableMethods.locateHallOptionsByText(text);
         ReusableMethods.jseWithClick(Driver.getDriver(), elementToOption);
         WebElement elementTohall = ReusableMethods.locateChangeHallByText(hall2);
         ReusableMethods.doubleClickWithJS(Driver.getDriver(), elementTohall);
-        verifyAlert.click();
-        // WebElement hall2Click = ReusableMethods.locateSelectHallByText(hall2);
-        // hall2Click.click();
+        ReusableMethods.jseWithClick(Driver.getDriver(),verifyAlert);
+
     }
 
     public void verifyWherePatient(String hall1, String hall2) {
@@ -465,7 +444,7 @@ public class CreateSurgeryList_Page {
         String emptyHall = Driver.getDriver().findElement(By.xpath("(//*[contains(text(),'Görüntülenecek veri yok')])[2]")).getText();
         Assert.assertTrue(emptyHall.contains("Görüntülenecek veri yok"));
         WebElement selectHall2 = ReusableMethods.locateSelectHallFromHallListByText(hall2);
-        selectHall2.click();
+        ReusableMethods.jseWithClick(Driver.getDriver(),selectHall2);
         Assert.assertTrue(patientProtocolNo.isDisplayed());
     }
 
@@ -509,7 +488,7 @@ public class CreateSurgeryList_Page {
         softAssert.assertAll();
     }
 
-    public void optionToPostponeNotDisplayed() throws InterruptedException {
+    public void optionToPostponeNotDisplayed() {
         transactionsButton.click();
         ReusableMethods.waitForVisibility(postponeOperationButton, 5);
         Assert.assertFalse(postponeOperationButton.isDisplayed());
@@ -566,4 +545,386 @@ public class CreateSurgeryList_Page {
         ReusableMethods.waitForVisibility(notificationPopup, 5);
         Assert.assertTrue(notificationPopup.isDisplayed());
     }
+
+    //*****************************************************************************************************
+
+    @FindBy(xpath = "//a[@data-lookupvalue='1006']")
+    public WebElement beyin;
+
+    @FindBy(xpath = "//a[@data-search-menu='AMELİYAT RANDEVU']")
+    public WebElement Surgeryappointment;
+
+
+    @FindBy(xpath = "//table[@id='dxGridRandevuListesi_DXMainTable']")
+    public WebElement GridRandevuListesi;
+
+
+    @FindBy(xpath = "//*[@id=\"AmeliyatListe_tccell6_2\"]/a")
+    public WebElement tccell;
+
+    @FindBy(xpath = "//a[contains(@class,'text_btn text_btn_ekle')]")
+    public WebElement newappointment;
+
+
+    @FindBy(xpath = "(//div[@class='datepicker']//input)[3]")
+    public WebElement newappointmentdate;
+
+    @FindBy(xpath = "//*[@id=\"PROTOKOL_NO_RND\"]")
+    public WebElement SurgeryAppointmentProtocol;
+    @FindBy(xpath = "//strong[text()='Hasta Adı Soyadı']/following-sibling::input")
+    public WebElement clickPatientNo;
+
+    @FindBy(xpath = "(//input[@class='inpt wpx200'])[2]")
+    public WebElement SurgeryAppointmentSurgery;
+
+    @FindBy(xpath = "//table[@id='AmeliyatListe_DXFREditorcol0']/tbody[1]/tr[1]/td[1]/input[1]")
+    public WebElement AmeliyatEkle;
+
+    @FindBy(xpath = "((//input[@type='textbox'])[1]")
+    public WebElement appointmenttime;
+
+    @FindBy(xpath = "(//input[@type='textbox'])[2]")
+    public WebElement clocks10;
+
+    @FindBy(xpath = "//input[@id='PLANLANAN_SURE']")
+    public WebElement plannedcensorship;
+
+
+    @FindBy(xpath = "(//input[contains(@class,'inpt inpt')])[1]")
+    public WebElement SurgeryAppointmentDate;
+    @FindBy(xpath = "(//tr[@data-randevuid='27951']//td)[3]")
+    public WebElement AmeliyatRandevuhasta;
+    @FindBy(xpath = "(//input[contains(@class,'inpt inpt')])[2]")
+    public WebElement SurgeryAppointmentDate2;
+
+
+    @FindBy(xpath = "//td[@id='dxGridAmeliyatHastaListesi_tccell0_0']//span[1]")
+    public WebElement islemler;
+
+    @FindBy(xpath = "//div[@class='content blckAcilirMenu']//a[1]")
+    public WebElement masadancikar;
+
+    @FindBy(xpath = "//span[text()='Evet']")
+    public WebElement AlertDummy;
+
+    @FindBy(xpath = "//a[@class='PopupSaveButton PopupButton']//span[1]")
+    public WebElement AlertSaveButton;
+
+    @FindBy(xpath = "//div[@class='alertButtons']//span[1]")
+    public WebElement AlertSavebuttons2;
+
+    @FindBy(xpath = "//table[@id='dxGridAmeliyatHastaListesi_DXMainTable']")
+    public WebElement Goruntulenecekveriyok;
+
+    @FindBy(xpath = "//td[text()='15388673']")
+    public WebElement randevuprotokol;
+
+    @FindBy(xpath = "//*[@id=\"dxGridAmeliyatHastaListesi_tccell0_4\"]/div")
+    public WebElement ameliyatedilecekhasta;
+
+
+    @FindBy(xpath = "//a[contains(text(),'Salonu İptal Et')]")
+    public WebElement salonuiptalet;
+
+    @FindBy(xpath = "//span[@class='yes item']")
+    public WebElement popupsalonyes;
+
+
+    @FindBy(xpath = "//li[@data-masakodu='11']")
+    public WebElement tablecode;
+
+    @FindBy(xpath = "(//a[@data-islemno='2'])[2]")
+    public WebElement changeHall;
+
+    @FindBy(xpath = "//a[contains(text(),'Seç')]")
+    public WebElement secButton;
+
+    @FindBy(xpath = "(//div[contains(text(),'Görüntülenecek veri yok')])[1]")
+    public WebElement goruntulenecekveri;
+
+    @FindBy(xpath = "//div[@id='salonlistesipanel']")
+    public WebElement salonlistesi;
+
+    @FindBy(xpath = "//*[@id=\"lstSalonMasaListesi_DXDataRow2\"]")
+    public WebElement salonlar;
+
+    @FindBy(xpath = "//*[@id=\"lstSalonMasaListesi_tccell2_4\"]/a")
+    public WebElement salonlarsec;
+
+
+
+    public void SurgeryAppointmentProcedures() {
+
+        ReusableMethods.jseWithClick(Driver.getDriver(), Surgeryappointment);
+
+        ReusableMethods.waitFor(2);
+
+
+    }
+
+
+
+    public void ClicksOnThENewAppointmentTab() {
+
+        ReusableMethods.jseWithClick(Driver.getDriver(), newappointment);
+    }
+
+
+    public void EntersAppointmentDate() {
+        ReusableMethods.jseWithClick(Driver.getDriver(), newappointmentdate);
+        ReusableMethods.sendKeysWithJS(Driver.getDriver(), newappointmentdate, "21.09.2023");
+
+
+    }
+
+
+    public void EntersProtocolNo() {
+        ReusableMethods.jseWithClick(Driver.getDriver(), SurgeryAppointmentProtocol);
+        ReusableMethods.sendKeysWithJS(Driver.getDriver(), SurgeryAppointmentProtocol, "15388673");
+
+
+    }
+
+    public void CliksPatientNo() throws InterruptedException {
+
+        Thread.sleep(2000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), clickPatientNo);
+        Thread.sleep(2000);
+        ReusableMethods.waitFor(5);
+    }
+
+    public void EntersSurgery() {
+        ReusableMethods.doubleClickWithJS(Driver.getDriver(), SurgeryAppointmentSurgery);
+
+        ReusableMethods.sendKeysWithJS(Driver.getDriver(), AmeliyatEkle, "KAFA BANDI UYGULAMASI");
+        ReusableMethods.jseWithClick(Driver.getDriver(), tccell);
+
+
+    }
+
+    public void ClicksClocks() throws InterruptedException {
+        ReusableMethods.sendKeysWithJS(Driver.getDriver(), appointmenttime,"15");
+        Thread.sleep(2000);
+        ReusableMethods.sendKeysWithJS(Driver.getDriver(), clocks10,"30");
+
+    }
+
+    public void EntersPlanTime() {
+
+        ReusableMethods.jseWithClick(Driver.getDriver(), plannedcensorship);
+        ReusableMethods.sendKeysWithJS(Driver.getDriver(), plannedcensorship, "30" + Keys.ENTER);
+
+    }
+
+    public void ClicksOnPatientTransactions() {
+        ReusableMethods.jseWithClick(Driver.getDriver(), patientProceduresTitle);
+
+    }
+
+    public void ClicksOnOperation() {
+        ReusableMethods.jseWithClick(Driver.getDriver(), operatingRoomOperationsTitle);
+
+
+    }
+
+    public void ClicksToCreateAnOperationList() {
+        ReusableMethods.jseWithClick(Driver.getDriver(), creatingSurgeryListTitle);
+
+    }
+
+
+    public void DateFromAppointmentPatientsSection() {
+        ReusableMethods.jseWithClick(Driver.getDriver(), SurgeryAppointmentDate);
+        ReusableMethods.sendKeysWithJS(Driver.getDriver(), SurgeryAppointmentDate, "19.09.2023");
+        ReusableMethods.waitFor(2);
+
+        ReusableMethods.jseWithClick(Driver.getDriver(), SurgeryAppointmentDate2);
+        ReusableMethods.sendKeysWithJS(Driver.getDriver(), SurgeryAppointmentDate2, "19.09.2023");
+
+
+    }
+
+
+    public void SelectsService() {
+        ReusableMethods.jseWithClick(Driver.getDriver(), serviceBox);
+        ReusableMethods.jseWithClick(Driver.getDriver(), beyin);
+        ReusableMethods.waitFor(3);
+
+
+    }
+
+
+    public void ClicksTheRefreshButton() {
+        ReusableMethods.jseWithClick(Driver.getDriver(), refreshButton);
+
+    }
+
+
+    public void DoubleClicksOnPatient() {
+
+        ReusableMethods.jseWithClick(Driver.getDriver(), AmeliyatRandevuhasta);
+
+        ReusableMethods.waitFor(3);
+
+        ReusableMethods.doubleClickWithJS(Driver.getDriver(), AmeliyatRandevuhasta);
+    }
+
+
+    public void UserClicksOnTheOperationsTab() {
+        ReusableMethods.doubleClick(Driver.getDriver(), GridRandevuListesi);
+        ReusableMethods.waitForVisibility(patientFromList, 5);
+
+
+    }
+
+
+
+    public void VerifiesPatientSArrival() {
+
+        String randevuprtokolverify = randevuprotokol.getText();
+        String ameliyatedilecekhastalistesi = ameliyatedilecekhasta.getText();
+        ReusableMethods.waitFor(2);
+        Assert.assertEquals(randevuprtokolverify, ameliyatedilecekhastalistesi);
+
+
+    }
+//******************************************************************
+
+
+    public void UserClicksDevamEdilsinmiPopup() {
+        ReusableMethods.jseWithClick(Driver.getDriver(), AlertSavebuttons2);
+
+    }
+
+    public void clickNewHall() {
+
+        ReusableMethods.waitFor(3);
+
+        ReusableMethods.jseWithClick(Driver.getDriver(), hallOperationsButton);
+        ReusableMethods.jseWithClick(Driver.getDriver(), addHallButton);
+        selectHallButton.click();
+
+    }
+
+    public void UserSelectsHall(String string) throws InterruptedException {
+
+
+        WebElement elementToClick = ReusableMethods.locateElementByText(string);
+
+        Thread.sleep(2000);
+
+        ReusableMethods.waitForVisibility(elementToClick, 5);
+
+
+        ReusableMethods.doubleClickWithJS(Driver.getDriver(), elementToClick);
+        Thread.sleep(2000);
+
+    }
+
+    public void addSelectsAHall() throws InterruptedException {
+        selectHallButton.click();
+        Thread.sleep(2000);
+    }
+
+    public void ClicksOperationsButton() {
+        ReusableMethods.jseWithClick(Driver.getDriver(), islemler);
+    }
+
+    public void ClicksIslemlerMasadanCikar() {
+        ReusableMethods.jseWithClick(Driver.getDriver(), masadancikar);
+    }
+
+    public void ClicksUyariPopupEvetButonuna() {
+        ReusableMethods.jseWithClick(Driver.getDriver(), AlertDummy);
+
+    }
+
+    public void UserClicksMasadanCikarEkleButtonTab() {
+        ReusableMethods.jseWithClick(Driver.getDriver(), AlertSaveButton);
+
+    }
+
+    public void VerifiesAmeliyatEdilecekHastaListesi() {
+        ReusableMethods.waitFor(2);
+        Assert.assertTrue((goruntulenecekveri.isDisplayed()));
+
+    }
+
+    public void ClicksOnOperatingRoomProceduresPage() {
+
+        ReusableMethods.jseWithClick(Driver.getDriver(), hallOperationsButton);
+        ReusableMethods.waitFor(3);
+        System.out.println("kontrol");
+
+
+    }
+
+    public void ClicksOnUserCancelHall() {
+
+        ReusableMethods.jseWithClick(Driver.getDriver(), salonuiptalet);
+        ReusableMethods.waitFor(2);
+    }
+
+    public void HallGivesConsentToThePopupWhetherToBeCancelled() {
+        ReusableMethods.waitFor(2);
+        ReusableMethods.jseWithClick(Driver.getDriver(), popupsalonyes);
+
+    }
+
+    public void ClicksOnHallOperations() {
+        ReusableMethods.jseWithClick(Driver.getDriver(), hallOperationsButton);
+
+    }
+
+    public void ClicksAddLounge(String string) throws InterruptedException {
+        ReusableMethods.jseWithClick(Driver.getDriver(), hallOperationsButton);
+        Thread.sleep(2000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), addHallButton);
+        Thread.sleep(2000);
+
+        ReusableMethods.jseWithClick(Driver.getDriver(),salonlar);
+        ReusableMethods.waitFor(3);
+        ReusableMethods.jseWithClick(Driver.getDriver(),salonlarsec);
+
+
+
+
+
+    }
+
+    public void SelectsADifferentHall() {
+
+        ReusableMethods.jseWithClick(Driver.getDriver(), islemler);
+        ReusableMethods.waitFor(2);
+        ReusableMethods.jseWithClick(Driver.getDriver(), tablecode);
+
+
+    }
+
+    public void UserSalonChangeSecer() {
+        ReusableMethods.jseWithClick(Driver.getDriver(), changeHall);
+        ReusableMethods.waitFor(2);
+        ReusableMethods.jseWithClick(Driver.getDriver(), secButton);
+
+
+    }
+
+    public void UserGivesConsentFromTheWarningTab() {
+        ReusableMethods.waitFor(2);
+        ReusableMethods.jseWithClick(Driver.getDriver(), AlertDummy);
+    }
+
+    public void theUserConfirmsThatThePatientSHallHasChanged() {
+        Assert.assertTrue(patientName.isDisplayed());
+
+
+    }
+
+    public void ConfirmsHallCancellation() {
+        Assert.assertTrue(salonlistesi.isDisplayed());
+
+    }
 }
+
+
+
