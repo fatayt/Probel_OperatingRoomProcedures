@@ -19,7 +19,6 @@ Feature: Surgery Appointment
     And if medicine displayed delete the medicine "27233"
     And if medicine displayed delete the medicine "33568"
 
-
     And click apply template
     And click template name "Deneme"
 
@@ -107,6 +106,35 @@ Feature: Surgery Appointment
   Scenario: TC0087 User can create, edit and delete the template materials
     When click template definitions button
     And assert popup page "Ameliyat Malzeme Şablon Tanımları"
+
+    And click new template add button
+    And select type of template "Cerrahi"
+    And enter template name "Test Abeyis"
+    And enter branch code to branch box "3"
+    And double click examination name box
+    And enter code to official code box "G100040"
+    And click save button
+    Then assert new template by name "Test Abeyis"
+
+    And click new template add button
+    And select type of template "Cerrahi"
+    And enter template name "Test Abeyis"
+    And enter branch code to branch box "3"
+    And double click examination name box
+    And enter code to official code box "G100040"
+    And click save button
+    Then assert new template by name "Test Abeyis"
+
+    And enter template name to name search box "Test Abeyis"
+    Then assert new template by name "Test Abeyis"
+    When click delete button
+    And click yes button
+
+    And enter template name to name search box "Test Abeyis"
+    Then assert new template by name "Test Abeyis"
+    When click delete button
+    And click yes button
+
     And click new template add button
     And select type of template "Anestezi"
     And enter template name "Abeyis Test"
@@ -114,8 +142,9 @@ Feature: Surgery Appointment
     And double click examination name box
     And enter code to official code box "S100021"
     And click save button
-    Then assert new template by name "Abeyis Test"
     And enter template name to name search box "Abeyis Test"
+    Then assert new template by name "Abeyis Test"
+    #And enter template name to name search box "Abeyis Test"
     When click edit button
     And select type of template "Cerrahi"
     And clear template name
