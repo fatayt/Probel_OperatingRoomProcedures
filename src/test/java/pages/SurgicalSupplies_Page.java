@@ -1,10 +1,7 @@
 package pages;
 
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
@@ -43,7 +40,7 @@ public class SurgicalSupplies_Page {
     @FindBy(xpath = "//input[@class='inpt wpx300']")
     WebElement templateNewName_box;
 
-    @FindBy(linkText = "Seç")
+    @FindBy(xpath = "//a[@data-icon='verify']")
     WebElement select_button;
 
     @FindBy(xpath = "(//label[@class='lbl_check no-margin'])[2]")
@@ -106,8 +103,10 @@ public class SurgicalSupplies_Page {
     @FindBy(xpath = "(//a[contains(@class,'text_btn text_btn_yeni')])[3]")
     WebElement newTemplateAdd_button;
 
-    @FindBy(id = "Ameliyat_Sablon_Liste_DXFREditorcol1_I")
+    @FindBy(id = "lstMalzemeSablonListe_DXFREditorcol1_I")
     WebElement templateName_box;
+    @FindBy(id = "Ameliyat_Sablon_Liste_DXFREditorcol1_I")
+    WebElement templateName2_box;
 
     @FindBy(id = "BRANS_KODU")
     WebElement branchCode_box;
@@ -160,15 +159,18 @@ public class SurgicalSupplies_Page {
     }
 
     public void clickTemplateName(String arg0) {
-        templateCode_box.sendKeys(arg0 + Keys.ENTER);
+        templateName_box.sendKeys(arg0 + Keys.ENTER);
         ReusableMethods.waitFor(2);
         select_button.click();
+        ReusableMethods.waitFor(2);
     }
 
     public void clickApproveBoxForMaterials() {
         ReusableMethods.waitFor(2);
-        firstSupplyApprove_box.click();
-        secondSupplyApprove_box.click();
+        ReusableMethods.jseWithClick(Driver.getDriver(),firstSupplyApprove_box);
+        ReusableMethods.jseWithClick(Driver.getDriver(),secondSupplyApprove_box);
+        //firstSupplyApprove_box.click();
+        //secondSupplyApprove_box.click();
     }
 
     public void clickApproveBoxForMedicine() {
@@ -199,6 +201,7 @@ public class SurgicalSupplies_Page {
     }
 
     public void assertTheMaterialOrMedicineDeleted(String arg0) {
+
         WebElement supply = driver.findElement(By.xpath("//table[@id='dxGridAmeliyatMalzemeListesi_DXMainTable']"));
         System.out.println(supply.getAttribute("textContent"));
         Assert.assertFalse(supply.getAttribute("textContent").contains(arg0));
@@ -270,8 +273,9 @@ public class SurgicalSupplies_Page {
     }
 
     public void clickTemplateDefinitionsButton() {
-        ReusableMethods.waitFor(2);
-        templateDefinitions_button.click();
+        ReusableMethods.waitFor(3);
+        ReusableMethods.jseWithClick(Driver.getDriver(),templateDefinitions_button);
+       // templateDefinitions_button.click();
     }
 
     public void clickNewTemplateAddButton() {
@@ -312,19 +316,46 @@ public class SurgicalSupplies_Page {
     }
 
     public void assertTheTemplateDeleted(String arg0) {
+        ReusableMethods.waitFor(2);
         System.out.println(noTemplateDisplay.getAttribute("textContent"));
         Assert.assertTrue(noTemplateDisplay.isDisplayed());
     }
 
     public void enterTemplateNameToNameSearchBox(String arg0) {
         ReusableMethods.waitFor(2);
-        templateName_box.clear();
+        templateName2_box.clear();
         ReusableMethods.waitFor(2);
-        templateName_box.sendKeys(arg0 + Keys.ENTER);
+        templateName2_box.sendKeys(arg0 + Keys.ENTER);
     }
 
     public void clearTemplateName() {
         templateNewName_box.clear();
+    }
+
+    public void ifMaterialDisplayedDeleteTheMaterial(String arg0) {
+        try {
+            WebElement supply = driver.findElement(By.xpath("//td[text()='" + arg0 + "']"));
+            if (supply.isDisplayed()) {
+                supply.click();
+                deleteMaterial_button.click();
+                sap.clickYesButton();
+            }
+        } catch (NoSuchElementException e) {
+        }
+        ReusableMethods.waitFor(2);
+    }
+    public void ifMedicineDisplayedDeleteTheMedicine(String arg0) {
+        try {
+            WebElement medicine = driver.findElement(By.xpath("//td[text()='" + arg0 + "']"));
+
+            if (medicine.isDisplayed()) {
+                medicine.click();
+                deleteMaterial_button.click();
+                sap.clickYesButton();
+            }
+        } catch (NoSuchElementException e) {
+        }
+        ReusableMethods.waitFor(2);
     }
 
 }
