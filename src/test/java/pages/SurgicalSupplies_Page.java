@@ -97,7 +97,7 @@ public class SurgicalSupplies_Page {
     @FindBy(linkText = "Kapat")
     WebElement closePopUpPage_button;
 
-    @FindBy(linkText = "Şablon Tanımlamaları")
+    @FindBy(xpath = "//a[@onclick=\"SablonTanimlamaAc()\"]")
     WebElement templateDefinitions_button;
 
     @FindBy(xpath = "(//a[contains(@class,'text_btn text_btn_yeni')])[3]")
