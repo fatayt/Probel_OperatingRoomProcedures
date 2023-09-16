@@ -200,4 +200,14 @@ public class SurgicalSupplies_StepDefinitions {
     public void clearTemplateName() {
         ssp.clearTemplateName();
     }
+
+    @And("if material displayed delete the material {string}")
+    public void ifMaterialDisplayedDeleteTheMaterial(String arg0) {
+        ssp.ifMaterialDisplayedDeleteTheMaterial(arg0);
+    }
+
+    @And("if medicine displayed delete the medicine {string}")
+    public void ifMedicineDisplayedDeleteTheMedicine(String arg0) {
+        ssp.ifMedicineDisplayedDeleteTheMedicine(arg0);
+    }
 }
