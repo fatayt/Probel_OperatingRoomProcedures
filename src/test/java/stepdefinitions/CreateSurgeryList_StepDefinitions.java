@@ -108,12 +108,12 @@ public class CreateSurgeryList_StepDefinitions {
 
 
     @Then("A pop up alert should appear for the past date on Surgery List Page")
-    public void aPopUpAlertShouldAppearForThePastDateOnSurgeryListPage() {
+    public void aPopUpAlertShouldAppearForThePastDateOnSurgeryListPage() throws InterruptedException {
         createSurgeryList_Page.checkRequestDate();
     }
 
     @Then("The user cannot add a patient to a hall on Surgery List Page")
-    public void theUserCannotAddAPatientToAHallOnSurgeryListPage() {
+    public void theUserCannotAddAPatientToAHallOnSurgeryListPage() throws InterruptedException {
         createSurgeryList_Page.verifyPatientCannotAddToHall();
     }
 
@@ -147,7 +147,7 @@ public class CreateSurgeryList_StepDefinitions {
     }
 
     @Then("More than one hall should not be seen on Surgery List Page")
-    public void moreThanOneHallShouldNotBeSeenOnSurgeryListPage() {
+    public void moreThanOneHallShouldNotBeSeenOnSurgeryListPage() throws InterruptedException {
         createSurgeryList_Page.verifyMoreThanOneHall();
     }
 
@@ -164,7 +164,7 @@ public class CreateSurgeryList_StepDefinitions {
     }
 
     @Then("The user verifies {string} is empty and  {string} has a patient on Surgery List Page")
-    public void the_user_verifies_is_empty_and_has_a_patient_on_surgery_list_page(String hall1, String hall2) {
+    public void the_user_verifies_is_empty_and_has_a_patient_on_surgery_list_page(String hall1, String hall2) throws InterruptedException {
         createSurgeryList_Page.verifyWherePatient(hall1, hall2);
     }
 
@@ -180,7 +180,7 @@ public class CreateSurgeryList_StepDefinitions {
 
 
     @Then("Surgery List should not be created on Surgery List Page")
-    public void surgeryListShouldNotBeCreatedOnSurgeryListPage() {
+    public void surgeryListShouldNotBeCreatedOnSurgeryListPage() throws InterruptedException {
         createSurgeryList_Page.surgeryListNotBeCreated();
     }
 
@@ -398,7 +398,7 @@ public class CreateSurgeryList_StepDefinitions {
     }
 
     @And("User verifies ameliyat edilecek hasta listesi")
-    public void userVerifiesAmeliyatEdilecekHastaListesi() {
+    public void userVerifiesAmeliyatEdilecekHastaListesi() throws InterruptedException {
         createSurgeryList_Page.VerifiesAmeliyatEdilecekHastaListesi();
 
     }
@@ -461,8 +461,8 @@ public class CreateSurgeryList_StepDefinitions {
 
 
     //@And("User service name")
- //   public void userServiceName() throws InterruptedException {
-   //     createSurgeryList_Page.UserServiceName();
+    //   public void userServiceName() throws InterruptedException {
+    //     createSurgeryList_Page.UserServiceName();
 
 
 
@@ -473,6 +473,21 @@ public class CreateSurgeryList_StepDefinitions {
     @And("The User clicks the refresh button")
     public void theUserClicksTheRefreshButton() {
         createSurgeryList_Page.ClicksTheRefreshButton();
+    }
+    @Then("Rollback all steps taken on Surgery List Page")
+    public void rollbackAllStepsTakenOnSurgeryListPage() throws InterruptedException {
+        createSurgeryList_Page.rollbackAllSteps();
+    }
+
+    @Then("Surgery List should not be created because of more than one operation on Surgery List Page")
+    public void surgeryListShouldNotBeCreatedBecauseOfMoreThanOneOperationOnSurgeryListPage() throws InterruptedException {
+        createSurgeryList_Page.patientNotMoreThanOneOperation();
+    }
+
+
+    @Then("The user verifies {string} is empty, {string} has a patient and rollback all steps on Surgery List Page")
+    public void theUserVerifiesIsEmptyHasAPatientAndRollbackAllStepsOnSurgeryListPage(String hall1, String hall2) throws InterruptedException {
+        createSurgeryList_Page.verifyWherePatientRollback(hall1, hall2);
     }
 }
 
