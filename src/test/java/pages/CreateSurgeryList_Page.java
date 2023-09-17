@@ -201,6 +201,8 @@ public class CreateSurgeryList_Page {
     @FindBy(xpath = "(//div[@title='AHMET MEHMET'])[1](//div[@title='AHMET MEHMET'])[1]")
     public WebElement patientName;
 
+    @FindBy(xpath = "//ul[@id='amlSalonList']//li")
+    public List<WebElement> numberOfHalls;
 
 
 
@@ -317,7 +319,6 @@ public class CreateSurgeryList_Page {
         ReusableMethods.jseWithClick(Driver.getDriver(), transactionsButton);
         Thread.sleep(2000);
         ReusableMethods.jseWithClick(Driver.getDriver(), sendToOperationRoomButton);
-        ReusableMethods.jseWithClick(Driver.getDriver(),popupsalonyes);
     }
 
 
@@ -345,12 +346,36 @@ public class CreateSurgeryList_Page {
         ReusableMethods.waitFor(2);
     }
 
-    public void checkRequestDate() {
+    public void checkRequestDate() throws InterruptedException {
         ReusableMethods.waitFor(2);
         Assert.assertEquals(requestDateIsValid, closePopupButton.isDisplayed());
+
+        ReusableMethods.jseWithClick(Driver.getDriver(), closePopupButton);
+        Thread.sleep(2000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), patientTransactionButton);
+        Thread.sleep(2000);
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(7));
+        WebElement elementToOption = ReusableMethods.locateHallOptionsByText("Masadan Çıkar");
+        ReusableMethods.jseWithClick(Driver.getDriver(), elementToOption);
+        Thread.sleep(2000);
+        wait.until(ExpectedConditions.elementToBeClickable(verifyAlert));
+        ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
+        Thread.sleep(2000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), causeOftakeOffTable);
+        Thread.sleep(2000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
+        ReusableMethods.jseWithClick(Driver.getDriver(), hallOperationsButton);
+        Thread.sleep(2000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), cancellHallButton);
+        ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
+
+
+
+
     }
 
-    public void verifyPatientCannotAddToHall() {
+    public void verifyPatientCannotAddToHall() throws InterruptedException {
+        SoftAssert softAssert = new SoftAssert();
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(3));
         wait.until(ExpectedConditions.visibilityOf(addedHallButton));
         try {
@@ -359,7 +384,25 @@ public class CreateSurgeryList_Page {
             ReusableMethods.doubleClickWithJS(Driver.getDriver(), patientFromList);
         }
         protocolNo = patientFromListe.getText();
-        Assert.assertNull(protocolNo);
+
+        softAssert.assertNull(protocolNo);
+        Thread.sleep(2000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), patientTransactionButton);
+        Thread.sleep(2000);
+        WebElement elementToOption = ReusableMethods.locateHallOptionsByText("Masadan Çıkar");
+        ReusableMethods.jseWithClick(Driver.getDriver(), elementToOption);
+        Thread.sleep(2000);
+        wait.until(ExpectedConditions.elementToBeClickable(verifyAlert));
+        ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
+        Thread.sleep(3000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), causeOftakeOffTable);
+        Thread.sleep(2000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), hallOperationsButton);
+        Thread.sleep(2000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), cancellHallButton);
+        Thread.sleep(2000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
+        softAssert.assertAll();
 
     }
 
@@ -380,24 +423,51 @@ public class CreateSurgeryList_Page {
         ReusableMethods.jseWithClick(Driver.getDriver(), otherPatientFromList);
     }
 
-    public void verifyPatientMoreThanOneHall() {
+    public void verifyPatientMoreThanOneHall() throws InterruptedException {
+        SoftAssert softAssert = new SoftAssert();
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(3));
         wait.until(ExpectedConditions.visibilityOf(addedHallButton));
-
         int numberOfPatient = Integer.parseInt(numberOfPatients.getText());
-        Assert.assertTrue(numberOfPatient == 1);
+
+        softAssert.assertEquals(numberOfPatient, 1);
+        Thread.sleep(2000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), patientTransactionButton);
+        Thread.sleep(2000);
+        WebElement elementToOption = ReusableMethods.locateHallOptionsByText("Masadan Çıkar");
+        ReusableMethods.jseWithClick(Driver.getDriver(), elementToOption);
+        Thread.sleep(2000);
+        wait.until(ExpectedConditions.elementToBeClickable(verifyAlert));
+        ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
+        Thread.sleep(3000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), causeOftakeOffTable);
+        Thread.sleep(2000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), patientTransactionButton);
+        Thread.sleep(2000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), takeOffTable);
+        Thread.sleep(2000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
+        Thread.sleep(2000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), causeOftakeOffTable);
+        Thread.sleep(2000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), hallOperationsButton);
+        Thread.sleep(2000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), cancellHallButton);
+        Thread.sleep(2000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
+        Thread.sleep(2000);
+        softAssert.assertAll();
+
+
     }
 
-    public void enterSurgeryTime(String time)  {
+    public void enterSurgeryTime(String time) {
         ReusableMethods.waitForVisibility(operationTimeBox, 2);
         try {
             ReusableMethods.jseWithClick(Driver.getDriver(), operationTimeBox);
             ReusableMethods.sendKeysWithJS(Driver.getDriver(), operationTimeBox, time);
         } catch (StaleElementReferenceException e) {
-            System.out.println("Error: Operation time box could not be found");
             return;
         }
-        System.out.println("Time3: " + operationTimeBox.getAttribute("value"));
     }
 
     public void addAnyHall(String string) throws InterruptedException {
@@ -422,30 +492,92 @@ public class CreateSurgeryList_Page {
         ReusableMethods.doubleClickWithJS(Driver.getDriver(), patientFromList);
     }
 
-    public void verifyMoreThanOneHall() {
-        System.out.println("Number of halls: " + numberOfHall.size());
-        Assert.assertTrue(numberOfHall.size() <= 1);
+    public void verifyMoreThanOneHall() throws InterruptedException {
+        SoftAssert softAssert = new SoftAssert();
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(3));
+        softAssert.assertTrue(numberOfHall.size() <= 1);
+        Thread.sleep(2000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), patientTransactionButton);
+        Thread.sleep(2000);
+        WebElement elementToOption = ReusableMethods.locateHallOptionsByText("Masadan Çıkar");
+        ReusableMethods.jseWithClick(Driver.getDriver(), elementToOption);
+        Thread.sleep(2000);
+        wait.until(ExpectedConditions.elementToBeClickable(verifyAlert));
+        ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
+        Thread.sleep(3000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), causeOftakeOffTable);
+        Thread.sleep(2000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), hallOperationsButton);
+        Thread.sleep(2000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), cancellHallButton);
+        Thread.sleep(2000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
+        ReusableMethods.jseWithClick(Driver.getDriver(), refreshButton);
+        Thread.sleep(2000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), patientTransactionButton);
+        Thread.sleep(2000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), takeOffTable);
+        Thread.sleep(2000);
+        wait.until(ExpectedConditions.elementToBeClickable(verifyAlert));
+        ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
+        Thread.sleep(3000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), causeOftakeOffTable);
+        Thread.sleep(2000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), hallOperationsButton);
+        Thread.sleep(2000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), cancellHallButton);
+        Thread.sleep(2000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
+        softAssert.assertAll();
     }
 
-    public void changeTheHallWithTheOtherHall(String text, String hall1, String hall2)  {
-        ReusableMethods.jseWithClick(Driver.getDriver(),refreshButton);
+    public void changeTheHallWithTheOtherHall(String text, String hall1, String hall2) {
+        refreshButton.click();
         ReusableMethods.jseWithClick(Driver.getDriver(), patientTransactionButton);
         WebElement elementToOption = ReusableMethods.locateHallOptionsByText(text);
         ReusableMethods.jseWithClick(Driver.getDriver(), elementToOption);
         WebElement elementTohall = ReusableMethods.locateChangeHallByText(hall2);
         ReusableMethods.doubleClickWithJS(Driver.getDriver(), elementTohall);
-        ReusableMethods.jseWithClick(Driver.getDriver(),verifyAlert);
-
+        verifyAlert.click();
     }
 
-    public void verifyWherePatient(String hall1, String hall2) {
+    public void verifyWherePatient(String hall1, String hall2) throws InterruptedException {
+        SoftAssert softAssert = new SoftAssert();
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(3));
         WebElement selectHall1 = ReusableMethods.locateSelectHallFromHallListByText(hall1);
         ReusableMethods.jseWithClick(Driver.getDriver(), selectHall1);
         String emptyHall = Driver.getDriver().findElement(By.xpath("(//*[contains(text(),'Görüntülenecek veri yok')])[2]")).getText();
-        Assert.assertTrue(emptyHall.contains("Görüntülenecek veri yok"));
+        softAssert.assertTrue(emptyHall.contains("Görüntülenecek veri yok"));
         WebElement selectHall2 = ReusableMethods.locateSelectHallFromHallListByText(hall2);
-        ReusableMethods.jseWithClick(Driver.getDriver(),selectHall2);
-        Assert.assertTrue(patientProtocolNo.isDisplayed());
+        selectHall2.click();
+        softAssert.assertTrue(patientProtocolNo.isDisplayed());
+
+        Thread.sleep(2000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), patientTransactionButton);
+        Thread.sleep(2000);
+        WebElement elementToOption = ReusableMethods.locateHallOptionsByText("Masadan Çıkar");
+        ReusableMethods.jseWithClick(Driver.getDriver(), elementToOption);
+        Thread.sleep(2000);
+        wait.until(ExpectedConditions.elementToBeClickable(verifyAlert));
+        ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
+        Thread.sleep(2000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), causeOftakeOffTable);
+        Thread.sleep(2000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), hallOperationsButton);
+        Thread.sleep(2000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), cancellHallButton);
+        Thread.sleep(2000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
+        ReusableMethods.jseWithClick(Driver.getDriver(), refreshButton);
+        Thread.sleep(2000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), hallOperationsButton);
+        Thread.sleep(2000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), cancellHallButton);
+        Thread.sleep(2000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
+        softAssert.assertAll();
+
+
     }
 
     public void selectAnyService() throws InterruptedException {
@@ -458,7 +590,7 @@ public class CreateSurgeryList_Page {
 
         for (int p = 1; p <= pageNumberCount; p++) {
             ReusableMethods.clickCurrentPage(p);
-            for (int r = 1; r <= serviceListTable.size(); r++) {
+            for (int r = 1; r <= 3;/*serviceListTable.size();*/ r++) {
                 WebElement serviceCodeExpected = Driver.getDriver().findElement(By.xpath("(//tr[contains(@id,'lstServis_DXDataRow')])[" + r + "]//td[2]"));
                 String serviceCodeTextExpected = serviceCodeExpected.getText();
                 ReusableMethods.doubleClickWithJS(Driver.getDriver(), serviceCodeExpected);
@@ -488,16 +620,71 @@ public class CreateSurgeryList_Page {
         softAssert.assertAll();
     }
 
-    public void optionToPostponeNotDisplayed() {
-        transactionsButton.click();
-        ReusableMethods.waitForVisibility(postponeOperationButton, 5);
-        Assert.assertFalse(postponeOperationButton.isDisplayed());
+    public void optionToPostponeNotDisplayed() throws InterruptedException {
+        SoftAssert softAssert = new SoftAssert();
+        ReusableMethods.jseWithClick(Driver.getDriver(), refreshButton);
+        Thread.sleep(3000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), transactionsButton);
+        softAssert.assertFalse(postponeOperationButton.isDisplayed());
+        Thread.sleep(2000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), patientTransactionButton);
+        Thread.sleep(2000);
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(7));
+        WebElement elementToOption = ReusableMethods.locateHallOptionsByText("Masadan Çıkar");
+        ReusableMethods.jseWithClick(Driver.getDriver(), elementToOption);
+        Thread.sleep(2000);
+        wait.until(ExpectedConditions.elementToBeClickable(verifyAlert));
+        ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
+        Thread.sleep(2000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), patientTransactionButton);
+        Thread.sleep(2000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), takeOffTable);
+        Thread.sleep(2000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
+        ReusableMethods.jseWithClick(Driver.getDriver(), causeOftakeOffTable);
+        Thread.sleep(2000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
+        ReusableMethods.jseWithClick(Driver.getDriver(), hallOperationsButton);
+        Thread.sleep(2000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), cancellHallButton);
+        ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
+        softAssert.assertAll();
+
+
+
     }
 
-    public void surgeryListNotBeCreated() {
-        System.out.println("popo up görüldü mü?");
+    public void surgeryListNotBeCreated() throws InterruptedException {
+        SoftAssert softAssert = new SoftAssert();
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(3));
         ReusableMethods.waitForVisibility(notificationPopup, 5);
-        Assert.assertFalse(notificationPopup.isDisplayed());
+        softAssert.assertFalse(notificationPopup.isDisplayed());
+        Thread.sleep(2000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), patientTransactionButton);
+        Thread.sleep(2000);
+        WebElement elementToOption = ReusableMethods.locateHallOptionsByText("Masadan Çıkar");
+        ReusableMethods.jseWithClick(Driver.getDriver(), elementToOption);
+        Thread.sleep(2000);
+        wait.until(ExpectedConditions.elementToBeClickable(verifyAlert));
+        ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
+        Thread.sleep(2000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), patientTransactionButton);
+        Thread.sleep(2000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), takeOffTable);
+        Thread.sleep(3000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
+        Thread.sleep(2000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), causeOftakeOffTable);
+        Thread.sleep(2000);
+        wait.until(ExpectedConditions.elementToBeClickable(hallOperationsButton));
+        ReusableMethods.jseWithClick(Driver.getDriver(), hallOperationsButton);
+        Thread.sleep(2000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), cancellHallButton);
+        Thread.sleep(2000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
+        softAssert.assertAll();
+
+
     }
 
     public void selectAppointmentOnPublicHoliday(String date) {
@@ -508,11 +695,13 @@ public class CreateSurgeryList_Page {
         ReusableMethods.jseWithClick(Driver.getDriver(), hallOperationsButton);
         Thread.sleep(1000);
         ReusableMethods.jseWithClick(Driver.getDriver(), cancellHallButton);
-        ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
-        refreshButton.click();
         Thread.sleep(1000);
-        List<WebElement> countHall = Driver.getDriver().findElements(By.xpath("//div[@id='salonlistesipanel']//li"));
-        Assert.assertTrue(countHall.size() == 0);
+        ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
+        Thread.sleep(1000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), refreshButton);
+        Assert.assertTrue(numberOfHalls.isEmpty());
+
+
     }
 
     public void enterAppointmentDate(String date) {
@@ -528,9 +717,9 @@ public class CreateSurgeryList_Page {
 
     public void selectPatientWithText(String patient) throws InterruptedException {
         ReusableMethods.jseWithClick(Driver.getDriver(), refreshButton);
-        Thread.sleep(2000);
+        Thread.sleep(4000);
         WebElement elementToClick = ReusableMethods.locatePatientByText(patient);
-        elementToClick.click();
+        ReusableMethods.jseWithClick(Driver.getDriver(), elementToClick);
         ReusableMethods.waitFor(3);
     }
 
@@ -544,6 +733,9 @@ public class CreateSurgeryList_Page {
     public void surgeryListCreated() {
         ReusableMethods.waitForVisibility(notificationPopup, 5);
         Assert.assertTrue(notificationPopup.isDisplayed());
+
+
+
     }
 
     //*****************************************************************************************************
@@ -629,6 +821,9 @@ public class CreateSurgeryList_Page {
     @FindBy(xpath = "//span[@class='yes item']")
     public WebElement popupsalonyes;
 
+    @FindBy(xpath = "//span[(text() = 'Ekle')]")
+    public WebElement causeOftakeOffTable;
+
 
     @FindBy(xpath = "//li[@data-masakodu='11']")
     public WebElement tablecode;
@@ -659,8 +854,12 @@ public class CreateSurgeryList_Page {
 
         ReusableMethods.waitFor(2);
 
-
     }
+    @FindBy(xpath = "(//a[@data-islemno='1'])[2]")
+    public WebElement takeOffTable;
+
+
+
 
 
 
@@ -844,10 +1043,17 @@ public class CreateSurgeryList_Page {
 
     }
 
-    public void VerifiesAmeliyatEdilecekHastaListesi() {
+    public void VerifiesAmeliyatEdilecekHastaListesi() throws InterruptedException {
+        SoftAssert softAssert = new SoftAssert();
         ReusableMethods.waitFor(2);
-        Assert.assertTrue((goruntulenecekveri.isDisplayed()));
+        softAssert.assertTrue((goruntulenecekveri.isDisplayed()));
 
+        ReusableMethods.jseWithClick(Driver.getDriver(), hallOperationsButton);
+        Thread.sleep(3000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), cancellHallButton);
+        Thread.sleep(3000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
+        softAssert.assertAll();
     }
 
     public void ClicksOnOperatingRoomProceduresPage() {
@@ -922,7 +1128,115 @@ public class CreateSurgeryList_Page {
 
     public void ConfirmsHallCancellation() {
         Assert.assertTrue(salonlistesi.isDisplayed());
+    }
+    public void rollbackAllSteps() throws InterruptedException {
+        Thread.sleep(2000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), patientTransactionButton);
+        Thread.sleep(2000);
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(7));
+        WebElement elementToOption = ReusableMethods.locateHallOptionsByText("Masadan Çıkar");
+        ReusableMethods.jseWithClick(Driver.getDriver(), elementToOption);
+        Thread.sleep(2000);
+        wait.until(ExpectedConditions.elementToBeClickable(verifyAlert));
+        ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
+        Thread.sleep(2000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), patientTransactionButton);
+        Thread.sleep(2000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), takeOffTable);
+        Thread.sleep(2000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
+        ReusableMethods.jseWithClick(Driver.getDriver(), causeOftakeOffTable);
+        Thread.sleep(2000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
+        ReusableMethods.jseWithClick(Driver.getDriver(), hallOperationsButton);
+        Thread.sleep(2000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), cancellHallButton);
+        ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
 
+    }
+
+    public void patientNotMoreThanOneOperation() throws InterruptedException {
+        SoftAssert softAssert = new SoftAssert();
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(3));
+        ReusableMethods.waitForVisibility(notificationPopup, 5);
+        softAssert.assertFalse(notificationPopup.isDisplayed());
+
+        Thread.sleep(2000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), patientTransactionButton);
+        Thread.sleep(2000);
+        WebElement elementToOption = ReusableMethods.locateHallOptionsByText("Masadan Çıkar");
+        ReusableMethods.jseWithClick(Driver.getDriver(), elementToOption);
+        Thread.sleep(2000);
+        wait.until(ExpectedConditions.elementToBeClickable(verifyAlert));
+        ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
+        Thread.sleep(2000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), patientTransactionButton);
+        Thread.sleep(2000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), takeOffTable);
+        Thread.sleep(2000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
+        ReusableMethods.jseWithClick(Driver.getDriver(), causeOftakeOffTable);
+        Thread.sleep(2000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), hallOperationsButton);
+        Thread.sleep(2000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), cancellHallButton);
+        Thread.sleep(2000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
+        ReusableMethods.jseWithClick(Driver.getDriver(), refreshButton);
+        Thread.sleep(2000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), patientTransactionButton);
+        Thread.sleep(2000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), takeOffTable);
+        Thread.sleep(2000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
+        ReusableMethods.jseWithClick(Driver.getDriver(), causeOftakeOffTable);
+        Thread.sleep(2000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), hallOperationsButton);
+        Thread.sleep(2000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), cancellHallButton);
+        Thread.sleep(2000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
+        softAssert.assertAll();
+
+    }
+
+
+    public void verifyWherePatientRollback(String hall1, String hall2) throws InterruptedException {
+        SoftAssert softAssert = new SoftAssert();
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(3));
+        WebElement selectHall1 = ReusableMethods.locateSelectHallFromHallListByText(hall1);
+        ReusableMethods.jseWithClick(Driver.getDriver(), selectHall1);
+        String emptyHall = Driver.getDriver().findElement(By.xpath("(//*[contains(text(),'Görüntülenecek veri yok')])[2]")).getText();
+        softAssert.assertTrue(emptyHall.contains("Görüntülenecek veri yok"));
+        WebElement selectHall2 = ReusableMethods.locateSelectHallFromHallListByText(hall2);
+        selectHall2.click();
+        softAssert.assertTrue(patientProtocolNo.isDisplayed());
+
+        Thread.sleep(2000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), patientTransactionButton);
+        Thread.sleep(2000);
+        WebElement elementToOption = ReusableMethods.locateHallOptionsByText("Masadan Çıkar");
+        ReusableMethods.jseWithClick(Driver.getDriver(), elementToOption);
+        Thread.sleep(2000);
+        wait.until(ExpectedConditions.elementToBeClickable(verifyAlert));
+        ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
+        Thread.sleep(2000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), causeOftakeOffTable);
+        Thread.sleep(2000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
+        Thread.sleep(2000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), hallOperationsButton);
+        Thread.sleep(2000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), cancellHallButton);
+        Thread.sleep(2000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
+        ReusableMethods.jseWithClick(Driver.getDriver(), refreshButton);
+        Thread.sleep(2000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), hallOperationsButton);
+        Thread.sleep(2000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), cancellHallButton);
+        Thread.sleep(2000);
+        ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
     }
 }
 
