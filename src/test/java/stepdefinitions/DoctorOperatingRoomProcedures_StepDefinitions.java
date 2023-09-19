@@ -4,7 +4,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import pages.DoctorOperatingRoomProcedures_Page;
-import utilities.Driver;
+import utilities.Driver;//
 
 
 public class DoctorOperatingRoomProcedures_StepDefinitions {
@@ -186,25 +186,12 @@ public class DoctorOperatingRoomProcedures_StepDefinitions {
 
     }
 
-    @Then("Verifies that the Anesthesia surgery team is deleted")
-    public void verifiesThatTheAnesthesiaSurgeryTeamIsDeleted() {
-
-    }
-
-    @And("User enters the surgery date")
-    public void userEntersTheSurgeryDate() {
-
-
-    }
 
     @And("User clicks the start session")
     public void userClicksTheStartSession() {
         dorp.clickTheStartSession();
     }
 
-    @Then("Verifies that the warning messeage")
-    public void verifiesThatTheWarningMesseage() {
-    }
 
     @Then("Verifies that the warning messeage of You must choose the responsible person")
     public void verifiesThatTheWarningMesseageOfYouMustChooseTheResponsiblePerson() {
@@ -251,10 +238,6 @@ public class DoctorOperatingRoomProcedures_StepDefinitions {
         dorp.verifieThatThePatientSServiceIsDisplayed();
     }
 
-    @Then("User displays the message of {string}")
-    public void userDisplaysTheMessageOf(String arg0) {
-        dorp.displayTheMessageOf(arg0);
-    }
 
     @And("Verifies that the refresh button is working by viewing the patients")
     public void verifiesThatTheRefreshButtonIsWorkingByViewingThePatients() {
@@ -298,11 +281,6 @@ public class DoctorOperatingRoomProcedures_StepDefinitions {
         dorp.clicksOnTheTrashIconInTheSurgicalTeamSection();
     }
 
-    @And("User clicks the trash icon for selected doctor")
-    public void userClicksTheTrashIconForSelectedDoctor() {
-        dorp.clicksTheTrashIconForSelectedDoctor();
-    }
-
     @And("User clean the page")
     public void userCleanThePage() {
         dorp.cleanThePage();
@@ -326,7 +304,7 @@ public class DoctorOperatingRoomProcedures_StepDefinitions {
 
     @Then("Verifys that the message Goruntulenecek veri yok is not displayed")
     public void verifysThatTheMessageGoruntulenecekVeriYokIsNotDisplayed() {
-        dorp.verifysThatTheMessageGörüntülenecekVeriYokIsNotDisplayed();
+        dorp.verifysThatTheMessageGoruntulenecekVeriYokIsNotDisplayed();
     }
 
 
@@ -355,9 +333,125 @@ public class DoctorOperatingRoomProcedures_StepDefinitions {
         dorp.selectsTheNewDoctor();
     }
 
-    @And("User clicks select and close button for new doktor")
-    public void userClicksSelectAndCloseButtonForNewDoktor() {
-        dorp.clicksSelectAndCloseButtonForNewDoktor();
+
+    @And("User clicks the add patient button to the list on doctor page")
+    public void userClicksTheAddPatientButtonToTheListOnDoctorPage() {
+        dorp.clicksTheAddPatientButtonToTheListOnDoctorPage();
+    }
+
+    @And("User enters the protocol No")
+    public void userEntersTheProtocolNo() {
+        dorp.entersTheProtocolNo();
+    }
+
+    @And("User clicks the query button")
+    public void userClicksTheQueryButton() {
+        dorp.clicksTheQueryButton();
+    }
+
+    @And("User chooses the service")
+    public void userChoosesTheService() {
+        dorp.choosesTheService();
+    }
+
+    @And("User chooses the saloon")
+    public void userChoosesTheSaloon() {
+        dorp.choosesTheSaloon();
+    }
+
+    @And("User clicks the add patient button to the list")
+    public void userClicksTheAddPatientButtonToTheList() {
+        dorp.clicksTheAddPatientButtonToTheList();
+    }
+
+    @And("User verifies the patient can be added")
+    public void userVerifiesThePatientCanBeAdded() {
+        dorp.verifiesThePatientCanBeAdded();
+    }
+
+
+    @And("User enters the claim date {string} on patient List Page")
+    public void userEntersTheClaimDateOnPatientListPage(String date) {
+        dorp.EntersTheClaimDateOnPatientListPage(date);
+    }
+
+
+    @Then("User displays the message of Goruntulenecek veri yok")
+    public void userDisplaysTheMessageOfGoruntulenecekVeriYok() {
+        dorp.displayTheMessageOf();
+    }
+
+    @And("User clicks the settigs of patient")
+    public void userClicksTheSettigsOfPatient() {
+        dorp.clicksTheSettigsOfPatient();
+    }
+
+    @And("User clicks the take the patient off the table button")
+    public void userClicksTheTakeThePatientOffTheTableButton() {
+        dorp.clicksTheTakeThePatientOffTheTableButton();
+    }
+
+    @And("User clicks add button")
+    public void userClicksAddButton() {
+        dorp.clicksAddButton();
+    }
+
+    @And("User click the salon operations button")
+    public void userClickTheSalonOperationsButton() {
+        dorp.clickTheSalonOperationsButton();
+    }
+
+    @And("User clicks the cancel saloon button")
+    public void userClicksTheCancelSaloonButton() {
+        dorp.clicksTheCancelSaloonButton();
+    }
+
+    @And("Verify the patient is deleted")
+    public void verifyThePatientIsDeleted() {
+        dorp.verifyThePatientIsDeleted();
+    }
+
+    @And("User enters date {string}")
+    public void userEntersDate(String date) {
+        dorp.EntersDate(date);
+    }
+
+    @And("User clicks the refresh button on page")
+    public void userClicksTheRefreshButtonOnPage() {
+        dorp.clicksTheRefreshButtonOnPage();
+    }
+
+    @And("User selects hall name")
+    public void userSelectsHallName() {
+        dorp.selectsHallName();
+    }
+
+    @And("User clicks the hall")
+    public void userClicksTheHall() {
+        dorp.clicksTheHall();
+    }
+
+    @And("User clicks the patient")
+    public void userClicksThePatient() {
+        dorp.clicksThePatient();
+    }
+
+    @And("User clicks the hall procedures")
+    public void userClicksTheHallProcedures() {
+        dorp.clicksTheHallProcedures();
+    }
+
+
+    @And("Verifys the patient is added")
+    public void verifysThePatientIsAdded() {
+        dorp.verifysThePatientIsAdded();
+    }
+
+    @And("User clicks the enter operation room button")
+    public void userClicksTheEnterOperationRoomButton() {
+        dorp.clicksTheEnterOperationRoomButton();
     }
 }
+
+
 
