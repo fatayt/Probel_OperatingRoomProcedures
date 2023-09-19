@@ -3,11 +3,9 @@ package stepdefinitions;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
-import org.openqa.selenium.interactions.Actions;
 import pages.BasePage;
 import pages.Login_Page;
 import utilities.ConfigReader;
-import utilities.Driver;
 
 public class Login_StepDefinitions {
 

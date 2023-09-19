@@ -301,7 +301,8 @@ public class SurgeryAppointment_Page {
 
     public void selectTheDate(String arg0) {
         //ReusableMethods.waitFor(2);
-        calendar_apptPopUp.click();
+ReusableMethods.jseWithClick(Driver.getDriver(),calendar_apptPopUp);
+//        calendar_apptPopUp.click();
         calendar_apptPopUp.sendKeys(arg0 + Keys.ENTER);
         ReusableMethods.waitFor(1);
 
@@ -707,6 +708,7 @@ public class SurgeryAppointment_Page {
 
         selectTheServiceCode(code);
         clickNewAppointmentButton();
+        ReusableMethods.waitFor(2);
         selectTheDate(date);
         enterTheProtocolNumber(protocol);
         selectTheSurgeryCode(surgery);
