@@ -149,6 +149,9 @@ public class OperatingRoomProcedures_Page {
     @FindBy(xpath = "/html/body/div[1]/div[4]/section/div[4]/div[1]/div[2]/a[4]")
     public WebElement POstopButton;
 
+    @FindBy(xpath = "/html/body/div[1]/div[4]/section/div[4]/div[1]/div[2]/a[4]")
+    public WebElement homePagePOstopButton;
+
     @FindBy(xpath = "//*[@id=\"dxGridAmeliyatPostop_DXFREditorcol0_I\"]")
     public WebElement POstopProtokolNoButton;
 
