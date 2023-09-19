@@ -3,11 +3,12 @@ package pages;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
 import utilities.ReusableMethods;
+
 
 
 public class DoctorOperatingRoomProcedures_Page {
@@ -127,22 +128,16 @@ public class DoctorOperatingRoomProcedures_Page {
     @FindBy(xpath = "//td[@id='dxGridAmeliyatEkibiAnestezi_tcheader4']/a[1]")
     WebElement addButtonOnAnesthesiaTeam;
 
-    @FindBy(id = "600")
+    @FindBy(id = "531")
     WebElement addAnesthDoctor;
-
-    @FindBy(xpath = "//td[text()='600']")
-    WebElement anesthesiaDoctor;
 
     @FindBy(xpath = "(//a[contains(@class,'inline text_btn')])[3]")
     WebElement startSession;
 
-    @FindBy(xpath = "//p[text()='Ekip sorumlusu seçmediniz. İşleminiz durduruldu.']")
-    WebElement responseMessage;
-
     @FindBy(xpath = "//span[text()='Tamam']")
     WebElement okeyButton;
 
-    @FindBy(xpath = "//label[@for='cbEkipSorumlu_61429']")
+    @FindBy(xpath = "//label[@for='cbEkipSorumlu_62113']")
     WebElement responseDoctor;
 
     @FindBy(xpath = "//p[text()='Sorumlu anestezi doktoru seçmediniz. İşleminiz durduruldu.']")
@@ -175,7 +170,7 @@ public class DoctorOperatingRoomProcedures_Page {
     @FindBy(xpath = "//tr[@id='dxGridAmeliyatPostop_DXDataRow0']//td[1]")
     WebElement protocolNo;
 
-    @FindBy(xpath = "//td[text()='ÇOCUK SAĞ. VE CER.SERVİS']")
+    @FindBy(xpath = "//td[text()='ÇOCUK CERRAHİ SERVİSİ']")
     WebElement postopPatient;
 
     @FindBy(xpath = "//a[contains(text(),'Hastayı Servise Gönder')]")
@@ -189,9 +184,6 @@ public class DoctorOperatingRoomProcedures_Page {
 
     @FindBy(xpath = "//td[@id='dxGridAmeliyatEkibi_tccell1_5']//a[1]")
     WebElement trashIconOnSurgical;
-
-    @FindBy(xpath = "//div[text()='Iptal']")
-    WebElement cancel;
 
     @FindBy(id = "AMELIYAT_TANI")
     WebElement cleanArea;
@@ -220,6 +212,69 @@ public class DoctorOperatingRoomProcedures_Page {
     @FindBy(xpath = "//div[text()='Servise Gönderildi']")
     WebElement sendedServiseMessage;
 
+
+    @FindBy(xpath = "//a[contains(text(),'Listeye Hasta Ekle')]")
+    WebElement addPatientToList;
+
+    @FindBy(id = "input_ayaktahasta_protokol")
+    WebElement protocolNoOnAddPatientList;
+
+    @FindBy(xpath = "//a[contains(text(),'Sorgula')]")
+    WebElement queryButton;
+
+    @FindBy(xpath = "//input[@name='TB_HST_SERVIS_KODU']")
+    WebElement serviceSearchButton;
+
+    @FindBy(xpath = "//input[@name='TB_MASA_KODU']")
+    WebElement saloonSearchButton;
+
+    @FindBy(xpath = "//a[contains(text(),'Hasta Listeye Ekle')]")
+    WebElement addToTheList;
+
+    @FindBy(xpath = "//input[@id='AMELIYAT_LST_TARIH']")
+    WebElement claimDateListDateSearchBox;
+
+    @FindBy(xpath = "//td[text()='6154875']")
+    WebElement verifysTheAddedPatient;
+
+    @FindBy(xpath = "//span[@title='İşlemler']")
+    WebElement settingsPatient;
+
+    @FindBy(id = "PopupSaveButton_0")
+    WebElement add;
+
+    @FindBy(xpath = "//a[contains(text(),'Salon İşlemleri')]")
+    WebElement saloonProcedures;
+
+    @FindBy(xpath = "//a[contains(text(),'Salonu İptal Et')]")
+    WebElement cancelTheSaloon;
+
+    @FindBy(xpath = "//*[@id=\"AMELIYAT_LST_TARIH\"]")
+    WebElement requestDateOf;
+
+    @FindBy(xpath = "//a[contains(text(),'Yenile')]")
+    WebElement refreshButtonOnPage;
+
+    @FindBy(xpath = "//td[text()='Salon_7']")
+    WebElement hall;
+
+    @FindBy(id = "dxGridAmeliyatHastaListesi_tccell0_4")
+    WebElement hallPatient;
+
+    @FindBy(xpath = "//a[contains(text(),'Salon İşlemleri')]")
+    WebElement hallProcedures;
+
+    @FindBy(xpath = "//a[contains(text(),'Salon Onayla')]")
+    WebElement comfirmHall;
+
+    @FindBy(xpath = "//div[@title='SAXDTP MERGKEI']")
+    WebElement saxodtpPatient;
+
+    @FindBy(xpath = "//a[contains(text(),'Hasta Ameliyathaneye Giriş Yapıldı')]")
+    WebElement entrytOprRoom;
+
+    @FindBy(xpath = "//td[@id='AMELIYAT_SALON_LISTESI_col1']")
+    WebElement onay;
 
     public void clickTheCloseButtom() {
         ReusableMethods.jseWithClick(Driver.getDriver(), closeButton);
@@ -252,7 +307,7 @@ public class DoctorOperatingRoomProcedures_Page {
 
     public void clickOnPatientInformationNameSurname() {
         ReusableMethods.waitFor(5);
-        patientInformation.click();
+        ReusableMethods.jseWithClick(Driver.getDriver(), patientInformation);
     }
 
     public void clickAddSurgeryButton() {
@@ -487,7 +542,7 @@ public class DoctorOperatingRoomProcedures_Page {
         Assert.assertEquals("1002", serviceCode);
     }
 
-    public void displayTheMessageOf(String arg0) {
+    public void displayTheMessageOf() {
         ReusableMethods.waitForVisibility(postopScrrenMessage, 3);
         Assert.assertTrue(postopScrrenMessage.isDisplayed());
     }
@@ -530,11 +585,6 @@ public class DoctorOperatingRoomProcedures_Page {
         ReusableMethods.jseWithClick(Driver.getDriver(), trashIconOnSurgical);
     }
 
-    public void clicksTheTrashIconForSelectedDoctor() {
-
-    }
-
-
     public void clicksRefreshButtonOnDoctorOperatingRoomProceduresPage() {
         ReusableMethods.waitForVisibility(refreshButtonOnMainPage, 3);
         ReusableMethods.jseWithClick(Driver.getDriver(), refreshButtonOnMainPage);
@@ -545,7 +595,7 @@ public class DoctorOperatingRoomProcedures_Page {
         Assert.assertFalse(verifyAnesthDoctor.isDisplayed());
     }
 
-    public void verifysThatTheMessageGörüntülenecekVeriYokIsNotDisplayed() {
+    public void verifysThatTheMessageGoruntulenecekVeriYokIsNotDisplayed() {
         ReusableMethods.waitForVisibility(surgeryTeamMessage, 3);
         String message = surgeryTeamMessage.getText();
         System.out.println(message);
@@ -565,17 +615,17 @@ public class DoctorOperatingRoomProcedures_Page {
     }
 
     public void verifiesThatTheAnesthesiaDoctorIsAdded() {
-        ReusableMethods.waitForVisibility(sameDoctorAddedMessage,3);
+        ReusableMethods.waitForVisibility(sameDoctorAddedMessage, 3);
         Assert.assertTrue(sameDoctorAddedMessage.isDisplayed());
     }
 
     public void clicksTheSendedServiceRadioButton() {
-        ReusableMethods.waitForVisibility(sendToServisRadoButton,3);
-        ReusableMethods.jseWithClick(Driver.getDriver(),sendToServisRadoButton);
+        ReusableMethods.waitForVisibility(sendToServisRadoButton, 3);
+        ReusableMethods.jseWithClick(Driver.getDriver(), sendToServisRadoButton);
     }
 
     public void verifiesThatTheSituation() {
-        ReusableMethods.waitForVisibility(sendedServiseMessage,3);
+        ReusableMethods.waitForVisibility(sendedServiseMessage, 3);
         Assert.assertTrue(sendedServiseMessage.isDisplayed());
     }
 
@@ -584,7 +634,141 @@ public class DoctorOperatingRoomProcedures_Page {
         newDoctor.click();
     }
 
-    public void clicksSelectAndCloseButtonForNewDoktor() {
+
+    public void clicksTheAddPatientButtonToTheListOnDoctorPage() {
+        ReusableMethods.waitForVisibility(addPatientToList, 3);
+        ReusableMethods.jseWithClick(Driver.getDriver(), addPatientToList);
+    }
+
+    public void entersTheProtocolNo() {
+        ReusableMethods.waitForVisibility(protocolNoOnAddPatientList, 3);
+        ReusableMethods.sendKeysWithJS(Driver.getDriver(), protocolNoOnAddPatientList, "6154875");
+    }
+
+    public void clicksTheQueryButton() {
+        ReusableMethods.waitForVisibility(queryButton, 3);
+        ReusableMethods.jseWithClick(Driver.getDriver(), queryButton);
+    }
+
+    public void choosesTheService() {
+        ReusableMethods.waitForVisibility(serviceSearchButton, 3);
+        ReusableMethods.sendKeysWithJS(Driver.getDriver(), serviceSearchButton, "2007");
+    }
+
+    public void choosesTheSaloon() {
+        ReusableMethods.waitForVisibility(saloonSearchButton, 3);
+        ReusableMethods.sendKeysWithJS(Driver.getDriver(), saloonSearchButton, "12");
+    }
+
+    public void clicksTheAddPatientButtonToTheList() {
+        ReusableMethods.waitForVisibility(addToTheList, 3);
+        ReusableMethods.jseWithClick(Driver.getDriver(), addToTheList);
+    }
+
+    public void verifiesThePatientCanBeAdded() {
+        ReusableMethods.waitForVisibility(verifysTheAddedPatient, 3);
+        String data = verifysTheAddedPatient.getText();
+        System.out.println(data);
+        Assert.assertEquals("6154875", data);
+    }
+
+    public void EntersTheClaimDateOnPatientListPage(String date) {
+        ReusableMethods.waitFor(7);
+        ReusableMethods.waitForVisibility(claimDateListDateSearchBox, 3);
+        claimDateListDateSearchBox.click();
+        ReusableMethods.waitFor(3);
+        claimDateListDateSearchBox.sendKeys(date + Keys.ENTER);
+        ReusableMethods.waitFor(3);
+        claimDateListDateSearchBox.sendKeys(Keys.ENTER);
 
     }
-}
+
+    public void clicksTheSettigsOfPatient() {
+        ReusableMethods.waitForVisibility(settingsPatient, 3);
+        ReusableMethods.jseWithClick(Driver.getDriver(), settingsPatient);
+        ReusableMethods.waitFor(6);
+    }
+
+    @FindBy(xpath = "(//a[@data-islemno='1'])[2]")
+    WebElement list;
+
+    public void clicksTheTakeThePatientOffTheTableButton() {
+        ReusableMethods.waitForVisibility(list, 3);
+        ReusableMethods.jseWithClick(Driver.getDriver(), list);
+    }
+    // ReusableMethods.waitForVisibility(sendFromTable,3);
+    // ReusableMethods.jseWithClick(Driver.getDriver(),sendFromTable);
+
+
+    public void clicksAddButton() {
+        ReusableMethods.waitForVisibility(add, 3);
+        ReusableMethods.jseWithClick(Driver.getDriver(), add);
+    }
+
+    public void clickTheSalonOperationsButton() {
+        ReusableMethods.waitForVisibility(saloonProcedures, 3);
+        ReusableMethods.jseWithClick(Driver.getDriver(), saloonProcedures);
+    }
+
+    public void clicksTheCancelSaloonButton() {
+        ReusableMethods.waitForVisibility(cancelTheSaloon, 3);
+        ReusableMethods.jseWithClick(Driver.getDriver(), cancelTheSaloon);
+    }
+
+    public void verifyThePatientIsDeleted() {
+        ReusableMethods.waitForVisibility(continueYesButton, 3);
+        ReusableMethods.jseWithClick(Driver.getDriver(), continueYesButton);
+    }
+
+    public void EntersDate(String date) {
+        ReusableMethods.waitFor(3);
+        ReusableMethods.waitForVisibility(requestDateOf, 3);
+        ReusableMethods.sendKeysWithJS(Driver.getDriver(), requestDateOf, date);
+        ReusableMethods.waitFor(5);
+    }
+
+
+    public void clicksTheRefreshButtonOnPage() {
+        ReusableMethods.waitFor(5);
+        ReusableMethods.waitForVisibility(refreshButtonOnPage, 3);
+        ReusableMethods.jseWithClick(Driver.getDriver(), refreshButtonOnPage);
+    }
+
+    public void selectsHallName() {
+        ReusableMethods.waitForVisibility(onay, 3);
+        ReusableMethods.jseWithClick(Driver.getDriver(), onay);
+    }
+
+    public void clicksTheHall() {
+        ReusableMethods.waitForVisibility(hall, 3);
+        ReusableMethods.jseWithClick(Driver.getDriver(), hall);
+    }
+
+
+    public void clicksThePatient() {
+        ReusableMethods.waitForVisibility(hallPatient, 3);
+        ReusableMethods.jseWithClick(Driver.getDriver(), hallPatient);
+    }
+
+    public void clicksTheHallProcedures() {
+        ReusableMethods.waitForVisibility(hallProcedures, 3);
+        ReusableMethods.jseWithClick(Driver.getDriver(), hallProcedures);
+        ReusableMethods.jseWithClick(Driver.getDriver(), comfirmHall);
+        ReusableMethods.waitFor(5);
+    }
+
+
+    public void verifysThePatientIsAdded() {
+        ReusableMethods.waitForVisibility(saxodtpPatient, 3);
+        String text = saxodtpPatient.getText();
+        Assert.assertEquals("SAXDTP MERGKEI", text);
+    }
+
+    public void clicksTheEnterOperationRoomButton() {
+        ReusableMethods.waitForVisibility(hallPatient, 3);
+        ReusableMethods.jseWithClick(Driver.getDriver(), hallPatient);
+        ReusableMethods.scrollPageDownWithJS(Driver.getDriver());
+        ReusableMethods.waitForVisibility(entrytOprRoom, 3);
+        ReusableMethods.jseWithClick(Driver.getDriver(), entrytOprRoom);
+
+    }}
