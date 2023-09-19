@@ -45,7 +45,7 @@ public class OperatingRoomProcedures_StepDefinitions {
 
     @Given("User selects hall")
     public void user_selects_hall() throws InterruptedException {
-        Thread.sleep(1000);
+        Thread.sleep(2000);
         operatingRoomProcedures_page_.selectHallName.click();
         Thread.sleep(1000);
 
@@ -441,6 +441,24 @@ public class OperatingRoomProcedures_StepDefinitions {
     @Given("User selects patient ilyas")
     public void userSelectsPatientIlyas() {
         operatingRoomProcedures_page_.selectilyas.click();
+    }
+
+    @Given("User clicks the POstop button")
+    public void user_clicks_the_p_ostop_button() throws InterruptedException {
+        operatingRoomProcedures_page_.POstopButton.click();
+        Thread.sleep(1000);
+    }
+    @Given("User clicks the home page POstop button")
+    public void user_clicks_the_home_page_p_ostop_button() throws InterruptedException {
+        Thread.sleep(1000);
+        operatingRoomProcedures_page_.homePagePOstopButton.click();
+        Thread.sleep(1000);
+    }
+    @Given("User clicks the home page Postop button")
+    public void user_clicks_the_home_page_postop_button() throws InterruptedException {
+        Thread.sleep(1000);
+        operatingRoomProcedures_page_.homePagePOstopButton.click();
+        Thread.sleep(1000);
     }
 }
 

@@ -112,20 +112,20 @@ Feature: Operating Room Procedures
  #And The user clicks on the hall of their choice
 # And User verifies that the patient has been added to the list
 
-
-
-  @TR0036  @Smoke
+  @TR0036   @Smoke
   Scenario: US_004 User can send the patient to the ward
     And User enters date
     And User clicks the refresh button
-    And User clicks the POstop button
+    And User clicks the home page Postop button
     And User enter data POstop page
     And User click the refresh button POstop page
     And The user selects the patient they want to send to the service
     And User clicks on Send patient to ward button
-    And user finds patient with protocol number
-   # And User selects patient
+    #And user finds patient with protocol number
+  #  And User selects patient
  # And  User verifies that the patient has been sent to the service
+
+
 
 
   @TR0034 @Bug
@@ -143,7 +143,6 @@ Feature: Operating Room Procedures
     And the user selects the salon popup add list page
   #  And The user enters the protocol number of the patient they want to add1
     And User verifies that the patient has been added to the list
-
 
 
   @TR0035   @Bug
