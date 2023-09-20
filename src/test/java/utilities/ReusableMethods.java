@@ -375,6 +375,10 @@ public class ReusableMethods {
         return Driver.getDriver().findElement(By.xpath("//table[@id='SALONDEG_DXMainTable']//td[contains(.,'" + text + "')]"));
     }
 
+    public static WebElement locateSelectChangeHallByText(String text) {
+        return Driver.getDriver().findElement(By.xpath("//div[@class='content blckAcilirMenu']//a[contains(.,'" + text + "')]"));
+    }
+
     public static void clickCurrentPage(int p) throws InterruptedException {
         String pageNumberCountText = Integer.toString(p);
         WebElement pageNumberNext = Driver.getDriver().findElement(By.xpath("//div[@id='lstServis_DXPagerBottom']//*[contains(@class,'dxp-num')][text()='" + pageNumberCountText + "']"));
