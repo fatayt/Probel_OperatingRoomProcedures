@@ -492,5 +492,10 @@ public class SurgeryAppointment_StepDefinitions {
     public void clickOnTheCancelAppointmentButton() {
         sap.clickOnTheCancelAppointmentButton();
     }
+
+    @And("delete if")
+    public void deleteIf() {
+        sap.deleteIf();
+    }
 }
 
