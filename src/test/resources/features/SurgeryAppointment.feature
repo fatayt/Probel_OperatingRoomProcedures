@@ -7,6 +7,22 @@ Feature: Surgery Appointment
     Given The user logs in
     And The user goes Surgery Appointment page
 
+  #@deleteCanceledAppt
+  #Scenario: Delete canceled appt
+  #  And select the service code "163"
+  #  And select the start date "23.10.2023"
+  #  And select the end date "23.10.2023"
+  #  And click refresh button
+  #  And enter the protocol number "15388830"
+  #  And delete if
+  #  And click patient settings button
+  #  And click the delete appointment button
+  #  Then click yes button
+
+
+
+
+
   @Smoke @TC0057
   Scenario: TC0057 - User may postpone patient appointment
     When create a new appointment

@@ -957,6 +957,18 @@ ReusableMethods.jseWithClick(Driver.getDriver(),calendar_apptPopUp);
         ReusableMethods.waitFor(1);
         ReusableMethods.jseWithClick(Driver.getDriver(),cancelAppointment_button);
     }
+
+    public void deleteIf() {
+        WebElement ptn = driver.findElement(By.xpath("(//td[text()='15388830'])[2]"));
+
+        while (ptn.isDisplayed()){
+        try {
+                clickPatientSettingsButton();
+                click_the_delete_appointment_button();
+                clickYesButton();
+        } catch (NoSuchElementException e) {
+        }
+    }}
 }
 
 
