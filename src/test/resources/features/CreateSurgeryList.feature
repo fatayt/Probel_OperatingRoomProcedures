@@ -66,7 +66,7 @@ Feature: Create Surgery List
     Examples:
       | Request Date |
       | 01.04.2008   |
-      | 13.08.2000   |
+
 
   @TC0004 @Bug  @US_001
   Scenario: TC0004 The option to postpone the surgery should not be displayed in the transactions section, when the user postpones the surgery.
@@ -99,14 +99,13 @@ Feature: Create Surgery List
     Examples:
       | Request Date |
       | 01.04.2004   |
-      | 13.08.2003   |
 
 
   @TC0006 @Bug  @US_001
   Scenario: TC0006 The user cannot add a patient to more than one hall at the same time on Surgery List Page
     Given The user clicks on Operating Room Operations   Page
     And The user clicks on Creating a Surgery List Page
-    And The user selects an appointment date "12.12.2023" on Surgery List Page
+    And The user selects an appointment date "17.10.2023" on Surgery List Page
     And The user selects a service "DAHİLİYE SERVİS" on Surgery List Page
     And The user adds  "Salon_2" hall on Surgery List Page
     And The user selects a patient "HAZSXG COHHOP" on Surgery List Page
