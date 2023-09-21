@@ -701,8 +701,8 @@ public class CreateSurgeryList_Page {
 
     //*****************************************************************************************************
 
-    @FindBy(xpath = "//a[@data-lookupvalue='1006']")
-    public WebElement beyin;
+    @FindBy(xpath = "//td[text()='GENEL CERRAHİ SERVİS']")
+    public WebElement GenelCerrahi;
 
     @FindBy(xpath = "//a[@data-search-menu='AMELİYAT RANDEVU']")
     public WebElement Surgeryappointment;
@@ -745,7 +745,7 @@ public class CreateSurgeryList_Page {
 
     @FindBy(xpath = "(//input[contains(@class,'inpt inpt')])[1]")
     public WebElement SurgeryAppointmentDate;
-    @FindBy(xpath = "(//tr[@data-randevuid='27951']//td)[3]")
+    @FindBy(xpath = "(//tr[@data-randevuid='28288']//td)[3]")
     public WebElement AmeliyatRandevuhasta;
     @FindBy(xpath = "(//input[contains(@class,'inpt inpt')])[2]")
     public WebElement SurgeryAppointmentDate2;
@@ -889,11 +889,11 @@ public class CreateSurgeryList_Page {
 
     public void DateFromAppointmentPatientsSection() {
         ReusableMethods.jseWithClick(Driver.getDriver(), SurgeryAppointmentDate);
-        ReusableMethods.sendKeysWithJS(Driver.getDriver(), SurgeryAppointmentDate, "19.09.2023");
+        ReusableMethods.sendKeysWithJS(Driver.getDriver(), SurgeryAppointmentDate, "30.11.2023");
         ReusableMethods.waitFor(2);
 
         ReusableMethods.jseWithClick(Driver.getDriver(), SurgeryAppointmentDate2);
-        ReusableMethods.sendKeysWithJS(Driver.getDriver(), SurgeryAppointmentDate2, "19.09.2023");
+        ReusableMethods.sendKeysWithJS(Driver.getDriver(), SurgeryAppointmentDate2, "30.11.2023");
 
 
     }
@@ -901,7 +901,7 @@ public class CreateSurgeryList_Page {
 
     public void SelectsService() {
         ReusableMethods.jseWithClick(Driver.getDriver(), serviceBox);
-        ReusableMethods.jseWithClick(Driver.getDriver(), beyin);
+        ReusableMethods.jseWithClick(Driver.getDriver(),GenelCerrahi);
         ReusableMethods.waitFor(3);
 
 
@@ -980,7 +980,7 @@ public class CreateSurgeryList_Page {
     }
 
     public void ClicksOperationsButton() {
-        ReusableMethods.jseWithClick(Driver.getDriver(), islemler);
+        ReusableMethods.jseWithClick(Driver.getDriver(), patientTransactionButton);
     }
 
     public void ClicksIslemlerMasadanCikar() {
@@ -1187,6 +1187,13 @@ public class CreateSurgeryList_Page {
         ReusableMethods.jseWithClick(Driver.getDriver(), cancellHallButton);
         ReusableMethods.waitFor(2);
         ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
+    }
+
+    public void surgeryListShouldBeCreatedOutpatients() {
+        ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
+        ReusableMethods.waitForVisibility(notificationPopup, 5);
+        Assert.assertTrue(notificationPopup.isDisplayed());
+
     }
 }
 
