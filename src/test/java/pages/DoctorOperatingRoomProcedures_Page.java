@@ -137,7 +137,7 @@ public class DoctorOperatingRoomProcedures_Page {
     @FindBy(xpath = "//span[text()='Tamam']")
     WebElement okeyButton;
 
-    @FindBy(xpath = "//label[@for='cbEkipSorumlu_62113']")
+    @FindBy(xpath = "//label[@for='cbEkipSorumlu_62111']")
     WebElement responseDoctor;
 
     @FindBy(xpath = "//p[text()='Sorumlu anestezi doktoru seçmediniz. İşleminiz durduruldu.']")
