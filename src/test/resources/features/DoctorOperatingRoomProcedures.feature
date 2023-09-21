@@ -218,7 +218,7 @@ Feature: Doctor Operating Room Procedures
     And   User clicks on send patient to service button
     Then  Verifies the patient's condition
 
-  @TC0055
+  @TC0055 @Smoke @US_006
   Scenario: Emergency patients can be added to the list according to their
   protocol number with the add patient button on the doctor's operating room page.
     Given User enters the claim date "26.09.2023"
