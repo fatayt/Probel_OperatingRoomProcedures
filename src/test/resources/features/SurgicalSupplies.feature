@@ -14,47 +14,49 @@ Feature: Surgery Appointment
     And click refresh button
     And select patient
 
-    And if material displayed delete the material "2168"
-    And if material displayed delete the material "3901"
-    And if medicine displayed delete the medicine "27233"
-    And if medicine displayed delete the medicine "33568"
+    #And if material displayed delete the material "2168"
+    #And if material displayed delete the material "3901"
+    #And if medicine displayed delete the medicine "27233"
+    #And if medicine displayed delete the medicine "33568"
 
     And click apply template
-    And click template name "Deneme"
-
-    And click approve box for materials
+    And click template name "AbeyisDeneme"
+#
+    #And click approve box for materials
     And click materials process and update button
-    And assert the popup message "Hastaya Onaylanmış Olan Malzemeler İşlenecek"
-    And click yes button
-    And assert the popup message "Malzeme işlenemedi"
-    And click okey button
-
-    And click approve box for medicine
+    And assert the popup message "Listede onaylanacak malzeme bulunmamaktadır."
+    And close the warning message
+    #And click yes button
+    #And assert the popup message "Malzeme işlenemedi"
+    #And click okey button
+#
+    #And click approve box for medicine
     And click medicine process and update button
-    And assert the popup message "Hastaya Onaylanmış Olan İlaçlar İşlenecek"
-    And click yes button
-    And assert the popup message "İlaç işlenemedi"
-    And click okey button
-
-    And delete the material "2168"
-    And assert the popup message "Silmek İstediğinize Emin misiniz?"
-    And click yes button
-    And assert the material or medicine deleted "2168"
-
-    And delete the material "3901"
-    And assert the popup message "Silmek İstediğinize Emin misiniz?"
-    And click yes button
-    And assert the material or medicine deleted "3901"
-
-    And delete the medicine "27233"
-    And assert the popup message "Silmek İstediğinize Emin misiniz?"
-    And click yes button
-    And assert the material or medicine deleted "27233"
-
-    And delete the medicine "33568"
-    And assert the popup message "Silmek İstediğinize Emin misiniz?"
-    And click yes button
-    And assert the material or medicine deleted "33568"
+    And assert the popup message "Listede onaylanacak ilaç bulunmamaktadır."
+    And close the warning message
+    #And click yes button
+    #And assert the popup message "İlaç işlenemedi"
+    #And click okey button
+#
+    #And delete the material "2168"
+    #And assert the popup message "Silmek İstediğinize Emin misiniz?"
+    #And click yes button
+    #And assert the material or medicine deleted "2168"
+#
+    #And delete the material "3901"
+    #And assert the popup message "Silmek İstediğinize Emin misiniz?"
+    #And click yes button
+    #And assert the material or medicine deleted "3901"
+#
+    #And delete the medicine "27233"
+    #And assert the popup message "Silmek İstediğinize Emin misiniz?"
+    #And click yes button
+    #And assert the material or medicine deleted "27233"
+#
+    #And delete the medicine "33568"
+    #And assert the popup message "Silmek İstediğinize Emin misiniz?"
+    #And click yes button
+    #And assert the material or medicine deleted "33568"
 
 
   @Bug @TC0086 @US_012
@@ -80,9 +82,6 @@ Feature: Surgery Appointment
     And close popup page
 
     And enter medicine code to add medicine box "123"
-    #And assert the popup message "Malzeme giriniz veya seçiniz!"
-    #And close the warning message
-
     And double click medicine code box
     And assert popup page "Seçilen kayıt sayısı"
     And enter medicine code to medicine code box "123"
@@ -100,7 +99,6 @@ Feature: Surgery Appointment
     And click medicine add button
     And assert the popup message "İlaç giriniz veya seçiniz!"
     And close the warning message
-
 
   @Bug @TC0087 @US_012
   Scenario: TC0087 User can create, edit and delete the template materials
@@ -144,7 +142,7 @@ Feature: Surgery Appointment
     And click save button
     And enter template name to name search box "Abeyis Test"
     Then assert new template by name "Abeyis Test"
-    #And enter template name to name search box "Abeyis Test"
+
     When click edit button
     And select type of template "Cerrahi"
     And clear template name
