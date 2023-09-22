@@ -203,7 +203,7 @@ Feature: Create Surgery List
     And User Selects Date from Appointment Patients section
     And The User clicks the refresh button
     And The user selects a service "AMELIYATHANE" on Surgery List Page
-   # And User Selects Service
+    And Check if there are any hall or patient on the table on Surgery List Page
     And User adds new hall
     And User double clicks on Patient
     And The user adds a surgery team on Surgery List Page
@@ -223,14 +223,15 @@ Feature: Create Surgery List
     And User Selects Date from Appointment Patients section
     And The User clicks the refresh button
     And The user selects a service "AMELIYATHANE" on Surgery List Page
-    And User adds new hall
-    And User double clicks on Patient
-    And User clicks operations button
-    And User clicks islemler masadan cikar
-    And User clicks uyari popup evet butonuna
-    And thr user clicks masadan cikar  ekle button tab
-    And the user clicks devam edilsinmi popup
-    And User verifies ameliyat edilecek hasta listesi
+    And Check if there are any hall or patient on the table on Surgery List Page
+   And User adds new hall
+   And User double clicks on Patient
+   And User clicks operations button
+   And User clicks islemler masadan cikar
+   And User clicks uyari popup evet butonuna
+   And thr user clicks masadan cikar  ekle button tab
+   And the user clicks devam edilsinmi popup
+   And User verifies ameliyat edilecek hasta listesi
 
 
   @TC0023  @US_002
@@ -241,6 +242,7 @@ Feature: Create Surgery List
     And User Selects Date from Appointment Patients section
     And The User clicks the refresh button
     And The user selects a service "AMELIYATHANE" on Surgery List Page
+    And Check if there are any hall or patient on the table on Surgery List Page
     And User adds new hall
     And The user clicks on Operating Room Procedures   Page
     And User clicks on the Cancel Hall button
@@ -256,6 +258,7 @@ Feature: Create Surgery List
     And User Selects Date from Appointment Patients section
     And The User clicks the refresh button
     And The user selects a service "AMELIYATHANE" on Surgery List Page
+    And Check if there are any hall or patient on the table on Surgery List Page
     And User adds new hall
     And User double clicks on Patient
     And User clicks on Hall operations
