@@ -251,7 +251,7 @@ Feature: Create Surgery List
 
 
   @TC0024  @US_002
-  Scenario: TC0024  Hall Change
+  Scenario:TC0024  Hall Change
     When User clicks on Patient transactions
     And The user clicks on Operation
     And  User clicks to create an operation list
