@@ -9,7 +9,6 @@ import pages.CreateSurgeryList_Page;
 
 import java.io.File;
 import java.io.IOException;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.time.LocalDate;
@@ -20,7 +19,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
-import java.util.function.Function;
 import java.util.regex.Pattern;
 
 public class ReusableMethods {
@@ -86,7 +84,7 @@ public class ReusableMethods {
 //   waitFor(5);  => waits for 5 second
     public static void waitFor(int sec) {
         try {
-            Thread.sleep(sec * 1000);
+            Thread.sleep(sec * 1000L);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -126,10 +124,9 @@ public class ReusableMethods {
     }
 
     public static void waitForPageToLoad(long timeOutInSeconds) {
-        ExpectedCondition<Boolean> expectation = new ExpectedCondition<Boolean>() {
-            public Boolean apply(WebDriver driver) {
-                return ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete");
-            }
+        ExpectedCondition<Boolean> expectation = driver -> {
+            assert driver != null;
+            return ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete");
         };
         try {
             System.out.println("Waiting for page to load...");
@@ -144,15 +141,12 @@ public class ReusableMethods {
     //======Fluent Wait====//
     public static WebElement fluentWait(final WebElement webElement, int timeinsec) {
 
-        FluentWait<WebDriver> wait = new FluentWait<WebDriver>(Driver.getDriver())
+        FluentWait<WebDriver> wait = new FluentWait<>(Driver.getDriver())
                 .withTimeout(Duration.ofSeconds(3))
                 .pollingEvery(Duration.ofSeconds(1));
 
-        WebElement element = wait.until(new Function<WebDriver, WebElement>() {
-            public WebElement apply(WebDriver driver) {
-                return webElement;
-            }
-        });
+        WebElement element;
+        element = wait.until(driver -> webElement);
 
         return element;
     }
@@ -196,16 +190,12 @@ public class ReusableMethods {
         }
         String regex = "^[a-zA-Z0-9_+&*-]+(?:\\\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\\\.)+[a-zA-Z]{2,7}$";
         Pattern pattern = Pattern.compile(regex);
-        if (pattern.matcher(email).matches()) {
-            return true;
-        } else {
-            return false;
-        }
+        return pattern.matcher(email).matches();
 
     }
 
     //a method calculates days between two dates
-    public static Boolean daysBetweenDates(String dateStr) throws ParseException {
+    public static Boolean daysBetweenDates(String dateStr) {
         boolean newborn = false;
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
         LocalDate localDate = LocalDate.parse(dateStr, formatter);
@@ -344,14 +334,12 @@ public class ReusableMethods {
         jse.executeScript("arguments[0].value = arguments[1]", element, text);
     }
 
-    public static long periodBetweenDates(String dateStr) throws ParseException {
+    public static long periodBetweenDates(String dateStr) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
         LocalDate localDate = LocalDate.parse(dateStr, formatter);
         LocalDate currentDate = LocalDate.now();
         Period period = localDate.until(currentDate);
-        long totalDays = period.getYears() * 365L + period.getMonths() * 30L + period.getDays();
-
-        return totalDays;
+        return period.getYears() * 365L + period.getMonths() * 30L + period.getDays();
     }
 
     public static WebElement locateServiceByText(String text) {
