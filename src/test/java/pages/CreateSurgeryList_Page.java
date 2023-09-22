@@ -23,6 +23,7 @@ public class CreateSurgeryList_Page {
     static String protocolNo;
     static boolean requestDateIsValid = false;
 
+
     public CreateSurgeryList_Page() {
         PageFactory.initElements(Driver.getDriver(), this);
     }

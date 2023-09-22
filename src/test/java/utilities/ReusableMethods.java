@@ -26,6 +26,7 @@ import java.util.regex.Pattern;
 public class ReusableMethods {
     static String kimlikNo;
 
+
     public static String getScreenshot(String name) throws IOException {
 //
         String date = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());

@@ -10,6 +10,7 @@ import org.testng.asserts.SoftAssert;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
+
 public class SurgeryAppointment_Page {
     WebDriver driver;
     SoftAssert softAssert = new SoftAssert();

@@ -12,7 +12,6 @@ import java.text.ParseException;
 public class CreateSurgeryList_StepDefinitions {
 
 
-
     CreateSurgeryList_Page createSurgeryList_Page = new CreateSurgeryList_Page();
 
     @Given("The user clicks on Operating Room Operations   Page")
