@@ -1,4 +1,4 @@
-@CreateSurgeryList
+ @CreateSurgeryList
 @Regression
 Feature: Create Surgery List
 
@@ -202,7 +202,8 @@ Feature: Create Surgery List
     And  User clicks to create an operation list
     And User Selects Date from Appointment Patients section
     And The User clicks the refresh button
-    And User Selects Service
+    And The user selects a service "AMELIYATHANE" on Surgery List Page
+   # And User Selects Service
     And User adds new hall
     And User double clicks on Patient
     And The user adds a surgery team on Surgery List Page
@@ -210,18 +211,18 @@ Feature: Create Surgery List
     And The user adds an anesthesia team on Surgery List Page
     And  The user selects an anesthesia team leader on Surgery List Page
     And The user sends the operating room Report on Surgery List Page
-    Then Surgery List should be created on Surgery List Page
+    Then Surgery List should be created outpatients on Surgery List Page
     And Rollback all steps taken on Surgery List Page
 
 
-  @:TC0022 @US_002
+  @TC0022 @US_002
   Scenario:TC0022  Removing a Patient from the Table in the Operations Tab
     When User clicks on Patient transactions
     And The user clicks on Operation
     And  User clicks to create an operation list
     And User Selects Date from Appointment Patients section
     And The User clicks the refresh button
-    And User Selects Service
+    And The user selects a service "AMELIYATHANE" on Surgery List Page
     And User adds new hall
     And User double clicks on Patient
     And User clicks operations button
@@ -239,7 +240,7 @@ Feature: Create Surgery List
     And  User clicks to create an operation list
     And User Selects Date from Appointment Patients section
     And The User clicks the refresh button
-    And User Selects Service
+    And The user selects a service "AMELIYATHANE" on Surgery List Page
     And User adds new hall
     And The user clicks on Operating Room Procedures   Page
     And User clicks on the Cancel Hall button
@@ -254,11 +255,10 @@ Feature: Create Surgery List
     And  User clicks to create an operation list
     And User Selects Date from Appointment Patients section
     And The User clicks the refresh button
-    And User Selects Service
+    And The user selects a service "AMELIYATHANE" on Surgery List Page
     And User adds new hall
     And User double clicks on Patient
     And User clicks on Hall operations
-    #And  User clicks Add "Salon_3" lounge
     And The user adds  "Salon_3" hall on Surgery List Page
     And The user change "Salonu Değiştir"  the hall "Salon_2" with the hall "Salon_3" on Surgery List Page
     Then The user verifies "Salon_2" is empty, "Salon_3" has a patient and rollback all steps on Surgery List Page
