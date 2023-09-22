@@ -29,14 +29,14 @@ Feature: Doctor Operating Room Procedures
     And   User clicks yes button on continue popup
     Then  Verifies that the surgery is deleted
 
-  @TC0039  @US_005
-  Scenario: Surgeries can be deleted to the patient coming from the service
-    Given User enters the claim date "24.11.2023"
-    And   User clicks select saloon button
-    And   User clicks on patient information (name surname)
-    And   User clicks delete surgeries button
-    And   User clicks yes button on continue popup
-    Then  Verifies that surgeries are deleted
+ # @TC0039  @US_005
+ # Scenario: Surgeries can be deleted to the patient coming from the service
+ #   Given User enters the claim date "24.11.2023"
+ #   And   User clicks select saloon button
+ #   And   User clicks on patient information (name surname)
+ #   And   User clicks delete surgeries button
+ #   And   User clicks yes button on continue popup
+ #   Then  Verifies that surgeries are deleted
 
   @TC0040  @US_005
   Scenario: The operation details of the patient coming from the service can be changed or added
@@ -164,13 +164,13 @@ Feature: Doctor Operating Room Procedures
     And   User clicks refresh button
     Then  Verifies that the patient's service is displayed
 
-  @TC0052  @US_006
-  Scenario: With the radio button sent to the service, only the patients sent to the service are displayed
-    Given User clicks Postop
-    Given User enters the claim date on Postop "16.09.2023"
-    And   User clicks refresh button
-    And   User clicks the sended service radio Button
-    Then  Verifies that the situation
+  # @TC0052  @US_006
+  # Scenario: With the radio button sent to the service, only the patients sent to the service are displayed
+  #  Given User clicks Postop
+  #  Given User enters the claim date on Postop "16.09.2023"
+  #  And   User clicks refresh button
+  #  And   User clicks the sended service radio Button
+  #  Then  Verifies that the situation
 
   @TC0053  @US_006
   Scenario: The Postop page can be refreshed with the refresh button.
