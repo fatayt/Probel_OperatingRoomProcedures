@@ -78,7 +78,7 @@ Feature: Surgery Appointment
 
     And click the fix appointment button
     #And check that you are on the pop up page
-    And select the surgery decision date and time "13.09.2023 11:11:11"
+    And select the surgery decision date and time "21.09.2023 11:11:11"
     And change the appointment number "3"
     And select the date "23.11.2023"
 
@@ -86,7 +86,7 @@ Feature: Surgery Appointment
     #And select the illness ""
     And select the type of anesthesia "LOCAL"
     And select the side ""
-    And change the service date "05.09.2023"
+    And change the service date "10.09.2023"
     And add edit phone numbers "05005005050" "05005005051"
     And select group "5"
     And select saloon "17"
@@ -102,15 +102,15 @@ Feature: Surgery Appointment
     #And search the protocol number "14028483"
     And click patient settings button
     And click the fix appointment button
-    And assert the surgery decision date and time "13.09.2023 11:11:11"
+    And assert the surgery decision date and time "21.09.2023 11:11:11"
     And assert the appointment number "3"
-    And assert the appointment date "23.10.2023"
+    And assert the appointment date "23.11.2023"
 
     And assert the second surgery "612280"
     And assert the illness "W19"
     And assert the type of anesthesia "LOCAL"
     And assert the side ""
-    And assert the service date "05.09.2023"
+    And assert the service date "10.09.2023"
     And assert phone numbers "05005005050" "05005005051"
     And assert group "5"
     And assert saloon "17"

@@ -350,7 +350,7 @@ public class SurgicalSupplies_Page {
 
             if (medicine.isDisplayed()) {
                 medicine.click();
-                deleteMaterial_button.click();
+                deleteMedicine_button.click();
                 sap.clickYesButton();
             }
         } catch (NoSuchElementException e) {
