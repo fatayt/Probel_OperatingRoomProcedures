@@ -136,7 +136,7 @@ Feature: Doctor Operating Room Procedures
   @TC0047 @Smoke @US_005
   Scenario: When starting the surgery session for an outpatient,
   the warning message "Patient is not currently hospitalized" should be received.
-    Given User enters the claim date "22.09.2023"
+    Given User enters the claim date "16.10.2023"
     And   User clicks select saloon button
     And   User clicks on patient information (name surname)
     And   User clicks the start session
@@ -147,21 +147,21 @@ Feature: Doctor Operating Room Procedures
   @TC0049  @US_006
   Scenario: The patient's status is displayed on the Postop page
     Given User clicks Postop
-    Given User enters the claim date on Postop "16.09.2023"
+    Given User enters the claim date on Postop "16.10.2023"
     And   User clicks refresh button
     Then  Verifies that the patient's condition is displayed
 
   @TC0050  @US_006
   Scenario: The patient's saloon is displayed on the Postop page
     Given User clicks Postop
-    Given User enters the claim date on Postop "16.09.2023"
+    Given User enters the claim date on Postop "16.10.2023"
     And   User clicks refresh button
     Then  Verifies that the patient's saloon is displayed
 
   @TC0051  @US_006
   Scenario: The patient's service is displayed on the Postop page.
     Given User clicks Postop
-    Given User enters the claim date on Postop "16.09.2023"
+    Given User enters the claim date on Postop "16.10.2023"
     And   User clicks refresh button
     Then  Verifies that the patient's service is displayed
 
@@ -176,7 +176,7 @@ Feature: Doctor Operating Room Procedures
   @TC0053  @US_006
   Scenario: The Postop page can be refreshed with the refresh button.
     Given User clicks Postop
-    Given User enters the claim date on Postop "16.09.2023"
+    Given User enters the claim date on Postop "16.10.2023"
     Then  User displays the message of Goruntulenecek veri yok
     And   User clicks refresh button
     And   Verifies that the refresh button is working by viewing the patients
@@ -184,7 +184,7 @@ Feature: Doctor Operating Room Procedures
   @TC0054  @US_006
   Scenario: The patient's service code is displayed on the Postop page
     Given User clicks Postop
-    Given User enters the claim date on Postop "16.09.2023"
+    Given User enters the claim date on Postop "16.10.2023"
     And   User clicks refresh button
     Then  Verifies that the patient's service code is displayed
 
