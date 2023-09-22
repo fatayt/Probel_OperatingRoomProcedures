@@ -300,13 +300,12 @@ public class SurgeryAppointment_Page {
     }
 
     public void selectTheDate(String arg0) {
-        //ReusableMethods.waitFor(2);
-ReusableMethods.jseWithClick(Driver.getDriver(),calendar_apptPopUp);
-//        calendar_apptPopUp.click();
+        System.out.println("date = " + arg0);
+        //ReusableMethods.jseWithClick(Driver.getDriver(), calendar_apptPopUp);
+        calendar_apptPopUp.click();
+        ReusableMethods.waitFor(2);
         calendar_apptPopUp.sendKeys(arg0 + Keys.ENTER);
         ReusableMethods.waitFor(1);
-
-        //closeCalendar_button.click();
     }
 
     public void selectTheSurgeryCode(String arg0) {
@@ -702,6 +701,7 @@ ReusableMethods.jseWithClick(Driver.getDriver(),calendar_apptPopUp);
     public void createANewAppointment(DataTable dataTable) {
         String code = dataTable.cell(1, 0);
         String date = dataTable.cell(1, 1);
+        //String date = "12.12.2023";
         String protocol = dataTable.cell(1, 2);
         String surgery = dataTable.cell(1, 3);
         String time = dataTable.cell(1, 4);
@@ -947,28 +947,29 @@ ReusableMethods.jseWithClick(Driver.getDriver(),calendar_apptPopUp);
 
     public void assertThePatientInTheAppointmentList(String arg0) {
         ReusableMethods.waitFor(5);
-        WebElement protocolNo = driver.findElement(By.xpath("//td[text()='"+arg0+"']"));
+        WebElement protocolNo = driver.findElement(By.xpath("//td[text()='" + arg0 + "']"));
         System.out.println("expected protocol = " + arg0);
         System.out.println("actual protocol = " + protocolNo.getAttribute("textContent"));
-        Assert.assertEquals(protocolNo.getAttribute("textContent"),arg0);
+        Assert.assertEquals(protocolNo.getAttribute("textContent"), arg0);
     }
 
     public void clickOnTheCancelAppointmentButton() {
         ReusableMethods.waitFor(1);
-        ReusableMethods.jseWithClick(Driver.getDriver(),cancelAppointment_button);
+        ReusableMethods.jseWithClick(Driver.getDriver(), cancelAppointment_button);
     }
 
     public void deleteIf() {
         WebElement ptn = driver.findElement(By.xpath("(//td[text()='15388830'])[2]"));
 
-        while (ptn.isDisplayed()){
-        try {
+        while (ptn.isDisplayed()) {
+            try {
                 clickPatientSettingsButton();
                 click_the_delete_appointment_button();
                 clickYesButton();
-        } catch (NoSuchElementException e) {
+            } catch (NoSuchElementException e) {
+            }
         }
-    }}
+    }
 }
 
 

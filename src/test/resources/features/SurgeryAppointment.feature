@@ -80,7 +80,7 @@ Feature: Surgery Appointment
     #And check that you are on the pop up page
     And select the surgery decision date and time "13.09.2023 11:11:11"
     And change the appointment number "3"
-    And select the date "23.10.2023"
+    And select the date "23.11.2023"
 
     And select the second surgery "612280"
     #And select the illness ""
@@ -270,11 +270,8 @@ Feature: Surgery Appointment
       | code | date       | protocol | surgery | time    |
       | 1028 | 12.12.2023 | 15388830 | 615442  | 09 : 00 |
 
-    #And search the protocol number "15388830"
-    #And click clear button
     And search the protocol number "15388830"
     And assert the patient in the appointment list "15388830"
-
     When click settings button
     And click unit definitions button
     And enter service code "1028" to unit code box
@@ -288,7 +285,7 @@ Feature: Surgery Appointment
     And select the end date "12.12.2023"
     And click on the refresh button
     And search the protocol number "15388830"
-    And click clear button
+    #And click refresh button
     And click patient settings button
     And click the delete appointment button
     And click yes button

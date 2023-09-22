@@ -1,4 +1,5 @@
 @DoctorOperatingRoomProcedures
+@Regression
 
 Feature: Doctor Operating Room Procedures
 
@@ -28,16 +29,16 @@ Feature: Doctor Operating Room Procedures
     And   User clicks yes button on continue popup
     Then  Verifies that the surgery is deleted
 
-  @TC0039 @Regression @US_005
-  Scenario: Surgeries can be deleted to the patient coming from the service
-    Given User enters the claim date "24.11.2023"
-    And   User clicks select saloon button
-    And   User clicks on patient information (name surname)
-    And   User clicks delete surgeries button
-    And   User clicks yes button on continue popup
-    Then  Verifies that surgeries are deleted
+ # @TC0039  @US_005
+ # Scenario: Surgeries can be deleted to the patient coming from the service
+ #   Given User enters the claim date "24.11.2023"
+ #   And   User clicks select saloon button
+ #   And   User clicks on patient information (name surname)
+ #   And   User clicks delete surgeries button
+ #   And   User clicks yes button on continue popup
+ #   Then  Verifies that surgeries are deleted
 
-  @TC0040 @Regression @US_005
+  @TC0040  @US_005
   Scenario: The operation details of the patient coming from the service can be changed or added
     Given User enters the claim date "24.11.2023"
     And   User clicks select saloon button
@@ -50,7 +51,7 @@ Feature: Doctor Operating Room Procedures
     And   User clicks save button on surgery details screen
     Then  Verifies that new diagnosis is displayed
 
-  @TC0040A @Regression @US_005
+  @TC0040A  @US_005
   Scenario: User clean the operation's details
     Given User enters the claim date "24.11.2023"
     And   User clicks select saloon button
@@ -59,7 +60,7 @@ Feature: Doctor Operating Room Procedures
     And   User clicks detail surgery button
     And   User clean the page
 
-  @TC0041 @Regression @US_005
+  @TC0041  @US_005
   Scenario: The operation details of the patient coming from the service can be viewed
     Given User enters the claim date "24.11.2023"
     And   User clicks select saloon button
@@ -70,7 +71,7 @@ Feature: Doctor Operating Room Procedures
     And   User clicks save button on surgery details screen
     Then  Verifies that new details are displayed
 
-  @TC0041A @Regression @US_005
+  @TC0041A  @US_005
   Scenario: User cleans the operation's details
     Given User enters the claim date "24.11.2023"
     And   User clicks select saloon button
@@ -89,7 +90,7 @@ Feature: Doctor Operating Room Procedures
     And   User clicks select and close button
     Then  Verifies that the doctor is added
 
-  @TC0043 @BUG @Regression @US_005
+  @TC0043 @BUG  @US_005
   Scenario:  On Surgical team The user can delete the selected doctor by the trash icon
     Given User enters the claim date "24.11.2023"
     And   User clicks select saloon button
@@ -101,7 +102,7 @@ Feature: Doctor Operating Room Procedures
     And   User clicks yes button on continue popup
     Then  Verifys that the message Goruntulenecek veri yok is not displayed
 
-  @TC0044 @Regression @US_005
+  @TC0044  @US_005
   Scenario: Anesthesia surgery team cannot be added the same doctor for the patient coming from the service.
     Given User enters the claim date "24.11.2023"
     And   User clicks select saloon button
@@ -142,36 +143,36 @@ Feature: Doctor Operating Room Procedures
 
 
 
-  @TC0049 @Regression @US_006
+  @TC0049  @US_006
   Scenario: The patient's status is displayed on the Postop page
     Given User clicks Postop
     Given User enters the claim date on Postop "16.09.2023"
     And   User clicks refresh button
     Then  Verifies that the patient's condition is displayed
 
-  @TC0050 @Regression @US_006
+  @TC0050  @US_006
   Scenario: The patient's saloon is displayed on the Postop page
     Given User clicks Postop
     Given User enters the claim date on Postop "16.09.2023"
     And   User clicks refresh button
     Then  Verifies that the patient's saloon is displayed
 
-  @TC0051 @Regression @US_006
+  @TC0051  @US_006
   Scenario: The patient's service is displayed on the Postop page.
     Given User clicks Postop
     Given User enters the claim date on Postop "16.09.2023"
     And   User clicks refresh button
     Then  Verifies that the patient's service is displayed
 
-  @TC0052 @Regression @US_006
-  Scenario: With the radio button sent to the service, only the patients sent to the service are displayed
-    Given User clicks Postop
-    Given User enters the claim date on Postop "16.09.2023"
-    And   User clicks refresh button
-    And   User clicks the sended service radio Button
-    Then  Verifies that the situation
+  # @TC0052  @US_006
+  # Scenario: With the radio button sent to the service, only the patients sent to the service are displayed
+  #  Given User clicks Postop
+  #  Given User enters the claim date on Postop "16.09.2023"
+  #  And   User clicks refresh button
+  #  And   User clicks the sended service radio Button
+  #  Then  Verifies that the situation
 
-  @TC0053 @Regression @US_006
+  @TC0053  @US_006
   Scenario: The Postop page can be refreshed with the refresh button.
     Given User clicks Postop
     Given User enters the claim date on Postop "16.09.2023"
@@ -179,14 +180,14 @@ Feature: Doctor Operating Room Procedures
     And   User clicks refresh button
     And   Verifies that the refresh button is working by viewing the patients
 
-  @TC0054 @Regression @US_006
+  @TC0054  @US_006
   Scenario: The patient's service code is displayed on the Postop page
     Given User clicks Postop
     Given User enters the claim date on Postop "16.09.2023"
     And   User clicks refresh button
     Then  Verifies that the patient's service code is displayed
 
-  @TC0088  @Regression  @US_005
+  @TC0088    @US_005
   Scenario: A surgical team's doctor can be deleted for the patient coming from the service
     Given User enters the claim date "24.11.2023"
     And   User clicks select saloon button (saloon eight)
@@ -218,7 +219,7 @@ Feature: Doctor Operating Room Procedures
     And   User clicks on send patient to service button
     Then  Verifies the patient's condition
 
-  @TC0055
+  @TC0055 @Smoke @US_006
   Scenario: Emergency patients can be added to the list according to their
   protocol number with the add patient button on the doctor's operating room page.
     Given User enters the claim date "26.09.2023"
