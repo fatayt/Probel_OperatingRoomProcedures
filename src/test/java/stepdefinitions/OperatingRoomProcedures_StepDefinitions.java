@@ -39,7 +39,7 @@ public class OperatingRoomProcedures_StepDefinitions {
     @Given("User clicks the refresh button")
     public void user_clicks_the_refresh_button() throws InterruptedException {
         operatingRoomProcedures_page_.refreshButton.click();
-        Thread.sleep(1000);
+        Thread.sleep(2000);
 
     }
 
@@ -154,9 +154,9 @@ public class OperatingRoomProcedures_StepDefinitions {
 
     @Given("user finds patient with protocol number")
     public void user_finds_patient_with_protocol_number() throws InterruptedException {
-        Thread.sleep(1000);
+        Thread.sleep(3000);
         operatingRoomProcedures_page_.protocolSearch.click();
-        Thread.sleep(1000);
+        Thread.sleep(2000);
         operatingRoomProcedures_page_.protocolSearch.sendKeys("15384267");
         Thread.sleep(2000);
         operatingRoomProcedures_page_.findPatient.click();
@@ -246,6 +246,7 @@ public class OperatingRoomProcedures_StepDefinitions {
     @Given("User cancels the patient's entrance to the operating room of the patient")
     public void user_cancels_the_patient_s_entrance_to_the_operating_room_of_the_patient() throws InterruptedException {
         actions.sendKeys(Keys.PAGE_DOWN).perform();
+        Thread.sleep(1000);
         operatingRoomProcedures_page_.operatingRoomCancelsEntranceButton.click();
         Thread.sleep(1000);
         operatingRoomProcedures_page_.DoYouWantToContinuePopupYESbutton.click();
@@ -264,6 +265,7 @@ public class OperatingRoomProcedures_StepDefinitions {
 
     @Given("User clicks on Add patient to list button")
     public void user_clicks_on_add_patient_to_list_button() throws InterruptedException {
+        Thread.sleep(2000);
         operatingRoomProcedures_page_.addPatientListButton.click();
         Thread.sleep(1000);
 
@@ -293,7 +295,8 @@ public class OperatingRoomProcedures_StepDefinitions {
     }
 
     @Given("User popup2 selects hall")
-    public void user_popup2_selects_hall() {
+    public void user_popup2_selects_hall() throws InterruptedException {
+        Thread.sleep(2000);
         operatingRoomProcedures_page_.selectSalonButtonFromList.click();
 
     }
