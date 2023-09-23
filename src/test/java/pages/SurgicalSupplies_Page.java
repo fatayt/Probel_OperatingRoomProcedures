@@ -24,7 +24,6 @@ public class SurgicalSupplies_Page {
     WebElement refresh_button;
 
 
-
     @FindBy(xpath = "//td[text()='Salon_1']")
     WebElement saloon1;
 
@@ -135,7 +134,7 @@ public class SurgicalSupplies_Page {
         calendar_suppliesPage.click();
         // calendar_suppliesPage.clear();
         calendar_suppliesPage.sendKeys(arg0 + Keys.ENTER);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(4);
     }
 
     public void clickRefreshButton() {
@@ -147,12 +146,14 @@ public class SurgicalSupplies_Page {
     public void clickSaloon() {
         ReusableMethods.waitFor(1);
         saloon1.click();
+        ReusableMethods.waitFor(4);
+
     }
 
     public void selectPatient() {
-        // ReusableMethods.waitFor(4);
+        ReusableMethods.waitFor(1);
         patient1.click();
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(4);
     }
 
     public void clickApplyTemplate() {
@@ -168,8 +169,8 @@ public class SurgicalSupplies_Page {
 
     public void clickApproveBoxForMaterials() {
         ReusableMethods.waitFor(2);
-        ReusableMethods.jseWithClick(Driver.getDriver(),firstSupplyApprove_box);
-        ReusableMethods.jseWithClick(Driver.getDriver(),secondSupplyApprove_box);
+        ReusableMethods.jseWithClick(Driver.getDriver(), firstSupplyApprove_box);
+        ReusableMethods.jseWithClick(Driver.getDriver(), secondSupplyApprove_box);
         //firstSupplyApprove_box.click();
         //secondSupplyApprove_box.click();
     }
@@ -215,99 +216,153 @@ public class SurgicalSupplies_Page {
     }
 
     public void enterBarcodeToBarcodeBox(String arg0) {
+        ReusableMethods.waitForVisibility(materialBarcode_box, 5);
         materialBarcode_box.sendKeys(arg0 + Keys.ENTER);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(4);
     }
 
     public void doubleClickBarcodeBox() {
+        ReusableMethods.waitFor(1);
+
         ReusableMethods.doubleClickWithJS(Driver.getDriver(), materialBarcode_box);
+        ReusableMethods.waitFor(4);
+
     }
 
     public void assertPopupPage(String arg0) {
-        ReusableMethods.waitFor(3);
+        ReusableMethods.waitFor(1);
         System.out.println("actual result = " + popUpPage_title.getAttribute("textContent"));
         System.out.println("expected result = " + arg0);
         Assert.assertTrue(popUpPage_title.getAttribute("textContent").contains(arg0));
+        ReusableMethods.waitFor(4);
+
     }
 
     public void enterBarcodeToMaterialCodeBox(String arg0) {
+        ReusableMethods.waitFor(1);
+
         materialCode_box.sendKeys(arg0 + Keys.ENTER);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(4);
     }
 
     public void assertTheMaterialOrMedicine(String arg0, String arg1) {
+        ReusableMethods.waitFor(1);
+
         WebElement table = driver.findElement(By.xpath("//table[@id='" + arg1 + "_DXMainTable']"));
         System.out.println(table.getAttribute("textContent"));
         Assert.assertFalse(table.getAttribute("textContent").contains(arg0));
+        ReusableMethods.waitFor(4);
+
     }
 
     public void closePopupPage() {
-        ReusableMethods.waitForClickablility(closePopUpPage_button,5);
+        ReusableMethods.waitForClickablility(closePopUpPage_button, 5);
         closePopUpPage_button.click();
+        ReusableMethods.waitFor(4);
+
     }
 
     public void clickMaterialsPopupPageButton() {
+        ReusableMethods.waitFor(1);
+
         materialPopUp_button.click();
+        ReusableMethods.waitFor(4);
+
     }
 
     public void enterMedicineCodeToAddMedicineBox(String arg0) {
+        ReusableMethods.waitFor(1);
+        ReusableMethods.waitForVisibility(medicineBarcode_box, 5);
         medicineBarcode_box.sendKeys(arg0 + Keys.ENTER);
+        ReusableMethods.waitFor(4);
+
     }
 
     public void doubleClickMedicineCodeBox() {
+        ReusableMethods.waitFor(1);
+
         ReusableMethods.doubleClickWithJS(Driver.getDriver(), medicineBarcode_box);
+        ReusableMethods.waitFor(4);
+
     }
 
     public void enterMedicineCodeToMedicineCodeBox(String arg0) {
+        ReusableMethods.waitFor(1);
+        ReusableMethods.waitForVisibility(medicineCode_box, 5);
         medicineCode_box.sendKeys(arg0 + Keys.ENTER);
+        ReusableMethods.waitFor(4);
+
     }
 
     public void clickMedicinePopupPageButton() {
+        ReusableMethods.waitFor(1);
+        ReusableMethods.waitForClickablility(medicinePopUp_button,5);
         medicinePopUp_button.click();
+        ReusableMethods.waitFor(4);
+
     }
 
     public void clickMaterialsAddButton() {
+        ReusableMethods.waitFor(1);
+        ReusableMethods.waitForClickablility(addMaterial_button,5);
+
         addMaterial_button.click();
+        ReusableMethods.waitFor(4);
+
     }
 
     public void clickMedicineAddButton() {
+        ReusableMethods.waitFor(1);
+        ReusableMethods.waitForClickablility(addMedicine_button,5);
         addMedicine_button.click();
+        ReusableMethods.waitFor(4);
+
     }
 
     public void clickTemplateDefinitionsButton() {
-        ReusableMethods.waitFor(3);
-        ReusableMethods.jseWithClick(Driver.getDriver(),templateDefinitions_button);
-       // templateDefinitions_button.click();
+        ReusableMethods.waitFor(1);
+        ReusableMethods.jseWithClick(Driver.getDriver(), templateDefinitions_button);
+        // templateDefinitions_button.click();
+        ReusableMethods.waitFor(4);
     }
 
     public void clickNewTemplateAddButton() {
         newTemplateAdd_button.click();
+        ReusableMethods.waitFor(4);
+
     }
 
     public void selectTypeOfTemplate(String arg0) {
         WebElement type = driver.findElement(By.xpath("//option[text()='" + arg0 + "']"));
         type.click();
+        ReusableMethods.waitFor(4);
+
     }
 
     public void enterTemplateName(String arg0) {
         //templateNewName_box.click();
         templateNewName_box.sendKeys(arg0 + Keys.ENTER);
-        ReusableMethods.waitFor(3);
+        ReusableMethods.waitFor(4);
     }
 
     public void enterBranchCodeToBranchBox(String arg0) {
         branchCode_box.clear();
         branchCode_box.sendKeys(arg0 + Keys.ENTER);
+        ReusableMethods.waitFor(4);
+
     }
 
     public void doubleClickExaminationNameBox() {
         ReusableMethods.doubleClickWithJS(Driver.getDriver(), examName_box);
+        ReusableMethods.waitFor(4);
     }
 
     public void enterCodeToOfficialCodeBox(String arg0) {
         officialExamCode_box.sendKeys(arg0 + Keys.ENTER);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(3);
         select_button.click();
+        ReusableMethods.waitFor(4);
+
     }
 
     public void assertNewTemplateByName(String arg0) {
@@ -315,6 +370,8 @@ public class SurgicalSupplies_Page {
         System.out.println("actual result = " + templateName.getAttribute("textContent"));
         System.out.println("expected result = " + arg0);
         Assert.assertTrue(templateName.getAttribute("textContent").contains(arg0));
+        ReusableMethods.waitFor(4);
+
     }
 
     public void assertTheTemplateDeleted(String arg0) {
@@ -324,10 +381,12 @@ public class SurgicalSupplies_Page {
     }
 
     public void enterTemplateNameToNameSearchBox(String arg0) {
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(1);
         templateName2_box.clear();
         ReusableMethods.waitFor(2);
         templateName2_box.sendKeys(arg0 + Keys.ENTER);
+        ReusableMethods.waitFor(4);
+
     }
 
     public void clearTemplateName() {
@@ -346,6 +405,7 @@ public class SurgicalSupplies_Page {
         }
         ReusableMethods.waitFor(2);
     }
+
     public void ifMedicineDisplayedDeleteTheMedicine(String arg0) {
         try {
             WebElement medicine = driver.findElement(By.xpath("//td[text()='" + arg0 + "']"));
@@ -359,6 +419,27 @@ public class SurgicalSupplies_Page {
         }
         ReusableMethods.waitFor(2);
     }
+
+    public void deleteTemplateIfTemplateIs(String arg0) {
+        clickTemplateDefinitionsButton();
+        enterTemplateNameToNameSearchBox(arg0);
+
+        try {
+            while (true) {
+                WebElement template = driver.findElement(By.xpath("(//td[text()='" + arg0 + "'])"));
+                if (!template.isDisplayed()) {
+                    break;
+                }
+                //clickSettingsButton();
+                //clickUnitDefinitionsButton();
+                sap.clickDeleteButton();
+                sap.clickYesButton();
+            }
+        } catch (NoSuchElementException e) {
+            System.out.println("All " + arg0 + " deleted");
+        }
+    }
+
 
 }
 

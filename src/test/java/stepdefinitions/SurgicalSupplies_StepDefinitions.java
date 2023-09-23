@@ -211,4 +211,9 @@ public class SurgicalSupplies_StepDefinitions {
     public void ifMedicineDisplayedDeleteTheMedicine(String arg0) {
         ssp.ifMedicineDisplayedDeleteTheMedicine(arg0);
     }
+
+    @And("delete template if template is {string}")
+    public void deleteTemplateIfTemplateIs(String arg0) {
+        ssp.deleteTemplateIfTemplateIs(arg0);
+    }
 }
