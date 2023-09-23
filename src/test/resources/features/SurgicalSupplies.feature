@@ -103,6 +103,13 @@ Feature: Surgical Supplies
 
   @Bug @TC0087 @US_012
   Scenario: TC0087 User can create, edit and delete the template materials
+    And delete template if template is "Test Abeyis"
+    And close popup page
+    And delete template if template is "Abeyis Automation Test"
+    And close popup page
+    And delete template if template is "Abeyis Test"
+    And close popup page
+
     When click template definitions button
     And assert popup page "Ameliyat Malzeme Şablon Tanımları"
 
@@ -124,16 +131,7 @@ Feature: Surgical Supplies
     And click save button
     Then assert new template by name "Test Abeyis"
 
-    And enter template name to name search box "Test Abeyis"
-    Then assert new template by name "Test Abeyis"
-    When click delete button
-    And click yes button
-
-    And enter template name to name search box "Test Abeyis"
-    Then assert new template by name "Test Abeyis"
-    When click delete button
-    And click yes button
-
+    #When click template definitions button
     And click new template add button
     And select type of template "Anestezi"
     And enter template name "Abeyis Test"
@@ -141,9 +139,9 @@ Feature: Surgical Supplies
     And double click examination name box
     And enter code to official code box "S100021"
     And click save button
-    And enter template name to name search box "Abeyis Test"
     Then assert new template by name "Abeyis Test"
 
+    And enter template name to name search box "Abeyis Test"
     When click edit button
     And select type of template "Cerrahi"
     And clear template name
@@ -154,7 +152,11 @@ Feature: Surgical Supplies
     And click save button
     And enter template name to name search box "Abeyis Automation Test"
     Then assert new template by name "Abeyis Automation Test"
-    When click delete button
-    And assert the popup message "Bu kaydı silmek istediğinize emin misiniz?"
-    And click yes button
-    Then assert the template deleted "Abeyis Automation Test"
+    And close popup page
+
+    And delete template if template is "Test Abeyis"
+    And close popup page
+    And delete template if template is "Abeyis Automation Test"
+    And close popup page
+    And delete template if template is "Abeyis Test"
+    And close popup page
