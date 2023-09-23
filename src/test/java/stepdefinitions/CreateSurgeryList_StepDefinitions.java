@@ -473,6 +473,10 @@ public class CreateSurgeryList_StepDefinitions {
     public void surgeryListShouldBeCreatedOutpatientsOnSurgeryListPage() {
         createSurgeryList_Page.surgeryListShouldBeCreatedOutpatients();
     }
+    @And("Check if there are any hall or patient on the table on Surgery List Page")
+    public void checkIfThereAreAnyHallOrPatientOnTheTableOnSurgeryListPage() {
+        createSurgeryList_Page.checkIfAnyHallOnTheTable();
+    }
 }
 
 

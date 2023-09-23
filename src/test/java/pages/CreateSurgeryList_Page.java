@@ -52,7 +52,7 @@ public class CreateSurgeryList_Page {
     public WebElement internalService;
 
     @FindBy(xpath = "//a[@id='btnLstYenile']")
-    public WebElement refreshButton;
+    public static WebElement refreshButton;
 
 
     @FindBy(xpath = "//td[normalize-space()='HÜLCHOYA TÜXBJ']")
@@ -66,7 +66,7 @@ public class CreateSurgeryList_Page {
     public WebElement patientFromListe;
 
     @FindBy(xpath = "//a[contains(text(),'Salon İşlemleri')]")
-    public WebElement hallOperationsButton;
+    public static WebElement hallOperationsButton;
 
     @FindBy(xpath = "//a[normalize-space()='Salon Ekle']")
     public WebElement addHallButton;
@@ -90,14 +90,14 @@ public class CreateSurgeryList_Page {
     public WebElement closePopupButton;
 
     @FindBy(xpath = "//a[contains(text(),'Salonu İptal Et')]")
-    public WebElement cancellHallButton;
+    public static WebElement cancellHallButton;
 
 
     @FindBy(xpath = "(//a[contains(text(),'İşlemler')])[11]")
     public WebElement transactionsButton;
 
     @FindBy(xpath = "//span[@title='İşlemler']")
-    public WebElement patientTransactionButton;
+    public static WebElement patientTransactionButton;
 
 
     @FindBy(xpath = "//a[normalize-space()='Ameliyat Ekle']")
@@ -117,7 +117,7 @@ public class CreateSurgeryList_Page {
     public WebElement savePostponeOperationButton; //
 
     @FindBy(xpath = "//span[contains(text(),'Evet')]")
-    public WebElement verifyAlert;
+    public static WebElement verifyAlert;
 
 
     @FindBy(xpath = "//div[@id='HastaAmeliyatForm']//input[@type='button']")
@@ -189,7 +189,7 @@ public class CreateSurgeryList_Page {
     public void clickService() {
         ReusableMethods.jseWithClick(Driver.getDriver(), serviceBox);
         ReusableMethods.jseWithClick(Driver.getDriver(), internalService);
-        ReusableMethods.waitFor(3);
+        ReusableMethods.waitFor(6);
     }
 
     public void selectAppointmentDate() {
@@ -209,9 +209,9 @@ public class CreateSurgeryList_Page {
     public void addsHall() {
 
         ReusableMethods.jseWithClick(Driver.getDriver(), hallOperationsButton);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), addHallButton);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         selectHallButton.click();
     }
 
@@ -235,7 +235,7 @@ public class CreateSurgeryList_Page {
         int hour = random.nextInt(9) + 8;       // 8-16
         int minute = random.nextInt(2) * 30;     // 0-59
         String randomHourString = String.format("%02d:%02d", hour, minute);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
 
         ReusableMethods.jseWithClick(Driver.getDriver(), operationTimeBox);
         ReusableMethods.sendKeysWithJS(Driver.getDriver(), operationTimeBox, randomHourString);
@@ -245,52 +245,52 @@ public class CreateSurgeryList_Page {
 
 
     public void addsSurgeryTeam() {
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), addDocTeamButton);
         ReusableMethods.jseWithClick(Driver.getDriver(), selectDocCheckboxList.get(3));
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), selectAndCloseButton);
 
     }
 
     public void addsSurgery() {
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), addOperationButton);
         ReusableMethods.jseWithClick(Driver.getDriver(), toBeDoneOperation);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         toBeDoneOperationSelect.click();
         ReusableMethods.jseWithClick(Driver.getDriver(), savetoBeDoneOperationButton);
 
     }
 
     public void selectSurgicalTeamLeader() {
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), selectResponsibleDoc);
 
     }
 
     public void addAnesthesiaTeam() {
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), addAnesthesiaTeamButton);
         ReusableMethods.jseWithClick(Driver.getDriver(), selectAnesCheckboxList.get(3));
         ReusableMethods.jseWithClick(Driver.getDriver(), selectAndCloseButton);
     }
 
     public void selectAnesthesiaTeamLeader() {
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), selectResponsibleAnesthesiaDoc);
     }
 
     public void sendOperatingRoomReport() {
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), transactionsButton);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), sendToOperationRoomButton);
     }
 
 
     public void cancelApprovedSurgery() {
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), transactionsButton);
         ReusableMethods.jseWithClick(Driver.getDriver(), postponeOperationButton);
         ReusableMethods.jseWithClick(Driver.getDriver(), causeOfPostponeOperation);
@@ -311,29 +311,29 @@ public class CreateSurgeryList_Page {
         if (ReusableMethods.periodBetweenDates(requestDate) > 0) {
             requestDateIsValid = true;
         }
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
     }
 
     public void checkRequestDate() {
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         Assert.assertEquals(requestDateIsValid, closePopupButton.isDisplayed());
 
         ReusableMethods.jseWithClick(Driver.getDriver(), closePopupButton);
-        ReusableMethods.waitFor(3);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), patientTransactionButton);
-        ReusableMethods.waitFor(3);
+        ReusableMethods.waitFor(6);
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(7));
         WebElement elementToOption = ReusableMethods.locateHallOptionsByText("Masadan Çıkar");
         ReusableMethods.jseWithClick(Driver.getDriver(), elementToOption);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         wait.until(ExpectedConditions.elementToBeClickable(verifyAlert));
         ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), causeOftakeOffTable);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
         ReusableMethods.jseWithClick(Driver.getDriver(), hallOperationsButton);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), cancellHallButton);
         ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
 
@@ -352,21 +352,21 @@ public class CreateSurgeryList_Page {
         protocolNo = patientFromListe.getText();
 
         softAssert.assertNull(protocolNo);
-        ReusableMethods.waitFor(3);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), patientTransactionButton);
-        ReusableMethods.waitFor(3);
+        ReusableMethods.waitFor(6);
         WebElement elementToOption = ReusableMethods.locateHallOptionsByText("Masadan Çıkar");
         ReusableMethods.jseWithClick(Driver.getDriver(), elementToOption);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         wait.until(ExpectedConditions.elementToBeClickable(verifyAlert));
         ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
-        ReusableMethods.waitFor(3);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), causeOftakeOffTable);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), hallOperationsButton);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), cancellHallButton);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
         softAssert.assertAll();
 
@@ -385,7 +385,7 @@ public class CreateSurgeryList_Page {
 
     public void selectAnotherPatient() {
         ReusableMethods.jseWithClick(Driver.getDriver(), refreshButton);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), otherPatientFromList);
     }
 
@@ -396,32 +396,32 @@ public class CreateSurgeryList_Page {
         int numberOfPatient = Integer.parseInt(numberOfPatients.getText());
 
         softAssert.assertEquals(numberOfPatient, 1);
-        ReusableMethods.waitFor(3);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), patientTransactionButton);
-        ReusableMethods.waitFor(3);
+        ReusableMethods.waitFor(6);
         WebElement elementToOption = ReusableMethods.locateHallOptionsByText("Masadan Çıkar");
         ReusableMethods.jseWithClick(Driver.getDriver(), elementToOption);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         wait.until(ExpectedConditions.elementToBeClickable(verifyAlert));
         ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
-        ReusableMethods.waitFor(3);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), causeOftakeOffTable);
-        ReusableMethods.waitFor(3);
+        ReusableMethods.waitFor(6);
         wait.until(ExpectedConditions.elementToBeClickable(patientTransactionButton));
         ReusableMethods.jseWithClick(Driver.getDriver(), patientTransactionButton);
-        ReusableMethods.waitFor(3);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), takeOffTable);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), causeOftakeOffTable);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), hallOperationsButton);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), cancellHallButton);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         softAssert.assertAll();
 
 
@@ -438,25 +438,24 @@ public class CreateSurgeryList_Page {
 
     public void addAnyHall(String string) {
         ReusableMethods.jseWithClick(Driver.getDriver(), hallOperationsButton);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), addHallButton);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         WebElement elementToClick = ReusableMethods.locateSelectHallByText(string);
         ReusableMethods.doubleClickWithJS(Driver.getDriver(), elementToClick);
-        ReusableMethods.waitFor(3);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), refreshButton);
-        ReusableMethods.waitFor(3);
+        ReusableMethods.waitFor(6);
     }
 
     public void addsTheSamePatientToTheHall() {
-        // ReusableMethods.waitFor(2);
-        ReusableMethods.waitFor(2);
+            ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), refreshButton);
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(3));
         wait.until(ExpectedConditions.visibilityOf(addedOtherHallButton));
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), addedOtherHallButton);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), patientFromList);
         ReusableMethods.doubleClickWithJS(Driver.getDriver(), patientFromList);
     }
@@ -465,42 +464,42 @@ public class CreateSurgeryList_Page {
         SoftAssert softAssert = new SoftAssert();
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(3));
         softAssert.assertTrue(numberOfHall.size() <= 1);
-        ReusableMethods.waitFor(3);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), patientTransactionButton);
-        ReusableMethods.waitFor(3);
+        ReusableMethods.waitFor(6);
         WebElement elementToOption = ReusableMethods.locateHallOptionsByText("Masadan Çıkar");
         ReusableMethods.jseWithClick(Driver.getDriver(), elementToOption);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         wait.until(ExpectedConditions.elementToBeClickable(verifyAlert));
         ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
-        ReusableMethods.waitFor(3);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), causeOftakeOffTable);
-        ReusableMethods.waitFor(3);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), hallOperationsButton);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), cancellHallButton);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
         ReusableMethods.jseWithClick(Driver.getDriver(), refreshButton);
-        ReusableMethods.waitFor(3);
+        ReusableMethods.waitFor(6);
         wait.until(ExpectedConditions.elementToBeClickable(hallOperationsButton));
         ReusableMethods.jseWithClick(Driver.getDriver(), hallOperationsButton);
-        ReusableMethods.waitFor(3);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), cancellHallButton);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
         softAssert.assertAll();
     }
 
     public void changeTheHallWithTheOtherHall(String text, String hall1, String hall2) {
-        ReusableMethods.waitFor(4);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), patientTransactionButton);
-        ReusableMethods.waitFor(4);
+        ReusableMethods.waitFor(6);
         WebElement selectChangeHall = ReusableMethods.locateSelectChangeHallByText(text);
         ReusableMethods.jseWithClick(Driver.getDriver(), selectChangeHall);
-        ReusableMethods.waitFor(3);
+        ReusableMethods.waitFor(6);
         WebElement selectHall = ReusableMethods.locateChangeHallByText(hall2);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         ReusableMethods.doubleClickWithJS(Driver.getDriver(), selectHall);
         ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
 
@@ -510,34 +509,34 @@ public class CreateSurgeryList_Page {
     public void verifyWherePatient(String hall1, String hall2) {
         SoftAssert softAssert = new SoftAssert();
         WebElement selectHall1 = ReusableMethods.locateSelectHallFromHallListByText(hall1);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), selectHall1);
         String emptyHall = Driver.getDriver().findElement(By.xpath("(//*[contains(text(),'Görüntülenecek veri yok')])[2]")).getText();
         softAssert.assertTrue(emptyHall.contains("Görüntülenecek veri yok"));
         WebElement selectHall2 = ReusableMethods.locateSelectHallFromHallListByText(hall2);
         ReusableMethods.jseWithClick(Driver.getDriver(), selectHall2);
         softAssert.assertTrue(patientProtocolNo.isDisplayed());
-        ReusableMethods.waitFor(3);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), patientTransactionButton);
-        ReusableMethods.waitFor(3);
+        ReusableMethods.waitFor(6);
         WebElement elementToOption = ReusableMethods.locateHallOptionsByText("Masadan Çıkar");
         ReusableMethods.jseWithClick(Driver.getDriver(), elementToOption);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), causeOftakeOffTable);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), hallOperationsButton);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), cancellHallButton);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
         ReusableMethods.jseWithClick(Driver.getDriver(), refreshButton);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), hallOperationsButton);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), cancellHallButton);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
         softAssert.assertAll();
 
@@ -558,26 +557,26 @@ public class CreateSurgeryList_Page {
                 String serviceCodeTextExpected = serviceCodeExpected.getText();
                 ReusableMethods.doubleClickWithJS(Driver.getDriver(), serviceCodeExpected);
                 ReusableMethods.jseWithClick(Driver.getDriver(), refreshButton);
-                ReusableMethods.waitFor(3);
+                ReusableMethods.waitFor(6);
                 ReusableMethods.jseWithClick(Driver.getDriver(), hallOperationsButton);
-                ReusableMethods.waitFor(3);
+                ReusableMethods.waitFor(6);
                 ReusableMethods.jseWithClick(Driver.getDriver(), addHallButton);
-                ReusableMethods.waitFor(3);
+                ReusableMethods.waitFor(6);
                 WebElement elementToClick = ReusableMethods.locateSelectHallByText("Salon_2");
                 ReusableMethods.doubleClickWithJS(Driver.getDriver(), elementToClick);
                 WebElement hallName = Driver.getDriver().findElement(By.xpath("//ul[@id='amlSalonList']//li"));
                 String serviceCodeTextActual = hallName.getAttribute("data-serviskodu");
                 //System.out.println(count + ")  Page no: " + p + "  serviceCodeText: " + serviceCodeTextActual);
                 softAssert.assertEquals(serviceCodeTextActual, serviceCodeTextExpected);
-                ReusableMethods.waitFor(3);
+                ReusableMethods.waitFor(6);
                 ReusableMethods.jseWithClick(Driver.getDriver(), hallOperationsButton);
                 ReusableMethods.jseWithClick(Driver.getDriver(), cancellHallButton);
                 ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
                 ReusableMethods.jseWithClick(Driver.getDriver(), serviceBox);
-                ReusableMethods.waitFor(3);
+                ReusableMethods.waitFor(6);
                 ReusableMethods.clickCurrentPage(p);
             }
-            ReusableMethods.waitFor(3);
+            ReusableMethods.waitFor(6);
         }
         softAssert.assertAll();
     }
@@ -585,30 +584,30 @@ public class CreateSurgeryList_Page {
     public void optionToPostponeNotDisplayed() {
         SoftAssert softAssert = new SoftAssert();
         ReusableMethods.jseWithClick(Driver.getDriver(), refreshButton);
-        ReusableMethods.waitFor(3);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), transactionsButton);
         softAssert.assertFalse(postponeOperationButton.isDisplayed());
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), patientTransactionButton);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(7));
         WebElement elementToOption = ReusableMethods.locateHallOptionsByText("Masadan Çıkar");
         ReusableMethods.jseWithClick(Driver.getDriver(), elementToOption);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         wait.until(ExpectedConditions.elementToBeClickable(verifyAlert));
         ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
-        ReusableMethods.waitFor(3);
+        ReusableMethods.waitFor(6);
         wait.until(ExpectedConditions.elementToBeClickable(patientTransactionButton));
         ReusableMethods.jseWithClick(Driver.getDriver(), patientTransactionButton);
-        ReusableMethods.waitFor(3);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), takeOffTable);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
         ReusableMethods.jseWithClick(Driver.getDriver(), causeOftakeOffTable);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
         ReusableMethods.jseWithClick(Driver.getDriver(), hallOperationsButton);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), cancellHallButton);
         ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
         softAssert.assertAll();
@@ -621,29 +620,29 @@ public class CreateSurgeryList_Page {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(3));
         ReusableMethods.waitForVisibility(notificationPopup, 5);
         softAssert.assertFalse(notificationPopup.isDisplayed());
-        ReusableMethods.waitFor(3);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), patientTransactionButton);
-        ReusableMethods.waitFor(3);
+        ReusableMethods.waitFor(6);
         WebElement elementToOption = ReusableMethods.locateHallOptionsByText("Masadan Çıkar");
         ReusableMethods.jseWithClick(Driver.getDriver(), elementToOption);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         wait.until(ExpectedConditions.elementToBeClickable(verifyAlert));
         ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
-        ReusableMethods.waitFor(3);
+        ReusableMethods.waitFor(6);
         wait.until(ExpectedConditions.elementToBeClickable(patientTransactionButton));
         ReusableMethods.jseWithClick(Driver.getDriver(), patientTransactionButton);
-        ReusableMethods.waitFor(3);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), takeOffTable);
-        ReusableMethods.waitFor(3);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), causeOftakeOffTable);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         wait.until(ExpectedConditions.elementToBeClickable(hallOperationsButton));
         ReusableMethods.jseWithClick(Driver.getDriver(), hallOperationsButton);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), cancellHallButton);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
         softAssert.assertAll();
 
@@ -656,11 +655,11 @@ public class CreateSurgeryList_Page {
 
     public void cancelTheHall() {
         ReusableMethods.jseWithClick(Driver.getDriver(), hallOperationsButton);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), cancellHallButton);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), refreshButton);
         Assert.assertTrue(numberOfHalls.isEmpty());
 
@@ -675,22 +674,22 @@ public class CreateSurgeryList_Page {
         ReusableMethods.jseWithClick(Driver.getDriver(), serviceBox);
         WebElement elementToClick = ReusableMethods.locateServiceByText(service);
         ReusableMethods.doubleClickWithJS(Driver.getDriver(), elementToClick);
-        ReusableMethods.waitFor(3);
+        ReusableMethods.waitFor(6);
     }
 
     public void selectPatientWithText(String patient) {
         ReusableMethods.jseWithClick(Driver.getDriver(), refreshButton);
-        ReusableMethods.waitFor(4);
+        ReusableMethods.waitFor(6);
         WebElement elementToClick = ReusableMethods.locatePatientByText(patient);
         ReusableMethods.jseWithClick(Driver.getDriver(), elementToClick);
-        ReusableMethods.waitFor(3);
+        ReusableMethods.waitFor(6);
     }
 
     public void addPatientWithText(String patient) {
         ReusableMethods.jseWithClick(Driver.getDriver(), refreshButton);
         WebElement elementToClick = ReusableMethods.locatePatientByText(patient);
         ReusableMethods.doubleClickWithJS(Driver.getDriver(), elementToClick);
-        ReusableMethods.waitFor(3);
+        ReusableMethods.waitFor(6);
     }
 
     public void surgeryListCreated() {
@@ -782,7 +781,7 @@ public class CreateSurgeryList_Page {
     public WebElement popupsalonyes;
 
     @FindBy(xpath = "//span[(text() = 'Ekle')]")
-    public WebElement causeOftakeOffTable;
+    public static WebElement causeOftakeOffTable;
 
 
     @FindBy(xpath = "//li[@data-masakodu='11']")
@@ -808,25 +807,26 @@ public class CreateSurgeryList_Page {
 
 
     public void SurgeryAppointmentProcedures() {
-
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), Surgeryappointment);
-
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
 
     }
 
     @FindBy(xpath = "(//a[@data-islemno='1'])[2]")
-    public WebElement takeOffTable;
+    public static WebElement takeOffTable;
 
 
     public void ClicksOnThENewAppointmentTab() {
-
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), newappointment);
     }
 
 
     public void EntersAppointmentDate() {
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), newappointmentdate);
+        ReusableMethods.waitFor(6);
         ReusableMethods.sendKeysWithJS(Driver.getDriver(), newappointmentdate, "21.09.2023");
 
 
@@ -834,7 +834,9 @@ public class CreateSurgeryList_Page {
 
 
     public void EntersProtocolNo() {
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), SurgeryAppointmentProtocol);
+        ReusableMethods.waitFor(6);
         ReusableMethods.sendKeysWithJS(Driver.getDriver(), SurgeryAppointmentProtocol, "15388673");
 
 
@@ -842,58 +844,67 @@ public class CreateSurgeryList_Page {
 
     public void CliksPatientNo() {
 
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), clickPatientNo);
-        ReusableMethods.waitFor(2);
-        ReusableMethods.waitFor(5);
+        ReusableMethods.waitFor(6);
+
     }
 
     public void EntersSurgery() {
+        ReusableMethods.waitFor(6);
         ReusableMethods.doubleClickWithJS(Driver.getDriver(), SurgeryAppointmentSurgery);
-
+        ReusableMethods.waitFor(6);
         ReusableMethods.sendKeysWithJS(Driver.getDriver(), AmeliyatEkle, "KAFA BANDI UYGULAMASI");
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), tccell);
 
 
     }
 
     public void ClicksClocks() {
+        ReusableMethods.waitFor(6);
         ReusableMethods.sendKeysWithJS(Driver.getDriver(), appointmenttime, "15");
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         ReusableMethods.sendKeysWithJS(Driver.getDriver(), clocks10, "30");
 
     }
 
     public void EntersPlanTime() {
-
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), plannedcensorship);
+        ReusableMethods.waitFor(6);
         ReusableMethods.sendKeysWithJS(Driver.getDriver(), plannedcensorship, "30" + Keys.ENTER);
 
     }
 
     public void ClicksOnPatientTransactions() {
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), patientProceduresTitle);
 
     }
 
     public void ClicksOnOperation() {
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), operatingRoomOperationsTitle);
 
 
     }
 
     public void ClicksToCreateAnOperationList() {
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), creatingSurgeryListTitle);
 
     }
 
 
     public void DateFromAppointmentPatientsSection() {
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), SurgeryAppointmentDate);
+        ReusableMethods.waitFor(6);
         ReusableMethods.sendKeysWithJS(Driver.getDriver(), SurgeryAppointmentDate, "30.11.2023");
-        ReusableMethods.waitFor(2);
-
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), SurgeryAppointmentDate2);
+        ReusableMethods.waitFor(6);
         ReusableMethods.sendKeysWithJS(Driver.getDriver(), SurgeryAppointmentDate2, "30.11.2023");
 
 
@@ -901,33 +912,37 @@ public class CreateSurgeryList_Page {
 
 
     public void SelectsService() {
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), serviceBox);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(),GenelCerrahi);
-        ReusableMethods.waitFor(3);
+        ReusableMethods.waitFor(6);
 
 
     }
 
 
     public void ClicksTheRefreshButton() {
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), refreshButton);
 
     }
 
 
     public void DoubleClicksOnPatient() {
-
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), AmeliyatRandevuhasta);
-
-        ReusableMethods.waitFor(3);
-
+        ReusableMethods.waitFor(6);
+        ReusableMethods.waitFor(6);
+        ReusableMethods.waitFor(6);
         ReusableMethods.doubleClickWithJS(Driver.getDriver(), AmeliyatRandevuhasta);
     }
 
 
     public void UserClicksOnTheOperationsTab() {
+        ReusableMethods.waitFor(6);
         ReusableMethods.doubleClick(Driver.getDriver(), GridRandevuListesi);
-        ReusableMethods.waitForVisibility(patientFromList, 5);
+        ReusableMethods.waitFor(6);
 
 
     }
@@ -937,7 +952,7 @@ public class CreateSurgeryList_Page {
 
         String randevuprtokolverify = randevuprotokol.getText();
         String ameliyatedilecekhastalistesi = ameliyatedilecekhasta.getText();
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         Assert.assertEquals(randevuprtokolverify, ameliyatedilecekhastalistesi);
 
 
@@ -946,164 +961,170 @@ public class CreateSurgeryList_Page {
 
 
     public void UserClicksDevamEdilsinmiPopup() {
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), AlertSavebuttons2);
 
     }
 
     public void clickNewHall() {
 
-        ReusableMethods.waitFor(3);
-
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), hallOperationsButton);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), addHallButton);
+        ReusableMethods.waitFor(6);
         selectHallButton.click();
 
     }
 
     public void UserSelectsHall(String string) {
 
-
+        ReusableMethods.waitFor(6);
         WebElement elementToClick = ReusableMethods.locateElementByText(string);
-
-        ReusableMethods.waitFor(2);
-
+        ReusableMethods.waitFor(6);
+        ReusableMethods.waitFor(6);
+        ReusableMethods.waitFor(6);
         ReusableMethods.waitForVisibility(elementToClick, 5);
-
-
+        ReusableMethods.waitFor(6);
         ReusableMethods.doubleClickWithJS(Driver.getDriver(), elementToClick);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
 
     }
 
     public void addSelectsAHall() {
+        ReusableMethods.waitFor(6);
         selectHallButton.click();
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
     }
 
     public void ClicksOperationsButton() {
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), patientTransactionButton);
     }
 
     public void ClicksIslemlerMasadanCikar() {
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), masadancikar);
     }
 
     public void ClicksUyariPopupEvetButonuna() {
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), AlertDummy);
 
     }
 
     public void UserClicksMasadanCikarEkleButtonTab() {
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), AlertSaveButton);
 
     }
 
     public void VerifiesAmeliyatEdilecekHastaListesi() {
         SoftAssert softAssert = new SoftAssert();
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         softAssert.assertTrue((goruntulenecekveri.isDisplayed()));
-
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), hallOperationsButton);
-        ReusableMethods.waitFor(3);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), cancellHallButton);
-        ReusableMethods.waitFor(3);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
         softAssert.assertAll();
     }
 
     public void ClicksOnOperatingRoomProceduresPage() {
-
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), hallOperationsButton);
-        ReusableMethods.waitFor(3);
-        System.out.println("kontrol");
-
+        ReusableMethods.waitFor(6);
 
     }
 
     public void ClicksOnUserCancelHall() {
-
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), salonuiptalet);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
     }
 
     public void HallGivesConsentToThePopupWhetherToBeCancelled() {
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), popupsalonyes);
 
     }
 
     public void ClicksOnHallOperations() {
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), hallOperationsButton);
 
     }
 
     public void ClicksAddLounge(String string) {
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), hallOperationsButton);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), addHallButton);
-        ReusableMethods.waitFor(2);
-
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), salonlar);
-        ReusableMethods.waitFor(3);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), salonlarsec);
-
-
     }
 
     public void SelectsADifferentHall() {
-
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), islemler);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), tablecode);
 
 
     }
 
     public void UserSalonChangeSecer() {
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), changeHall);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), secButton);
 
 
     }
 
     public void UserGivesConsentFromTheWarningTab() {
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), AlertDummy);
     }
 
     public void theUserConfirmsThatThePatientSHallHasChanged() {
+        ReusableMethods.waitFor(6);
         Assert.assertTrue(patientName.isDisplayed());
 
 
     }
 
     public void ConfirmsHallCancellation() {
+        ReusableMethods.waitFor(6);
         Assert.assertTrue(salonlistesi.isDisplayed());
     }
 
     public void rollbackAllSteps() {
-        ReusableMethods.waitFor(3);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), patientTransactionButton);
-        ReusableMethods.waitFor(3);
+        ReusableMethods.waitFor(6);
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(7));
         WebElement elementToOption = ReusableMethods.locateHallOptionsByText("Masadan Çıkar");
         ReusableMethods.jseWithClick(Driver.getDriver(), elementToOption);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         wait.until(ExpectedConditions.elementToBeClickable(verifyAlert));
         ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
-        ReusableMethods.waitFor(3);
+        ReusableMethods.waitFor(6);
         wait.until(ExpectedConditions.elementToBeClickable(patientTransactionButton));
         ReusableMethods.jseWithClick(Driver.getDriver(), patientTransactionButton);
-        ReusableMethods.waitFor(3);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), takeOffTable);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
         ReusableMethods.jseWithClick(Driver.getDriver(), causeOftakeOffTable);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
         ReusableMethods.jseWithClick(Driver.getDriver(), hallOperationsButton);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), cancellHallButton);
         ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
 
@@ -1115,35 +1136,35 @@ public class CreateSurgeryList_Page {
         ReusableMethods.waitForVisibility(notificationPopup, 5);
         softAssert.assertFalse(notificationPopup.isDisplayed());
 
-        ReusableMethods.waitFor(3);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), patientTransactionButton);
-        ReusableMethods.waitFor(3);
+        ReusableMethods.waitFor(6);
         WebElement elementToOption = ReusableMethods.locateHallOptionsByText("Masadan Çıkar");
         ReusableMethods.jseWithClick(Driver.getDriver(), elementToOption);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         wait.until(ExpectedConditions.elementToBeClickable(verifyAlert));
         ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
-        ReusableMethods.waitFor(3);
+        ReusableMethods.waitFor(6);
         wait.until(ExpectedConditions.elementToBeClickable(patientTransactionButton));
         ReusableMethods.jseWithClick(Driver.getDriver(), patientTransactionButton);
-        ReusableMethods.waitFor(3);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), takeOffTable);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
         ReusableMethods.jseWithClick(Driver.getDriver(), causeOftakeOffTable);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), hallOperationsButton);
-        ReusableMethods.waitFor(3);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), cancellHallButton);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
         ReusableMethods.jseWithClick(Driver.getDriver(), refreshButton);
-        ReusableMethods.waitFor(3);
+        ReusableMethods.waitFor(6);
         wait.until(ExpectedConditions.elementToBeClickable(hallOperationsButton));
         ReusableMethods.jseWithClick(Driver.getDriver(), hallOperationsButton);
-        ReusableMethods.waitFor(3);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), cancellHallButton);
-        ReusableMethods.waitFor(3);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
         softAssert.assertAll();
 
@@ -1162,39 +1183,46 @@ public class CreateSurgeryList_Page {
         selectHall2.click();
         softAssert.assertTrue(patientProtocolNo.isDisplayed());
 
-        ReusableMethods.waitFor(3);
+        ReusableMethods.waitFor(6);
         wait.until(ExpectedConditions.elementToBeClickable(patientTransactionButton));
         ReusableMethods.jseWithClick(Driver.getDriver(), patientTransactionButton);
-        ReusableMethods.waitFor(3);
+        ReusableMethods.waitFor(6);
         WebElement elementToOption = ReusableMethods.locateHallOptionsByText("Masadan Çıkar");
         ReusableMethods.jseWithClick(Driver.getDriver(), elementToOption);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         wait.until(ExpectedConditions.elementToBeClickable(verifyAlert));
         ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), causeOftakeOffTable);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), hallOperationsButton);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), cancellHallButton);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
         ReusableMethods.jseWithClick(Driver.getDriver(), refreshButton);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), hallOperationsButton);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), cancellHallButton);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
     }
 
     public void surgeryListShouldBeCreatedOutpatients() {
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
         ReusableMethods.waitForVisibility(notificationPopup, 5);
+        ReusableMethods.waitFor(6);
         Assert.assertTrue(notificationPopup.isDisplayed());
 
+    }
+
+    public void checkIfAnyHallOnTheTable() {
+        ReusableMethods.waitFor(6);
+        ReusableMethods.checkIfPatientOrHallAtTable();
     }
 }
 
