@@ -373,7 +373,7 @@ public class ReusableMethods {
         WebElement pageNumberNext = Driver.getDriver().findElement(By.xpath("//div[@id='lstServis_DXPagerBottom']//*[contains(@class,'dxp-num')][text()='" + pageNumberCountText + "']"));
         ReusableMethods.jseWithClick(Driver.getDriver(), pageNumberNext);
         CreateSurgeryList_Page surgeryList_Page = new CreateSurgeryList_Page();
-        ReusableMethods.jseWithClick(Driver.getDriver(), surgeryList_Page.refreshButton);
+        ReusableMethods.jseWithClick(Driver.getDriver(), CreateSurgeryList_Page.refreshButton);
         Thread.sleep(2000);
     }
 
@@ -385,6 +385,40 @@ public class ReusableMethods {
     public static WebElement locateElementByText(String text) {
         return Driver.getDriver().findElement(By.xpath("//*[contains(@id,'lstSalonMasaListesi_DXData')]//td[contains(.,'" + text + "')]"));
 
+    }
+
+    public static void checkIfPatientOrHallAtTable() {
+        List<WebElement> numberOfHalls = Driver.getDriver().findElements(By.xpath("//ul[@id='amlSalonList']//li"));
+        if (numberOfHalls.size() > 0) {
+            for (WebElement hall : numberOfHalls) {
+                jseWithClick(Driver.getDriver(), CreateSurgeryList_Page.refreshButton);
+                List<WebElement> numberOfPatients = Driver.getDriver().findElements(By.xpath("//table[@id='dxGridAmeliyatHastaListesi_DXMainTable']//tr[contains(@id,'DXData')]"));
+                if (numberOfPatients.size() > 0) {
+                    for (WebElement patient : numberOfPatients) {
+                        jseWithClick(Driver.getDriver(), CreateSurgeryList_Page.patientTransactionButton);
+                        waitFor(6);
+                        jseWithClick(Driver.getDriver(), CreateSurgeryList_Page.takeOffTable);
+                        waitFor(6);
+                        jseWithClick(Driver.getDriver(), CreateSurgeryList_Page.verifyAlert);
+                        waitFor(6);
+                        try {
+                            jseWithClick(Driver.getDriver(), CreateSurgeryList_Page.causeOftakeOffTable);
+                            waitFor(6);
+                            if (CreateSurgeryList_Page.verifyAlert.isDisplayed()) {
+                                jseWithClick(Driver.getDriver(), CreateSurgeryList_Page.verifyAlert);
+                            }
+                        } catch (NoSuchElementException e) {
+                        }
+                    }
+                }
+                jseWithClick(Driver.getDriver(), CreateSurgeryList_Page.hallOperationsButton);
+                waitFor(6);
+                jseWithClick(Driver.getDriver(), CreateSurgeryList_Page.cancellHallButton);
+                waitFor(6);
+                jseWithClick(Driver.getDriver(), CreateSurgeryList_Page.verifyAlert);
+                waitFor(6);
+            }
+        }
     }
 
 
