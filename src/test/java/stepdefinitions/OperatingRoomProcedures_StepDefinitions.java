@@ -45,17 +45,17 @@ public class OperatingRoomProcedures_StepDefinitions {
 
     @Given("User selects hall")
     public void user_selects_hall() throws InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(5000);
         operatingRoomProcedures_page_.selectHallName.click();
-        Thread.sleep(1000);
+        Thread.sleep(5000);
 
     }
 
     @Given("User selects patient")
     public void user_selects_patient() throws InterruptedException {
-        Thread.sleep(1000);
+        Thread.sleep(5000);
         operatingRoomProcedures_page_.selectPatient.click();
-        Thread.sleep(1000);
+        Thread.sleep(5000);
 
 
 
@@ -65,16 +65,17 @@ public class OperatingRoomProcedures_StepDefinitions {
     public void user_clicks_on_salon_operations() throws InterruptedException {
         Thread.sleep(3000);
         operatingRoomProcedures_page_.HallOperations.click();
-        Thread.sleep(1000);
+        Thread.sleep(5000);
 
     }
 
     @Given("User hall approves")
     public void user_hall_approves() throws InterruptedException {
         operatingRoomProcedures_page_.hallApprove.click();
-        Thread.sleep(1000);
+        Thread.sleep(3000);
         operatingRoomProcedures_page_.DoYouWantToContinuePopupYESbutton.click();
-        Thread.sleep(1000);
+        Thread.sleep(5000);
+
 
     }
 
@@ -82,9 +83,10 @@ public class OperatingRoomProcedures_StepDefinitions {
 
     @Given("User verifies patient")
     public void user_verifies_patient() {
+
         Assertion assertion = new Assertion();
         Assert.assertEquals("Salon onaylanmıştır.", operatingRoomProcedures_page_.hallStatus.getText());
-        org.junit.Assert.assertTrue("Bilgiler kaydedildi.", true);
+        org.junit.Assert.assertTrue("Bilgiler kaydedildi.", false);
 
     }
 
@@ -131,7 +133,7 @@ public class OperatingRoomProcedures_StepDefinitions {
 
     @Given("The user clicks on the patient operations button")
     public void the_user_clicks_on_the_patient_operations_button() throws InterruptedException {
-        Thread.sleep(1000);
+        Thread.sleep(3000);
         operatingRoomProcedures_page_.patientOperations.click();
 
     }
@@ -294,11 +296,24 @@ public class OperatingRoomProcedures_StepDefinitions {
 
     }
 
+    @Given("User clicks select saloon")
+    public void user_clicks_select_saloon() throws InterruptedException {
+        Thread.sleep(1000);
+      operatingRoomProcedures_page_.selectSalon4.click();
+        Thread.sleep(1000);
+    }
+
     @Given("User popup2 selects hall")
     public void user_popup2_selects_hall() throws InterruptedException {
         Thread.sleep(2000);
-        operatingRoomProcedures_page_.selectSalonButtonFromList.click();
+        operatingRoomProcedures_page_.popupSelectSalonButtonFromList.click();
 
+    }
+
+    @Given("User clicks popup add patient from list page select hol button")
+    public void user_clicks_popup_add_patient_from_list_page_select_hol_button() throws InterruptedException {
+        Thread.sleep(2000);
+       operatingRoomProcedures_page_.popupSelectSalonButtonFromList.click();
     }
 
     @Given("User clicks popup1 on Add patient to list button")

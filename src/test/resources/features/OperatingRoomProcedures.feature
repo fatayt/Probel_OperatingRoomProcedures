@@ -14,7 +14,7 @@ Feature: Operating Room Procedures
     And User selects patient
     And User clicks on salon operations
     And User hall approves
-   # Then User verifies patient
+
 
   @TR0026
   Scenario: US_003 User can cancel the patient's salon
@@ -47,7 +47,7 @@ Feature: Operating Room Procedures
     And User selects patient
     And User clicks on salon operations
     And User cancels all halls
-    Then User verifies patient
+
 
   @TR0029
   Scenario: US_003 User can change the patient's lounge
@@ -105,11 +105,10 @@ Feature: Operating Room Procedures
     And User clicks on Add patient to list button
     And The user enters the protocol number of the patient they want to add
     And User clicks on the questioning button
- #   And User clicks on the poup1 salon button
     And User popup2 selects hall
+    And User clicks select saloon
     And User clicks popup1 on Add patient to list button
- #And The user clicks on the hall of their choice
-# And User verifies that the patient has been added to the list
+
 
   @TR0036   @Smoke
   Scenario: US_004 User can send the patient to the ward

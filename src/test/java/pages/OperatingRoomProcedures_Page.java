@@ -140,6 +140,20 @@ public class OperatingRoomProcedures_Page {
     @FindBy(xpath = "//*[@id=\"lstSalonMasaListesi_tccell3_3\"]/a")
     public WebElement selectSalonButtonFromList;
 
+    @FindBy(xpath = "//td[@id='lstSalonMasaListesi_tccell3_3']//a[1]")
+    public WebElement selectSalon4;
+
+
+
+
+
+    @FindBy(xpath = "//input[@name='TB_MASA_ADI']/following-sibling::input[1]")
+    public WebElement popupSelectSalonButtonFromList;
+
+
+
+
+
     @FindBy(xpath = "//a[contains(text(),'Listeye Hasta Ekle')]")
     public WebElement addPatientListButton;
 
