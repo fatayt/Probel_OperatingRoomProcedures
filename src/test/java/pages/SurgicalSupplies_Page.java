@@ -242,6 +242,7 @@ public class SurgicalSupplies_Page {
     }
 
     public void closePopupPage() {
+        ReusableMethods.waitForClickablility(closePopUpPage_button,5);
         closePopUpPage_button.click();
     }
 

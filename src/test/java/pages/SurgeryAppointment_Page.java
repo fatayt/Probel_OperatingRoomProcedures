@@ -14,8 +14,6 @@ import utilities.ReusableMethods;
 public class SurgeryAppointment_Page {
     WebDriver driver;
     SoftAssert softAssert = new SoftAssert();
-
-
     @FindBy(xpath = "//a[text()='İşlemler']")
     WebElement settings_button;
 
@@ -224,7 +222,7 @@ public class SurgeryAppointment_Page {
     public void clickSaveButton() {
         ReusableMethods.jseWithClick(Driver.getDriver(), popUpSave_button);
         //save_button.click();
-        ReusableMethods.waitFor(1);
+        ReusableMethods.waitFor(4);
     }
 
     public void assertTheWarningMessage(String arg0) {
@@ -317,18 +315,19 @@ public class SurgeryAppointment_Page {
     public void clickHoursButton() {
         ReusableMethods.waitFor(1);
         hours_button.click();
-        ReusableMethods.waitFor(1);
+        ReusableMethods.waitFor(3);
     }
 
     public void selectAppointmentTime(String arg0) {
-        ReusableMethods.waitFor(1);
+        //ReusableMethods.waitFor(3);
         WebElement hour = driver.findElement(By.linkText(arg0));
+        ReusableMethods.waitForVisibility(hour,5);
         hour.click();
-        ReusableMethods.waitFor(1);
+        ReusableMethods.waitFor(2);
     }
 
     public void clickDeleteButton() {
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitForClickablility(deleteUnit_button,5);
         deleteUnit_button.click();
     }
 
@@ -339,6 +338,7 @@ public class SurgeryAppointment_Page {
     }
 
     public void clickYesButton() {
+        ReusableMethods.waitForClickablility(yes_button,5);
         yes_button.click();
         ReusableMethods.waitFor(2);
     }
@@ -970,6 +970,118 @@ public class SurgeryAppointment_Page {
             } catch (NoSuchElementException e) {
             }
         }
+    }
+
+    public void deletePatientApptIfProtocol(String protocol) {
+        ReusableMethods.waitFor(2);
+        protocolNumber_box_main.clear();
+        protocolNumber_box_main.sendKeys(protocol + Keys.ENTER);
+        ReusableMethods.waitFor(3);
+
+        try {
+            while (true) {
+                WebElement patient = driver.findElement(By.xpath("(//td[text()='"+protocol+"'])[1]"));
+                if (!patient.isDisplayed()) {
+                    break;
+                }
+                clickPatientSettingsButton();
+                click_the_delete_appointment_button();
+                clickYesButton();
+            }
+        } catch (NoSuchElementException e) {
+            System.out.println(protocol+"'a sahip tüm hasta randevuları silindi.");
+        }
+
+
+        //while (true){
+        //    try {
+        //        WebElement patient = driver.findElement(By.xpath("(//td[text()='"+protocol+"'])[1]"));
+        //        if (patient.isDisplayed()){
+        //        clickPatientSettingsButton();
+        //        click_the_delete_appointment_button();
+        //        clickYesButton();}
+        //    } catch (NoSuchElementException e) {
+        //    }
+        //}
+    }
+
+
+    public void deleteUnitIfUnitCode(String unitCode) {
+        ReusableMethods.waitFor(2);
+        clickSettingsButton();
+        clickUnitDefinitionsButton();
+        enterServiceCodeToUnitCodeBox(unitCode);
+
+        //unitCode_box.clear();
+        //unitCode_box.sendKeys(unitCode, Keys.ENTER);
+        //ReusableMethods.waitFor(3);
+
+        try {
+            while (true) {
+                WebElement unit = driver.findElement(By.xpath("(//td[text()='"+unitCode+"'])"));
+                if (!unit.isDisplayed()) {
+                    break;
+                }
+                //clickSettingsButton();
+                //clickUnitDefinitionsButton();
+                clickDeleteButton();
+                clickYesButton();
+            }
+        } catch (NoSuchElementException e) {
+            System.out.println(unitCode+"'a sahip tüm birimler silindi.");
+        }
+    }
+
+    public void deletePatientGroupIfBranchName(String branchName) {
+        clickSettingsButton();
+        clickGroupDefinitionsButton();
+        branchName_box.clear();
+        ReusableMethods.waitFor(2);
+        branchName_box.sendKeys(branchName + Keys.ENTER);
+        ReusableMethods.waitFor(2);
+
+        try {
+            while (true) {
+                WebElement branch = driver.findElement(By.xpath("(//td[text()='"+branchName+"'])"));
+                                                                           // (//td[text()='Dermatoloji'])[1]
+                if (!branch.isDisplayed()) {
+                    break;
+                }
+                //clickSettingsButton();
+                //clickUnitDefinitionsButton();
+                clickDeleteButton();
+                clickYesButton();
+            }
+        } catch (NoSuchElementException e) {
+            System.out.println(branchName+"'a sahip tüm gruplar silindi.");
+        }
+    }
+
+    public void deleteReasonIfReasonIs(String arg0) {
+        clickSettingsButton();
+        clickCancellationReasonButton();
+        cancelReasonSearch_box.clear();
+        ReusableMethods.waitFor(2);
+        cancelReasonSearch_box.sendKeys(arg0 + Keys.ENTER);
+        ReusableMethods.waitFor(2);
+
+
+        try {
+            while (true) {
+                WebElement reason = driver.findElement(By.xpath("(//td[text()='"+arg0+"'])"));
+                // (//td[text()='Dermatoloji'])[1]
+                if (!reason.isDisplayed()) {
+                    break;
+                }
+                //clickSettingsButton();
+                //clickUnitDefinitionsButton();
+                clickDeleteButton();
+                clickYesButton();
+            }
+        } catch (NoSuchElementException e) {
+            System.out.println("All "+arg0+" deleted");
+        }
+
     }
 }
 

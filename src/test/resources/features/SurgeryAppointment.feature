@@ -8,24 +8,37 @@ Feature: Surgery Appointment
     Given The user logs in
     And The user goes Surgery Appointment page
 
-  #@deleteCanceledAppt
+  #@del
   #Scenario: Delete canceled appt
-  #  And select the service code "163"
-  #  And select the start date "23.10.2023"
-  #  And select the end date "23.10.2023"
-  #  And click refresh button
-  #  And enter the protocol number "15388830"
-  #  And delete if
-  #  And click patient settings button
-  #  And click the delete appointment button
-  #  Then click yes button
+  #  And delete patient appt if protocol "15388636"
+  #  And delete patient appt if protocol "15388830"
+  #When create a new appointment
+  #    | code | date       | protocol | surgery | time    |
+  #    | 163  | 23.10.2023 | 15388830 | 613180  | 09 : 00 |
+  #When create a new appointment
+  #    | code | date       | protocol | surgery | time    |
+  #    | 163  | 23.10.2023 | 15388636 | 613180  | 09 : 00 |
+  #When create a new appointment
+  #  | code | date       | protocol | surgery | time    |
+  #  | 163  | 23.10.2023 | 15388830 | 613180  | 09 : 00 |
+  #When create a new appointment
+  #  | code | date       | protocol | surgery | time    |
+  #  | 163  | 23.10.2023 | 15388636 | 613180  | 09 : 00 |
+  #When create a new appointment
+  #  | code | date       | protocol | surgery | time    |
+  #  | 163  | 23.10.2023 | 15388830 | 613180  | 09 : 00 |
+  #When create a new appointment
+  #  | code | date       | protocol | surgery | time    |
+  #  | 163  | 23.10.2023 | 15388636 | 613180  | 09 : 00 |
+  #And delete patient appt if protocol "15388636"
+  #And delete patient appt if protocol "15388830"
 
 
 
 
-
-  @Smoke @TC0057
+  @Smoke @TC0057 @US_008
   Scenario: TC0057 - User may postpone patient appointment
+    And delete patient appt if protocol "15388830"
     When create a new appointment
       | code | date       | protocol | surgery | time    |
       | 163  | 23.10.2023 | 15388830 | 613180  | 09 : 00 |
@@ -42,12 +55,16 @@ Feature: Surgery Appointment
     And click on the refresh button
     And assert the appointment title "Randevu Ertelendi"
     Then assert the appointment date "31.10.2023"
-    And click patient settings button
-    And click the delete appointment button
-    And click yes button
+    And delete patient appt if protocol "15388830"
 
-  @Smoke @TC0058
+    #And click patient settings button
+    #And click the delete appointment button
+    #And click yes button
+
+  @Smoke @TC0058 @US_008
   Scenario: TC0058 User can cancel patient appointment
+    And delete patient appt if protocol "15388830"
+
     When create a new appointment
       | code | date       | protocol | surgery | time    |
       | 163  | 23.10.2023 | 15388830 | 613180  | 09 : 00 |
@@ -65,12 +82,15 @@ Feature: Surgery Appointment
     And click save button
     And click check box cancel appointment
     And assert the appointment title "İptal Edildi"
+    And delete patient appt if protocol "15388830"
+
 
     #And verify that your appointment has been canceled
 
 
-  @Smoke @TC0060
+  @Smoke @TC0060 @US_008
   Scenario:TC0060 - The appointment can be edited
+    And delete patient appt if protocol "14028483"
     When create a new appointment
       | code | date       | protocol | surgery | time    |
       | 163  | 23.10.2023 | 14028483 | 613180  | 09 : 00 |
@@ -122,13 +142,19 @@ Feature: Surgery Appointment
     And assert description of appointment "abeyis automation"
 
     And close popup page
-    And click patient settings button
-    And click the delete appointment button
-    Then click yes button
+    And delete patient appt if protocol "14028483"
+
+    #And click patient settings button
+    #And click the delete appointment button
+    #Then click yes button
 
 
-  @Bug @TC0061
+  @Bug @TC0061 @US_008
   Scenario: TC0061 - user can not create a same appointment
+    And delete patient appt if protocol "15388830"
+    And delete patient appt if protocol "14028483"
+    And delete patient appt if protocol "15388636"
+
     When create a new appointment
       | code | date       | protocol | surgery | time    |
       | 163  | 13.11.2023 | 15388830 | 613180  | 09 : 00 |
@@ -141,26 +167,36 @@ Feature: Surgery Appointment
       | code | date       | protocol | surgery | time    |
       | 163  | 13.11.2023 | 15388636 | 613180  | 09 : 00 |
 
-    And search the protocol number "15388830"
-    And click patient settings button
-    And click the delete appointment button
-    And click yes button
+    And delete patient appt if protocol "15388830"
     Then assert the service was deleted "Görüntülenecek veri yok"
 
-    And search the protocol number "14028483"
-    And click patient settings button
-    And click the delete appointment button
-    And click yes button
+    And delete patient appt if protocol "14028483"
     Then assert the service was deleted "Görüntülenecek veri yok"
 
-    And search the protocol number "15388636"
-    And click patient settings button
-    And click the delete appointment button
-    And click yes button
+    And delete patient appt if protocol "15388636"
     Then assert the service was deleted "Görüntülenecek veri yok"
+
+    #And search the protocol number "15388830"
+    #And click patient settings button
+    #And click the delete appointment button
+    #And click yes button
+    #And search the protocol number "14028483"
+    #And click patient settings button
+    #And click the delete appointment button
+    #And click yes button
+    #Then assert the service was deleted "Görüntülenecek veri yok"
+    #And search the protocol number "15388636"
+    #And click patient settings button
+    #And click the delete appointment button
+    #And click yes button
+    #Then assert the service was deleted "Görüntülenecek veri yok"
+
+
 
   @Smoke @TC0067 @US_009
   Scenario: TC0067 User can create new surgery service unit
+    And delete unit if unit code "187"
+    And close popup page
     When click settings button
     And click unit definitions button
     And click new add button
@@ -169,7 +205,10 @@ Feature: Surgery Appointment
     And click save button
     Then assert the new surgery service unit "187"
     And close popup page
-    And delete a unit "187"
+    And delete unit if unit code "187"
+    And close popup page
+
+#    And delete a unit "187"
 
   @TC0068 @US_009
   Scenario: TC0068 User can not create new surgery service unit without information
@@ -177,6 +216,8 @@ Feature: Surgery Appointment
     #And click unit definitions button
     #And click new add button
     #And click save button
+    And delete unit if unit code "168"
+    And close popup page
     And create new unit "" ""
     Then assert the popup message "Servis kodu boş olamaz."
     And close the warning message
@@ -184,11 +225,13 @@ Feature: Surgery Appointment
     And click save button
     Then assert the new surgery service unit "168"
     And close popup page
-    And delete a unit "168"
-
+    And delete unit if unit code "168"
+    And close popup page
 
   @TC0069 @US_009
   Scenario: TC0069 User can not create same surgery service unit
+    And delete unit if unit code "110"
+    And close popup page
     And create new unit "110" "10"
     Then assert the new surgery service unit "110"
     #When click settings button
@@ -204,13 +247,15 @@ Feature: Surgery Appointment
     And close the warning message
     And close unit popUp edit page
     And close popup page
-    And delete a unit "110"
-
+    And delete unit if unit code "110"
+    And close popup page
 
   @Bug @TC0070 @US_009
   Scenario: TC0070 User can change the daily surgery capacity of service unit
     #When click settings button
     #And click unit definitions button
+    And delete unit if unit code "187"
+    And close popup page
     And create new unit "187" ""
     And enter service code "187" to unit code box
     Then change and assert the new capacity number
@@ -224,13 +269,14 @@ Feature: Surgery Appointment
       | 9999   |
       | 99999  |
       | 999999 |
-
-    And click delete button
-    And click yes button
+    And close popup page
+    And delete unit if unit code "187"
+    And close popup page
 
   @Smoke @TC0071 @TC0059 @US_009
   Scenario: TC0059 TC0071 User can not create more appointments than the capacity and delete the appointment
-
+    And delete patient appt if protocol "15388830"
+    And delete patient appt if protocol "14028483"
     When create a new appointment
       | code | date       | protocol | surgery | time    |
       | 132  | 30.10.2023 | 15388830 | 613180  | 09 : 00 |
@@ -246,15 +292,16 @@ Feature: Surgery Appointment
     And select the end date "30.10.2023"
     And click on refresh button main
     And click on the refresh button
-    And search the protocol number "15388830"
-    And click patient settings button
-    And click the delete appointment button
-    And click yes button
+    And delete patient appt if protocol "15388830"
+    Then assert the service was deleted "Görüntülenecek veri yok"
+    And delete patient appt if protocol "14028483"
     Then assert the service was deleted "Görüntülenecek veri yok"
 
 
   @Smoke @TC0072 @US_009
   Scenario: TC0072 User can delete the surgery service unit
+    And delete unit if unit code "187"
+    And close popup page
     And create new unit "187" "5"
     And enter service code "187" to unit code box
     And click delete button
@@ -264,8 +311,12 @@ Feature: Surgery Appointment
 
   @Bug @TC0073 @US_009
   Scenario: TC0073 User can not delete the unit with an appointment
+    And delete unit if unit code "1028"
+    And close popup page
     When create new unit "1028" "3"
     And close popup page
+    And delete patient appt if protocol "15388830"
+    Then assert the service was deleted "Görüntülenecek veri yok"
 
     When create a new appointment
       | code | date       | protocol | surgery | time    |
@@ -285,11 +336,7 @@ Feature: Surgery Appointment
     And select the start date "12.12.2023"
     And select the end date "12.12.2023"
     And click on the refresh button
-    And search the protocol number "15388830"
-    #And click refresh button
-    And click patient settings button
-    And click the delete appointment button
-    And click yes button
+    And delete patient appt if protocol "15388830"
     Then assert the service was deleted "Görüntülenecek veri yok"
 
 
@@ -316,6 +363,8 @@ Feature: Surgery Appointment
 
   @Smoke @TC0076 @US_010
   Scenario: TC0076 User can create new group
+    And delete patient group if branch name "Dermatoloji"
+    And close popup page
     When click settings button
     And click group definitions button
     And click new add button
@@ -323,22 +372,28 @@ Feature: Surgery Appointment
     And enter the group name "SALON 10"
     And click save button
     Then assert the new group "Dermatoloji"
-    And click delete button
-    And click yes button
+    And close popup page
+    And delete patient group if branch name "Dermatoloji"
+    And close popup page
 
   @TC0077 @US_010
-  Scenario: TC0077 User can create new group without no information
+  Scenario: TC0077 User can create new group without information
+    And delete patient group if branch name "Dermatoloji"
+    And close popup page
     When click settings button
     And click group definitions button
     And click new add button
     And enter service code "1700" to branch code box
     And click save button
     Then assert the new group "Dermatoloji"
-    And click delete button
-    And click yes button
+    And close popup page
+    And delete patient group if branch name "Dermatoloji"
+    And close popup page
 
   @TC0078 @US_010
   Scenario: TC0078 User can not create same group
+    And delete patient group if branch name "Dermatoloji"
+    And close popup page
     When click settings button
     And click group definitions button
     And click new add button
@@ -351,10 +406,9 @@ Feature: Surgery Appointment
     And enter the group name "SALON 10"
     And click save button
     Then assert the new group "Dermatoloji"
-    And click delete button
-    And click yes button
-    And click delete button
-    And click yes button
+    And close popup page
+    And delete patient group if branch name "Dermatoloji"
+    And close popup page
 
 
   @TC0079 @US_010
@@ -372,17 +426,22 @@ Feature: Surgery Appointment
 
   @Smoke @TC0080 @US_011
   Scenario: TC0080 User can create the reason for surgery cancellation
+    And delete reason if reason is "feeling better now"
+    And close popup page
     When click settings button
     And click cancellation reason button
     And click new add button
     And enter "feeling better now" to reason of cancellation box
     And click save button
     Then assert the reason "feeling better now"
-    And click delete button
-    And click yes button
+    And close popup page
+    And delete reason if reason is "feeling better now"
+    And close popup page
 
   @Bug @TC0081 @US_011
   Scenario: TC0081 User can not create the same reason for surgery cancellation
+    And delete reason if reason is "feeling better now"
+    And close popup page
     When click settings button
     And click cancellation reason button
     And click new add button
@@ -393,13 +452,16 @@ Feature: Surgery Appointment
     And enter "feeling better now" to reason of cancellation box
     And click save button
     Then assert the reason "feeling better now"
-    And click delete button
-    And click yes button
-    And click delete button
-    And click yes button
+    And close popup page
+    And delete reason if reason is "feeling better now"
+    And close popup page
 
   @Smoke @TC0082 @US_011
   Scenario: TC0082 User can edit the reason
+    And delete reason if reason is "feeling better now"
+    And close popup page
+    And delete reason if reason is "feeling perfect now"
+    And close popup page
     When click settings button
     And click cancellation reason button
     And click new add button
@@ -412,11 +474,14 @@ Feature: Surgery Appointment
     And enter "feeling perfect now" to reason of cancellation box
     And click save button
     Then assert the reason "feeling perfect now"
-    And click delete button
-    And click yes button
+    And close popup page
+    And delete reason if reason is "feeling perfect now"
+    And close popup page
 
   @Smoke @TC0083 @US_011
   Scenario: TC0083 User can delete the reason for surgery cancellation
+    And delete reason if reason is "abeyis reason"
+    And close popup page
     When click settings button
     And click cancellation reason button
     And click new add button

@@ -498,5 +498,26 @@ public class SurgeryAppointment_StepDefinitions {
     public void deleteIf() {
         sap.deleteIf();
     }
+
+    @And("delete patient appt if protocol {string}")
+    public void deletePatientApptIfProtocol(String protocol) {
+        sap.deletePatientApptIfProtocol(protocol);
+    }
+
+    @And("delete unit if unit code {string}")
+    public void deleteUnitIfUnitCode(String unitCode) {
+        sap.deleteUnitIfUnitCode(unitCode);
+    }
+
+
+    @And("delete patient group if branch name {string}")
+    public void deletePatientGroupIfBranchName(String branchName) {
+        sap.deletePatientGroupIfBranchName(branchName);
+    }
+
+    @And("delete reason if reason is {string}")
+    public void deleteReasonIfReasonIs(String arg0) {
+        sap.deleteReasonIfReasonIs(arg0);
+    }
 }
 

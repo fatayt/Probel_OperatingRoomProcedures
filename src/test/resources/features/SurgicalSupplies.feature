@@ -1,7 +1,7 @@
 @SurgicalSupplies
 @Regression
 
-Feature: Surgery Appointment
+Feature: Surgical Supplies
 
   Background:
     Given The user logs in
