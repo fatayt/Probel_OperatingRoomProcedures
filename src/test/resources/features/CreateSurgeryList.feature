@@ -10,8 +10,9 @@ Feature: Create Surgery List
   Scenario: TC0001 The User should be able to create surgery list
     Given The user clicks on Operating Room Operations   Page
     And The user clicks on Creating a Surgery List Page
-    And The user selects an appointment date "17.10.2023" on Surgery List Page
+    And The user selects an appointment date "17.10.2024" on Surgery List Page
     And The user selects a service "DAHİLİYE SERVİS" on Surgery List Page
+    And Check if there are any hall or patient on the table on Surgery List Page
     And The user adds  "Salon_2" hall on Surgery List Page
     And The user selects a patient "HAZSXG COHHOP" on Surgery List Page
     And The user adds the patient "HAZSXG COHHOP" to  the hall on Surgery List Page
@@ -30,8 +31,9 @@ Feature: Create Surgery List
   Scenario: TC0002 The user can cancel the surgery for which he/she has approved the surgery.
     Given The user clicks on Operating Room Operations   Page
     And The user clicks on Creating a Surgery List Page
-    And The user selects an appointment date "18.10.2023" on Surgery List Page
+    And The user selects an appointment date "18.10.2024" on Surgery List Page
     And The user selects a service "DAHİLİYE SERVİS" on Surgery List Page
+    And Check if there are any hall or patient on the table on Surgery List Page
     And The user adds  "Salon_2" hall on Surgery List Page
     And The user selects a patient "HAZSXG COHHOP" on Surgery List Page
     And The user adds the patient "HAZSXG COHHOP" to  the hall on Surgery List Page
@@ -52,6 +54,7 @@ Feature: Create Surgery List
     And The user clicks on Creating a Surgery List Page
     And The user selects a past appointment date "<Request Date>" on Surgery List Page
     And The user selects a service "DAHİLİYE SERVİS" on Surgery List Page
+    And Check if there are any hall or patient on the table on Surgery List Page
     And The user adds  "Salon_2" hall on Surgery List Page
     And The user selects a patient "HAZSXG COHHOP" on Surgery List Page
     And The user adds the patient "HAZSXG COHHOP" to  the hall on Surgery List Page
@@ -72,8 +75,9 @@ Feature: Create Surgery List
   Scenario: TC0004 The option to postpone the surgery should not be displayed in the transactions section, when the user postpones the surgery.
     Given The user clicks on Operating Room Operations   Page
     And The user clicks on Creating a Surgery List Page
-    And The user selects an appointment date "19.10.2023" on Surgery List Page
+    And The user selects an appointment date "19.10.2024" on Surgery List Page
     And The user selects a service "DAHİLİYE SERVİS" on Surgery List Page
+    And Check if there are any hall or patient on the table on Surgery List Page
     And The user adds  "Salon_2" hall on Surgery List Page
     And The user selects a patient "HAZSXG COHHOP" on Surgery List Page
     And The user adds the patient "HAZSXG COHHOP" to  the hall on Surgery List Page
@@ -92,6 +96,7 @@ Feature: Create Surgery List
     And The user clicks on Creating a Surgery List Page
     And The user selects a past appointment date "<Request Date>" on Surgery List Page
     And The user selects a service "DAHİLİYE SERVİS" on Surgery List Page
+    And Check if there are any hall or patient on the table on Surgery List Page
     And The user adds a hall on Surgery List Page
     And The user selects a patient on Surgery List Page
     Then The user cannot add a patient to a hall on Surgery List Page
@@ -105,8 +110,9 @@ Feature: Create Surgery List
   Scenario: TC0006 The user cannot add a patient to more than one hall at the same time on Surgery List Page
     Given The user clicks on Operating Room Operations   Page
     And The user clicks on Creating a Surgery List Page
-    And The user selects an appointment date "17.10.2023" on Surgery List Page
+    And The user selects an appointment date "04.11.2024" on Surgery List Page
     And The user selects a service "DAHİLİYE SERVİS" on Surgery List Page
+    And Check if there are any hall or patient on the table on Surgery List Page
     And The user adds  "Salon_2" hall on Surgery List Page
     And The user selects a patient "HAZSXG COHHOP" on Surgery List Page
     And The user adds the patient "HAZSXG COHHOP" to  the hall on Surgery List Page
@@ -121,8 +127,9 @@ Feature: Create Surgery List
   Scenario: TC0007 More than one patient should not be added to the same hall at the same time.
     Given The user clicks on Operating Room Operations   Page
     And The user clicks on Creating a Surgery List Page
-    And The user selects an appointment date "13.12.2023" on Surgery List Page
+    And The user selects an appointment date "13.12.2024" on Surgery List Page
     And The user selects a service "DAHİLİYE SERVİS" on Surgery List Page
+    And Check if there are any hall or patient on the table on Surgery List Page
     And The user adds  "Salon_7" hall on Surgery List Page
     And The user selects a patient "HAZSXG COHHOP" on Surgery List Page
     And The user adds the patient "HAZSXG COHHOP" to  the hall on Surgery List Page
@@ -138,6 +145,7 @@ Feature: Create Surgery List
     And The user clicks on Creating a Surgery List Page
     And The user selects an appointment date on a Public Holiday day  "01.01.2024" on Surgery List Page
     And The user selects a service "DAHİLİYE SERVİS" on Surgery List Page
+    And Check if there are any hall or patient on the table on Surgery List Page
     And The user adds  "Salon_2" hall on Surgery List Page
     And The user selects a patient "HAZSXG COHHOP" on Surgery List Page
     And The user adds the patient "HAZSXG COHHOP" to  the hall on Surgery List Page
@@ -148,8 +156,9 @@ Feature: Create Surgery List
   Scenario: TC0009 A patient cannot have more than one operation on the same day and time.
     Given The user clicks on Operating Room Operations   Page
     And The user clicks on Creating a Surgery List Page
-    And The user selects an appointment date "25.10.2023" on Surgery List Page
+    And The user selects an appointment date "25.10.2024" on Surgery List Page
     And The user selects a service "DAHİLİYE SERVİS" on Surgery List Page
+    And Check if there are any hall or patient on the table on Surgery List Page
     And The user adds  "Salon_2" hall on Surgery List Page
     And The user selects a patient "HAZSXG COHHOP" on Surgery List Page
     And The user adds the patient "HAZSXG COHHOP" to  the hall on Surgery List Page
@@ -166,8 +175,9 @@ Feature: Create Surgery List
   Scenario:  TC0010 A hall that can be added for the surgery list should  be changed with any  hall from Hall List.
     Given The user clicks on Operating Room Operations   Page
     And The user clicks on Creating a Surgery List Page
-    And The user selects an appointment date "26.10.2023" on Surgery List Page
+    And The user selects an appointment date "26.10.2024" on Surgery List Page
     And The user selects a service "DAHİLİYE SERVİS" on Surgery List Page
+    And Check if there are any hall or patient on the table on Surgery List Page
     And The user adds  "Salon_2" hall on Surgery List Page
     And The user selects a patient "HAZSXG COHHOP" on Surgery List Page
     And The user adds the patient "HAZSXG COHHOP" to  the hall on Surgery List Page
@@ -179,8 +189,9 @@ Feature: Create Surgery List
   Scenario: TC0011 A hall added for the surgery list should be able to be canceled
     Given The user clicks on Operating Room Operations   Page
     And The user clicks on Creating a Surgery List Page
-    And The user selects an appointment date "03.11.2023" on Surgery List Page
+    And The user selects an appointment date "03.11.2024" on Surgery List Page
     And The user selects a service "DAHİLİYE SERVİS" on Surgery List Page
+    And Check if there are any hall or patient on the table on Surgery List Page
     And The user adds  "Salon_2" hall on Surgery List Page
     Then The user can cancel the hall on Surgery List Page
 
@@ -189,7 +200,7 @@ Feature: Create Surgery List
   Scenario: TC0012 Any service from service list should be selected on  Surgery List Page
     Given The user clicks on Operating Room Operations   Page
     And The user clicks on Creating a Surgery List Page
-    And The user selects an appointment date "03.11.2023" on Surgery List Page
+    And The user selects an appointment date "03.11.2024" on Surgery List Page
     Then Any service should be selected on  Surgery List Page
 
 
@@ -235,7 +246,7 @@ Feature: Create Surgery List
 
 
   @TC0023  @US_002
-  Scenario:TC0023  Hall cancellation procedures
+    Scenario:TC0023  Hall cancellation procedures
     When User clicks on Patient transactions
     And The user clicks on Operation
     And  User clicks to create an operation list
