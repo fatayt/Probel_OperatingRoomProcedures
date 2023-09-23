@@ -11,7 +11,6 @@ public class DoctorOperatingRoomProcedures_StepDefinitions {
 
     DoctorOperatingRoomProcedures_Page dorp = new DoctorOperatingRoomProcedures_Page(Driver.getDriver());
 
-
     @Given("User clicks the close buttom")
     public void userClicksTheCloseButtom() {
         dorp.clickTheCloseButtom();

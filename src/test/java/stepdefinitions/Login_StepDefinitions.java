@@ -9,6 +9,7 @@ import utilities.ConfigReader;
 
 public class Login_StepDefinitions {
 
+
     Login_Page login_page = new Login_Page();
     BasePage basePage = new BasePage();
 
@@ -34,8 +35,10 @@ public class Login_StepDefinitions {
     }
 
     @And("The user goes Doctor Operating Room Procedures page")
-    public void theUserGoesDoctorOperatingRoomProceduresPage() {
+    public void theUserGoesDoctorOperatingRoomProceduresPage() throws InterruptedException {
+        Thread.sleep(5000);
         basePage.theUserGoesDoctorOperatingRoomProceduresPage();
+        Thread.sleep(5000);
     }
 
     @And("The user goes Surgical Supplies page")
