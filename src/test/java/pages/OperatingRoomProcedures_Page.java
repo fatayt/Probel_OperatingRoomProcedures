@@ -125,7 +125,7 @@ public class OperatingRoomProcedures_Page {
     public WebElement statusButton;
 
 
-    @FindBy(xpath = "/html/body/div[1]/div[4]/section/div[4]/div[2]/div[2]/div[6]/a[2]")
+    @FindBy(xpath = "//a[contains(text(),'Hasta Ameliyathane Giriş İptal')]")
     public WebElement operatingRoomCancelsEntranceButton;
 
 
@@ -138,10 +138,24 @@ public class OperatingRoomProcedures_Page {
     @FindBy(xpath = "/html/body/div[7]/div[2]/div[2]/div[1]/div/div[2]/input[3]")
     public WebElement popup1selectSalonButton;
 
-    @FindBy(xpath = "//*[@id=\"lstSalonMasaListesi_tccell0_3\"]/a")
+    @FindBy(xpath = "//*[@id=\"lstSalonMasaListesi_tccell3_3\"]/a")
     public WebElement selectSalonButtonFromList;
 
-    @FindBy(xpath = "/html/body/div[1]/div[4]/section/div[4]/div[1]/div[2]/a[2]")
+    @FindBy(xpath = "//td[@id='lstSalonMasaListesi_tccell3_3']//a[1]")
+    public WebElement selectSalon4;
+
+
+
+
+
+    @FindBy(xpath = "//input[@name='TB_MASA_ADI']/following-sibling::input[1]")
+    public WebElement popupSelectSalonButtonFromList;
+
+
+
+
+
+    @FindBy(xpath = "//a[contains(text(),'Listeye Hasta Ekle')]")
     public WebElement addPatientListButton;
 
     @FindBy(xpath = "//*[@id=\"btn-ayaktahastaekle\"]")
@@ -150,7 +164,7 @@ public class OperatingRoomProcedures_Page {
     @FindBy(xpath = "/html/body/div[1]/div[4]/section/div[4]/div[1]/div[2]/a[4]")
     public WebElement POstopButton;
 
-    @FindBy(xpath = "/html/body/div[1]/div[4]/section/div[4]/div[1]/div[2]/a[4]")
+    @FindBy(xpath = "//a[contains(text(),'Postop')]")
     public WebElement homePagePOstopButton;
 
     @FindBy(xpath = "//*[@id=\"dxGridAmeliyatPostop_DXFREditorcol0_I\"]")
