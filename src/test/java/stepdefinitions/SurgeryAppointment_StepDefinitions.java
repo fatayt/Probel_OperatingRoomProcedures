@@ -13,6 +13,7 @@ import utilities.Driver;
 import utilities.ReusableMethods;
 
 public class SurgeryAppointment_StepDefinitions {
+
     SurgeryAppointment_Page sap = new SurgeryAppointment_Page(Driver.getDriver());
 
     @When("click settings button")

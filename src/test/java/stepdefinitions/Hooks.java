@@ -13,7 +13,6 @@ import java.time.Duration;
 
 public class Hooks {
 
-
     @Before
     public void setUp(Scenario scenario) {
 

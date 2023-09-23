@@ -11,6 +11,7 @@ import utilities.ReusableMethods;
 
 
 
+
 public class DoctorOperatingRoomProcedures_Page {
     WebDriver driver;
 
@@ -155,7 +156,7 @@ public class DoctorOperatingRoomProcedures_Page {
     @FindBy(id = "POSTOP_TARIH")
     WebElement postopDate;
 
-    @FindBy(xpath = "//td[text()='Salon_7']")
+    @FindBy(xpath = "//td[text()='Salon_9']")
     WebElement postopSaloon;
 
     @FindBy(xpath = "//td[text()='ACİL YOĞUN BAKIM']")
@@ -529,7 +530,7 @@ public class DoctorOperatingRoomProcedures_Page {
 
     public void verifieThatThePatientSSaloonIsDisplayed() {
         String situation = postopSaloon.getText();
-        Assert.assertEquals("Salon_7", situation);
+        Assert.assertEquals("Salon_9", situation);
     }
 
     public void verifieThatThePatientSServiceIsDisplayed() {

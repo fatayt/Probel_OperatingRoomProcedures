@@ -9,7 +9,6 @@ import pages.CreateSurgeryList_Page;
 
 import java.io.File;
 import java.io.IOException;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.time.LocalDate;
@@ -20,11 +19,11 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
-import java.util.function.Function;
 import java.util.regex.Pattern;
 
 public class ReusableMethods {
     static String kimlikNo;
+
 
     public static String getScreenshot(String name) throws IOException {
 //
@@ -85,7 +84,7 @@ public class ReusableMethods {
 //   waitFor(5);  => waits for 5 second
     public static void waitFor(int sec) {
         try {
-            Thread.sleep(sec * 1000);
+            Thread.sleep(sec * 1000L);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -125,10 +124,9 @@ public class ReusableMethods {
     }
 
     public static void waitForPageToLoad(long timeOutInSeconds) {
-        ExpectedCondition<Boolean> expectation = new ExpectedCondition<Boolean>() {
-            public Boolean apply(WebDriver driver) {
-                return ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete");
-            }
+        ExpectedCondition<Boolean> expectation = driver -> {
+            assert driver != null;
+            return ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete");
         };
         try {
             System.out.println("Waiting for page to load...");
@@ -143,15 +141,12 @@ public class ReusableMethods {
     //======Fluent Wait====//
     public static WebElement fluentWait(final WebElement webElement, int timeinsec) {
 
-        FluentWait<WebDriver> wait = new FluentWait<WebDriver>(Driver.getDriver())
+        FluentWait<WebDriver> wait = new FluentWait<>(Driver.getDriver())
                 .withTimeout(Duration.ofSeconds(3))
                 .pollingEvery(Duration.ofSeconds(1));
 
-        WebElement element = wait.until(new Function<WebDriver, WebElement>() {
-            public WebElement apply(WebDriver driver) {
-                return webElement;
-            }
-        });
+        WebElement element;
+        element = wait.until(driver -> webElement);
 
         return element;
     }
@@ -195,16 +190,12 @@ public class ReusableMethods {
         }
         String regex = "^[a-zA-Z0-9_+&*-]+(?:\\\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\\\.)+[a-zA-Z]{2,7}$";
         Pattern pattern = Pattern.compile(regex);
-        if (pattern.matcher(email).matches()) {
-            return true;
-        } else {
-            return false;
-        }
+        return pattern.matcher(email).matches();
 
     }
 
     //a method calculates days between two dates
-    public static Boolean daysBetweenDates(String dateStr) throws ParseException {
+    public static Boolean daysBetweenDates(String dateStr) {
         boolean newborn = false;
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
         LocalDate localDate = LocalDate.parse(dateStr, formatter);
@@ -291,7 +282,7 @@ public class ReusableMethods {
     public static void jseWithClick(WebDriver driver, WebElement element) {
 
         JavascriptExecutor jse = (JavascriptExecutor) driver;
-        jse.executeScript("arguments[0].click();", element);
+        jse.   executeScript("arguments[0].click();", element);
 
     }
 
@@ -343,14 +334,12 @@ public class ReusableMethods {
         jse.executeScript("arguments[0].value = arguments[1]", element, text);
     }
 
-    public static long periodBetweenDates(String dateStr) throws ParseException {
+    public static long periodBetweenDates(String dateStr) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
         LocalDate localDate = LocalDate.parse(dateStr, formatter);
         LocalDate currentDate = LocalDate.now();
         Period period = localDate.until(currentDate);
-        long totalDays = period.getYears() * 365L + period.getMonths() * 30L + period.getDays();
-
-        return totalDays;
+        return period.getYears() * 365L + period.getMonths() * 30L + period.getDays();
     }
 
     public static WebElement locateServiceByText(String text) {
@@ -384,7 +373,7 @@ public class ReusableMethods {
         WebElement pageNumberNext = Driver.getDriver().findElement(By.xpath("//div[@id='lstServis_DXPagerBottom']//*[contains(@class,'dxp-num')][text()='" + pageNumberCountText + "']"));
         ReusableMethods.jseWithClick(Driver.getDriver(), pageNumberNext);
         CreateSurgeryList_Page surgeryList_Page = new CreateSurgeryList_Page();
-        ReusableMethods.jseWithClick(Driver.getDriver(), surgeryList_Page.refreshButton);
+        ReusableMethods.jseWithClick(Driver.getDriver(), CreateSurgeryList_Page.refreshButton);
         Thread.sleep(2000);
     }
 
@@ -396,6 +385,40 @@ public class ReusableMethods {
     public static WebElement locateElementByText(String text) {
         return Driver.getDriver().findElement(By.xpath("//*[contains(@id,'lstSalonMasaListesi_DXData')]//td[contains(.,'" + text + "')]"));
 
+    }
+
+    public static void checkIfPatientOrHallAtTable() {
+        List<WebElement> numberOfHalls = Driver.getDriver().findElements(By.xpath("//ul[@id='amlSalonList']//li"));
+        if (numberOfHalls.size() > 0) {
+            for (WebElement hall : numberOfHalls) {
+                jseWithClick(Driver.getDriver(), CreateSurgeryList_Page.refreshButton);
+                List<WebElement> numberOfPatients = Driver.getDriver().findElements(By.xpath("//table[@id='dxGridAmeliyatHastaListesi_DXMainTable']//tr[contains(@id,'DXData')]"));
+                if (numberOfPatients.size() > 0) {
+                    for (WebElement patient : numberOfPatients) {
+                        jseWithClick(Driver.getDriver(), CreateSurgeryList_Page.patientTransactionButton);
+                        waitFor(6);
+                        jseWithClick(Driver.getDriver(), CreateSurgeryList_Page.takeOffTable);
+                        waitFor(6);
+                        jseWithClick(Driver.getDriver(), CreateSurgeryList_Page.verifyAlert);
+                        waitFor(6);
+                        try {
+                            jseWithClick(Driver.getDriver(), CreateSurgeryList_Page.causeOftakeOffTable);
+                            waitFor(6);
+                            if (CreateSurgeryList_Page.verifyAlert.isDisplayed()) {
+                                jseWithClick(Driver.getDriver(), CreateSurgeryList_Page.verifyAlert);
+                            }
+                        } catch (NoSuchElementException e) {
+                        }
+                    }
+                }
+                jseWithClick(Driver.getDriver(), CreateSurgeryList_Page.hallOperationsButton);
+                waitFor(6);
+                jseWithClick(Driver.getDriver(), CreateSurgeryList_Page.cancellHallButton);
+                waitFor(6);
+                jseWithClick(Driver.getDriver(), CreateSurgeryList_Page.verifyAlert);
+                waitFor(6);
+            }
+        }
     }
 
 
