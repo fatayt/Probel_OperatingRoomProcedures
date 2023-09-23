@@ -38,7 +38,6 @@ public class CreateSurgeryList_Page {
     @FindBy(xpath = "//a[contains(text(),'Ameliyat Listesi Oluşturma')] ")
     public WebElement creatingSurgeryListTitle;
 
-
     @FindBy(xpath = "//input[@name='AMELIYAT_LST_TARIH']")
     public WebElement requestDateBox;
 
@@ -46,14 +45,11 @@ public class CreateSurgeryList_Page {
     public WebElement serviceBox;
 
 
-
-
     @FindBy(xpath = "//a[@data-lookupvalue='1010']")
     public WebElement internalService;
 
     @FindBy(xpath = "//a[@id='btnLstYenile']")
     public static WebElement refreshButton;
-
 
     @FindBy(xpath = "//td[normalize-space()='HÜLCHOYA TÜXBJ']")
     public WebElement patientFromList;
@@ -77,7 +73,6 @@ public class CreateSurgeryList_Page {
     @FindBy(xpath = "(//li[contains(@class,'amlButton')])[2]")
     public WebElement addedOtherHallButton;
 
-
     @FindBy(xpath = "//td/table/tbody/tr/td/input")
     public WebElement operationTimeBox;
 
@@ -85,13 +80,11 @@ public class CreateSurgeryList_Page {
     @FindBy(xpath = "//table[@id='lstSalonMasaListesi_DXMainTable']//tr[3]//td[5]")
     public WebElement selectHallButton;
 
-
     @FindBy(xpath = "//*[contains(text(),'Kapat')]")
     public WebElement closePopupButton;
 
     @FindBy(xpath = "//a[contains(text(),'Salonu İptal Et')]")
     public static WebElement cancellHallButton;
-
 
     @FindBy(xpath = "(//a[contains(text(),'İşlemler')])[11]")
     public WebElement transactionsButton;
@@ -99,10 +92,8 @@ public class CreateSurgeryList_Page {
     @FindBy(xpath = "//span[@title='İşlemler']")
     public static WebElement patientTransactionButton;
 
-
     @FindBy(xpath = "//a[normalize-space()='Ameliyat Ekle']")
     public WebElement addOperationButton;
-
 
     @FindBy(xpath = "//a[@id='btnAmeliyathaneBildir']")
     public WebElement sendToOperationRoomButton;
@@ -119,10 +110,8 @@ public class CreateSurgeryList_Page {
     @FindBy(xpath = "//span[contains(text(),'Evet')]")
     public static WebElement verifyAlert;
 
-
     @FindBy(xpath = "//div[@id='HastaAmeliyatForm']//input[@type='button']")
     public WebElement toBeDoneOperation;
-
 
     @FindBy(xpath = "//table[@id='AmeliyatKodList_DXMainTable']//tr[8]//td[4]")
     public WebElement toBeDoneOperationSelect;
@@ -135,7 +124,6 @@ public class CreateSurgeryList_Page {
 
     @FindBy(xpath = "//a[@onclick='funcAnesteziDoktorEkle(this)']")
     public WebElement addAnesthesiaTeamButton;
-
 
     @FindBy(xpath = "//table[@id='dxGridAmeliyatEkibi_DXMainTable']//tr[2]//td[3]")
     public WebElement selectResponsibleDoc;
@@ -162,13 +150,11 @@ public class CreateSurgeryList_Page {
     @FindBy(xpath = "//div[2]/table/tbody/tr/td/div[2]/table/tbody/tr[3]/td[2]")
     public WebElement numberOfPatients;
 
-
     @FindBy(xpath = "//*[contains(text(),'1538')]")
     public WebElement patientProtocolNo;
 
     @FindBy(xpath = " //span[contains(text(),'Ameliyathane bildirimi tamamlanmıştır.')]")
     public WebElement notificationPopup;
-
 
     @FindBy(xpath = "(//div[@title='AHMET MEHMET'])[1](//div[@title='AHMET MEHMET'])[1]")
     public WebElement patientName;
@@ -176,38 +162,148 @@ public class CreateSurgeryList_Page {
     @FindBy(xpath = "//ul[@id='amlSalonList']//li")
     public List<WebElement> numberOfHalls;
 
+    @FindBy(xpath = "//td[text()='GENEL CERRAHİ SERVİS']")
+    public WebElement GenelCerrahi;
+
+    @FindBy(xpath = "//a[@data-search-menu='AMELİYAT RANDEVU']")
+    public WebElement Surgeryappointment;
+
+    @FindBy(xpath = "//table[@id='dxGridRandevuListesi_DXMainTable']")
+    public WebElement GridRandevuListesi;
+
+    @FindBy(xpath = "//*[@id=\"AmeliyatListe_tccell6_2\"]/a")
+    public WebElement tccell;
+
+    @FindBy(xpath = "//a[contains(@class,'text_btn text_btn_ekle')]")
+    public WebElement newappointment;
+
+    @FindBy(xpath = "(//div[@class='datepicker']//input)[3]")
+    public WebElement newappointmentdate;
+
+    @FindBy(xpath = "//*[@id=\"PROTOKOL_NO_RND\"]")
+    public WebElement SurgeryAppointmentProtocol;
+    @FindBy(xpath = "//strong[text()='Hasta Adı Soyadı']/following-sibling::input")
+    public WebElement clickPatientNo;
+
+    @FindBy(xpath = "(//input[@class='inpt wpx200'])[2]")
+    public WebElement SurgeryAppointmentSurgery;
+
+    @FindBy(xpath = "//table[@id='AmeliyatListe_DXFREditorcol0']/tbody[1]/tr[1]/td[1]/input[1]")
+    public WebElement AmeliyatEkle;
+
+    @FindBy(xpath = "((//input[@type='textbox'])[1]")
+    public WebElement appointmenttime;
+
+    @FindBy(xpath = "(//input[@type='textbox'])[2]")
+    public WebElement clocks10;
+
+    @FindBy(xpath = "//input[@id='PLANLANAN_SURE']")
+    public WebElement plannedcensorship;
+
+    @FindBy(xpath = "(//input[contains(@class,'inpt inpt')])[1]")
+    public WebElement SurgeryAppointmentDate;
+    @FindBy(xpath = "(//tr[@data-randevuid='28288']//td)[3]")
+    public WebElement AmeliyatRandevuhasta;
+    @FindBy(xpath = "(//input[contains(@class,'inpt inpt')])[2]")
+    public WebElement SurgeryAppointmentDate2;
+
+    @FindBy(xpath = "//td[@id='dxGridAmeliyatHastaListesi_tccell0_0']//span[1]")
+    public WebElement islemler;
+
+    @FindBy(xpath = "//div[@class='content blckAcilirMenu']//a[1]")
+    public WebElement masadancikar;
+
+    @FindBy(xpath = "//span[text()='Evet']")
+    public WebElement AlertDummy;
+
+    @FindBy(xpath = "//a[@class='PopupSaveButton PopupButton']//span[1]")
+    public WebElement AlertSaveButton;
+
+    @FindBy(xpath = "//div[@class='alertButtons']//span[1]")
+    public WebElement AlertSavebuttons2;
+
+
+    @FindBy(xpath = "//td[text()='15388673']")
+    public WebElement randevuprotokol;
+
+    @FindBy(xpath = "//*[@id=\"dxGridAmeliyatHastaListesi_tccell0_4\"]/div")
+    public WebElement ameliyatedilecekhasta;
+
+    @FindBy(xpath = "//a[contains(text(),'Salonu İptal Et')]")
+    public WebElement salonuiptalet;
+
+    @FindBy(xpath = "//span[@class='yes item']")
+    public WebElement popupsalonyes;
+
+    @FindBy(xpath = "//span[(text() = 'Ekle')]")
+    public static WebElement causeOftakeOffTable;
+
+    @FindBy(xpath = "//li[@data-masakodu='11']")
+    public WebElement tablecode;
+
+    @FindBy(xpath = "(//a[@data-islemno='2'])[2]")
+    public WebElement changeHall;
+
+    @FindBy(xpath = "//a[contains(text(),'Seç')]")
+    public WebElement secButton;
+
+    @FindBy(xpath = "(//div[contains(text(),'Görüntülenecek veri yok')])[1]")
+    public WebElement goruntulenecekveri;
+
+    @FindBy(xpath = "//div[@id='salonlistesipanel']")
+    public WebElement salonlistesi;
+
+    @FindBy(xpath = "//*[@id=\"lstSalonMasaListesi_DXDataRow2\"]")
+    public WebElement salonlar;
+
+    @FindBy(xpath = "//*[@id=\"lstSalonMasaListesi_tccell2_4\"]/a")
+    public WebElement salonlarsec;
+
+    @FindBy(xpath = "(//a[@data-islemno='1'])[2]")
+    public static WebElement takeOffTable;
+
+
 
     public void clickPatientProceduresTitle() {
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), patientProceduresTitle);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), operatingRoomOperationsTitle);
     }
 
     public void clickCreatingASurgeryListTitle() {
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), creatingSurgeryListTitle);
     }
 
     public void clickService() {
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), serviceBox);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), internalService);
         ReusableMethods.waitFor(6);
     }
 
     public void selectAppointmentDate() {
+        ReusableMethods.waitFor(6);
         ReusableMethods.sendKeysWithJS(Driver.getDriver(), requestDateBox, "25.10.2023");
     }
 
     public void registerPatientWithProtocolNo() throws InterruptedException {
+        ReusableMethods.waitFor(6);
         ReusableMethods.generateProtokolNo();
     }
 
     public void selectAPatient() {
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), refreshButton);
+        ReusableMethods.waitFor(6);
         ReusableMethods.waitForVisibility(patientFromList, 5);
         ReusableMethods.jseWithClick(Driver.getDriver(), patientFromList);
     }
 
     public void addsHall() {
-
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), hallOperationsButton);
         ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), addHallButton);
@@ -216,6 +312,7 @@ public class CreateSurgeryList_Page {
     }
 
     public void addsPatientToHall() {
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), refreshButton);
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(3));
         wait.until(ExpectedConditions.visibilityOf(addedHallButton));
@@ -238,6 +335,7 @@ public class CreateSurgeryList_Page {
         ReusableMethods.waitFor(6);
 
         ReusableMethods.jseWithClick(Driver.getDriver(), operationTimeBox);
+        ReusableMethods.waitFor(6);
         ReusableMethods.sendKeysWithJS(Driver.getDriver(), operationTimeBox, randomHourString);
         System.out.println("birinci metod p1:" + randomHourString);
     }
@@ -247,6 +345,7 @@ public class CreateSurgeryList_Page {
     public void addsSurgeryTeam() {
         ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), addDocTeamButton);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), selectDocCheckboxList.get(3));
         ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), selectAndCloseButton);
@@ -256,6 +355,7 @@ public class CreateSurgeryList_Page {
     public void addsSurgery() {
         ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), addOperationButton);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), toBeDoneOperation);
         ReusableMethods.waitFor(6);
         toBeDoneOperationSelect.click();
@@ -272,7 +372,9 @@ public class CreateSurgeryList_Page {
     public void addAnesthesiaTeam() {
         ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), addAnesthesiaTeamButton);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), selectAnesCheckboxList.get(3));
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), selectAndCloseButton);
     }
 
@@ -292,21 +394,28 @@ public class CreateSurgeryList_Page {
     public void cancelApprovedSurgery() {
         ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), transactionsButton);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), postponeOperationButton);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), causeOfPostponeOperation);
+        ReusableMethods.waitFor(6);
         Select select = new Select(causeOfPostponeOperation);
         select.selectByValue("1");
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), savePostponeOperationButton);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
 
 
     }
 
     public void verifyApprovedSurgeryCanceled() {
+        ReusableMethods.waitFor(6);
         Assert.assertEquals(statusOfPatientButton.getText(), "Hastanın ameliyatı ertelenmiş.");
     }
 
     public void selectAppointmentDateForThePastAndTheFuture(String requestDate) throws ParseException {
+        ReusableMethods.waitFor(6);
         ReusableMethods.sendKeysWithJS(Driver.getDriver(), requestDateBox, requestDate);
         if (ReusableMethods.periodBetweenDates(requestDate) > 0) {
             requestDateIsValid = true;
@@ -317,7 +426,7 @@ public class CreateSurgeryList_Page {
     public void checkRequestDate() {
         ReusableMethods.waitFor(6);
         Assert.assertEquals(requestDateIsValid, closePopupButton.isDisplayed());
-
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), closePopupButton);
         ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), patientTransactionButton);
@@ -341,7 +450,9 @@ public class CreateSurgeryList_Page {
     }
 
     public void verifyPatientCannotAddToHall() {
+        ReusableMethods.waitFor(6);
         SoftAssert softAssert = new SoftAssert();
+        ReusableMethods.waitFor(6);
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(3));
         wait.until(ExpectedConditions.visibilityOf(addedHallButton));
         try {
@@ -373,6 +484,7 @@ public class CreateSurgeryList_Page {
     }
 
     public void addsAnotherPatientToHall() {
+        ReusableMethods.waitFor(6);
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(3));
         wait.until(ExpectedConditions.visibilityOf(addedHallButton));
         try {
@@ -384,6 +496,7 @@ public class CreateSurgeryList_Page {
     }
 
     public void selectAnotherPatient() {
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), refreshButton);
         ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), otherPatientFromList);
@@ -391,6 +504,7 @@ public class CreateSurgeryList_Page {
 
     public void verifyPatientMoreThanOneHall() {
         SoftAssert softAssert = new SoftAssert();
+        ReusableMethods.waitFor(6);
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(3));
         wait.until(ExpectedConditions.visibilityOf(addedHallButton));
         int numberOfPatient = Integer.parseInt(numberOfPatients.getText());
@@ -427,7 +541,9 @@ public class CreateSurgeryList_Page {
 
     }
 
+
     public void enterSurgeryTime(String time) {
+        ReusableMethods.waitFor(6);
         ReusableMethods.waitForVisibility(operationTimeBox, 2);
         try {
             ReusableMethods.jseWithClick(Driver.getDriver(), operationTimeBox);
@@ -437,6 +553,7 @@ public class CreateSurgeryList_Page {
     }
 
     public void addAnyHall(String string) {
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), hallOperationsButton);
         ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), addHallButton);
@@ -451,6 +568,7 @@ public class CreateSurgeryList_Page {
     public void addsTheSamePatientToTheHall() {
             ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), refreshButton);
+        ReusableMethods.waitFor(6);
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(3));
         wait.until(ExpectedConditions.visibilityOf(addedOtherHallButton));
         ReusableMethods.waitFor(6);
@@ -462,6 +580,7 @@ public class CreateSurgeryList_Page {
 
     public void verifyMoreThanOneHall() {
         SoftAssert softAssert = new SoftAssert();
+        ReusableMethods.waitFor(6);
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(3));
         softAssert.assertTrue(numberOfHall.size() <= 1);
         ReusableMethods.waitFor(6);
@@ -501,6 +620,7 @@ public class CreateSurgeryList_Page {
         WebElement selectHall = ReusableMethods.locateChangeHallByText(hall2);
         ReusableMethods.waitFor(6);
         ReusableMethods.doubleClickWithJS(Driver.getDriver(), selectHall);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
 
 
@@ -531,6 +651,7 @@ public class CreateSurgeryList_Page {
         ReusableMethods.jseWithClick(Driver.getDriver(), cancellHallButton);
         ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), refreshButton);
         ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), hallOperationsButton);
@@ -544,8 +665,10 @@ public class CreateSurgeryList_Page {
     }
 
     public void selectAnyService() throws InterruptedException {
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), serviceBox);
         SoftAssert softAssert = new SoftAssert();
+        ReusableMethods.waitFor(6);
         String pageNumberText = Driver.getDriver().findElement(By.xpath("//b[contains(@class,'dxp-lead dxp-summary')]")).getText();
         System.out.println("Total page: " + pageNumberText);
         int pageNumberCount = Integer.valueOf(pageNumberText.substring(pageNumberText.indexOf("/") + 2, pageNumberText.indexOf("(") - 1));
@@ -570,8 +693,11 @@ public class CreateSurgeryList_Page {
                 softAssert.assertEquals(serviceCodeTextActual, serviceCodeTextExpected);
                 ReusableMethods.waitFor(6);
                 ReusableMethods.jseWithClick(Driver.getDriver(), hallOperationsButton);
+                ReusableMethods.waitFor(6);
                 ReusableMethods.jseWithClick(Driver.getDriver(), cancellHallButton);
+                ReusableMethods.waitFor(6);
                 ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
+                ReusableMethods.waitFor(6);
                 ReusableMethods.jseWithClick(Driver.getDriver(), serviceBox);
                 ReusableMethods.waitFor(6);
                 ReusableMethods.clickCurrentPage(p);
@@ -583,6 +709,7 @@ public class CreateSurgeryList_Page {
 
     public void optionToPostponeNotDisplayed() {
         SoftAssert softAssert = new SoftAssert();
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), refreshButton);
         ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), transactionsButton);
@@ -617,8 +744,10 @@ public class CreateSurgeryList_Page {
 
     public void surgeryListNotBeCreated() {
         SoftAssert softAssert = new SoftAssert();
+        ReusableMethods.waitFor(6);
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(3));
         ReusableMethods.waitForVisibility(notificationPopup, 5);
+        ReusableMethods.waitFor(6);
         softAssert.assertFalse(notificationPopup.isDisplayed());
         ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), patientTransactionButton);
@@ -650,10 +779,12 @@ public class CreateSurgeryList_Page {
     }
 
     public void selectAppointmentOnPublicHoliday(String date) {
+        ReusableMethods.waitFor(6);
         ReusableMethods.sendKeysWithJS(Driver.getDriver(), requestDateBox, date);
     }
 
     public void cancelTheHall() {
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), hallOperationsButton);
         ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), cancellHallButton);
@@ -661,23 +792,28 @@ public class CreateSurgeryList_Page {
         ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
         ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), refreshButton);
+        ReusableMethods.waitFor(6);
         Assert.assertTrue(numberOfHalls.isEmpty());
 
 
     }
 
     public void enterAppointmentDate(String date) {
+        ReusableMethods.waitFor(6);
         ReusableMethods.sendKeysWithJS(Driver.getDriver(), requestDateBox, date);
     }
 
     public void selectService(String service) {
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), serviceBox);
         WebElement elementToClick = ReusableMethods.locateServiceByText(service);
+        ReusableMethods.waitFor(6);
         ReusableMethods.doubleClickWithJS(Driver.getDriver(), elementToClick);
         ReusableMethods.waitFor(6);
     }
 
     public void selectPatientWithText(String patient) {
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), refreshButton);
         ReusableMethods.waitFor(6);
         WebElement elementToClick = ReusableMethods.locatePatientByText(patient);
@@ -686,14 +822,18 @@ public class CreateSurgeryList_Page {
     }
 
     public void addPatientWithText(String patient) {
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), refreshButton);
         WebElement elementToClick = ReusableMethods.locatePatientByText(patient);
+        ReusableMethods.waitFor(6);
         ReusableMethods.doubleClickWithJS(Driver.getDriver(), elementToClick);
         ReusableMethods.waitFor(6);
     }
 
     public void surgeryListCreated() {
+        ReusableMethods.waitFor(6);
         ReusableMethods.waitForVisibility(notificationPopup, 5);
+        ReusableMethods.waitFor(6);
         Assert.assertTrue(notificationPopup.isDisplayed());
 
 
@@ -701,109 +841,8 @@ public class CreateSurgeryList_Page {
 
     //*****************************************************************************************************
 
-    @FindBy(xpath = "//td[text()='GENEL CERRAHİ SERVİS']")
-    public WebElement GenelCerrahi;
-
-    @FindBy(xpath = "//a[@data-search-menu='AMELİYAT RANDEVU']")
-    public WebElement Surgeryappointment;
 
 
-    @FindBy(xpath = "//table[@id='dxGridRandevuListesi_DXMainTable']")
-    public WebElement GridRandevuListesi;
-
-
-    @FindBy(xpath = "//*[@id=\"AmeliyatListe_tccell6_2\"]/a")
-    public WebElement tccell;
-
-    @FindBy(xpath = "//a[contains(@class,'text_btn text_btn_ekle')]")
-    public WebElement newappointment;
-
-
-    @FindBy(xpath = "(//div[@class='datepicker']//input)[3]")
-    public WebElement newappointmentdate;
-
-    @FindBy(xpath = "//*[@id=\"PROTOKOL_NO_RND\"]")
-    public WebElement SurgeryAppointmentProtocol;
-    @FindBy(xpath = "//strong[text()='Hasta Adı Soyadı']/following-sibling::input")
-    public WebElement clickPatientNo;
-
-    @FindBy(xpath = "(//input[@class='inpt wpx200'])[2]")
-    public WebElement SurgeryAppointmentSurgery;
-
-    @FindBy(xpath = "//table[@id='AmeliyatListe_DXFREditorcol0']/tbody[1]/tr[1]/td[1]/input[1]")
-    public WebElement AmeliyatEkle;
-
-    @FindBy(xpath = "((//input[@type='textbox'])[1]")
-    public WebElement appointmenttime;
-
-    @FindBy(xpath = "(//input[@type='textbox'])[2]")
-    public WebElement clocks10;
-
-    @FindBy(xpath = "//input[@id='PLANLANAN_SURE']")
-    public WebElement plannedcensorship;
-
-
-    @FindBy(xpath = "(//input[contains(@class,'inpt inpt')])[1]")
-    public WebElement SurgeryAppointmentDate;
-    @FindBy(xpath = "(//tr[@data-randevuid='28288']//td)[3]")
-    public WebElement AmeliyatRandevuhasta;
-    @FindBy(xpath = "(//input[contains(@class,'inpt inpt')])[2]")
-    public WebElement SurgeryAppointmentDate2;
-
-
-    @FindBy(xpath = "//td[@id='dxGridAmeliyatHastaListesi_tccell0_0']//span[1]")
-    public WebElement islemler;
-
-    @FindBy(xpath = "//div[@class='content blckAcilirMenu']//a[1]")
-    public WebElement masadancikar;
-
-    @FindBy(xpath = "//span[text()='Evet']")
-    public WebElement AlertDummy;
-
-    @FindBy(xpath = "//a[@class='PopupSaveButton PopupButton']//span[1]")
-    public WebElement AlertSaveButton;
-
-    @FindBy(xpath = "//div[@class='alertButtons']//span[1]")
-    public WebElement AlertSavebuttons2;
-
-
-    @FindBy(xpath = "//td[text()='15388673']")
-    public WebElement randevuprotokol;
-
-    @FindBy(xpath = "//*[@id=\"dxGridAmeliyatHastaListesi_tccell0_4\"]/div")
-    public WebElement ameliyatedilecekhasta;
-
-
-    @FindBy(xpath = "//a[contains(text(),'Salonu İptal Et')]")
-    public WebElement salonuiptalet;
-
-    @FindBy(xpath = "//span[@class='yes item']")
-    public WebElement popupsalonyes;
-
-    @FindBy(xpath = "//span[(text() = 'Ekle')]")
-    public static WebElement causeOftakeOffTable;
-
-
-    @FindBy(xpath = "//li[@data-masakodu='11']")
-    public WebElement tablecode;
-
-    @FindBy(xpath = "(//a[@data-islemno='2'])[2]")
-    public WebElement changeHall;
-
-    @FindBy(xpath = "//a[contains(text(),'Seç')]")
-    public WebElement secButton;
-
-    @FindBy(xpath = "(//div[contains(text(),'Görüntülenecek veri yok')])[1]")
-    public WebElement goruntulenecekveri;
-
-    @FindBy(xpath = "//div[@id='salonlistesipanel']")
-    public WebElement salonlistesi;
-
-    @FindBy(xpath = "//*[@id=\"lstSalonMasaListesi_DXDataRow2\"]")
-    public WebElement salonlar;
-
-    @FindBy(xpath = "//*[@id=\"lstSalonMasaListesi_tccell2_4\"]/a")
-    public WebElement salonlarsec;
 
 
     public void SurgeryAppointmentProcedures() {
@@ -813,8 +852,6 @@ public class CreateSurgeryList_Page {
 
     }
 
-    @FindBy(xpath = "(//a[@data-islemno='1'])[2]")
-    public static WebElement takeOffTable;
 
 
     public void ClicksOnThENewAppointmentTab() {
@@ -1131,6 +1168,7 @@ public class CreateSurgeryList_Page {
     }
 
     public void patientNotMoreThanOneOperation() {
+        ReusableMethods.waitFor(6);
         SoftAssert softAssert = new SoftAssert();
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(3));
         ReusableMethods.waitForVisibility(notificationPopup, 5);
@@ -1202,6 +1240,7 @@ public class CreateSurgeryList_Page {
         ReusableMethods.jseWithClick(Driver.getDriver(), cancellHallButton);
         ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
+        ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), refreshButton);
         ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), hallOperationsButton);
@@ -1214,6 +1253,7 @@ public class CreateSurgeryList_Page {
     public void surgeryListShouldBeCreatedOutpatients() {
         ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
+        ReusableMethods.waitFor(6);
         ReusableMethods.waitForVisibility(notificationPopup, 5);
         ReusableMethods.waitFor(6);
         Assert.assertTrue(notificationPopup.isDisplayed());
