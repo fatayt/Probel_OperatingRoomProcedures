@@ -135,7 +135,7 @@ Feature: Operating Room Procedures
     And The user clicks on the patient operations button
     And User clicks the exit from the table button
     And User clicks on Add patient to list button
-    And  The user enters the protocol number2 of the patient they want to add
+    And The user enters the protocol number2 of the patient they want to add
     And User clicks on the query button
     And User clicks the service button
     And User selects the EMERGENCY CHILD DAY CARE Service

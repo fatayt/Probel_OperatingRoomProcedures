@@ -11,6 +11,7 @@ import pages.BasePage;
 import pages.Login_Page;
 import pages.OperatingRoomProcedures_Page;
 import utilities.Driver;
+import utilities.ReusableMethods;
 
 
 public class OperatingRoomProcedures_StepDefinitions {
@@ -134,8 +135,10 @@ public class OperatingRoomProcedures_StepDefinitions {
 
     @Given("The user clicks on the patient operations button")
     public void the_user_clicks_on_the_patient_operations_button() throws InterruptedException {
-        Thread.sleep(3000);
+        ReusableMethods.waitFor(1);
         operatingRoomProcedures_page_.patientOperations.click();
+        ReusableMethods.waitFor(4);
+
 
     }
 
@@ -417,6 +420,7 @@ public class OperatingRoomProcedures_StepDefinitions {
         operatingRoomProcedures_page_.homePageProtokolButton.sendKeys("9951101");
         Thread.sleep(1000);
         operatingRoomProcedures_page_.findPatient.click();
+        ReusableMethods.waitFor(4);
 
 
     }
