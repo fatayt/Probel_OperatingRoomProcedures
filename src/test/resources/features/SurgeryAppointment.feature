@@ -269,9 +269,7 @@ Feature: Surgery Appointment
       | 9999   |
       | 99999  |
       | 999999 |
-    And close popup page
-    And delete unit if unit code "187"
-    And close popup page
+
 
   @Smoke @TC0071 @TC0059 @US_009
   Scenario: TC0059 TC0071 User can not create more appointments than the capacity and delete the appointment
@@ -488,10 +486,12 @@ Feature: Surgery Appointment
     And enter "abeyis reason" to reason of cancellation box
     And click save button
     Then assert the reason "abeyis reason"
-    And click delete button
-    Then assert the popup message "Bu kaydı silmek istediğinize emin misiniz?"
-    And click yes button
-    Then assert the reason was deleted
+    And close popup page
+    And delete reason if reason is "abeyis reason"
+    Then assert the service was deleted "Görüntülenecek veri yok"
+
+
+
 
 
 

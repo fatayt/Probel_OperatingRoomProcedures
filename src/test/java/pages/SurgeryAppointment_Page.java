@@ -95,7 +95,7 @@ public class SurgeryAppointment_Page {
     @FindBy(id = "BIRIM_KODU_ANA")
     WebElement unitCode_box_page;
 
-    @FindBy(xpath = "//a[@class='hem_button hem_border hem_sil marrightpx5 btnTanimiSil']")
+    @FindBy(xpath = "(//td[@class='dxgv dx-ac']//a)[2]")
     WebElement deleteUnit_button;
 
     @FindBy(xpath = "//span[text()='Evet']")
@@ -331,8 +331,11 @@ public class SurgeryAppointment_Page {
 
     public void clickDeleteButton() {
         //ReusableMethods.waitForClickablility(deleteUnit_button, 5);
-        ReusableMethods.waitFor(5);
+        ReusableMethods.waitFor(1);
         deleteUnit_button.click();
+        ReusableMethods.waitFor(4);
+
+
     }
 
     public void assertThePopupMessage(String arg0) {
@@ -360,9 +363,9 @@ public class SurgeryAppointment_Page {
     }
 
     public void enterServiceCodeToUnitCodeBox(String arg0) {
-        ReusableMethods.waitFor(3);
+        ReusableMethods.waitFor(1);
         unitCode_box.sendKeys(arg0 + Keys.ENTER);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(4);
     }
 
     public void enterTheDailyCapacity(String arg0) {
@@ -478,6 +481,8 @@ public class SurgeryAppointment_Page {
     }
 
     public void assertTheReason(String arg0) {
+        ReusableMethods.waitFor(2);
+
         cancelReasonSearch_box.clear();
         ReusableMethods.waitFor(2);
 
@@ -488,6 +493,8 @@ public class SurgeryAppointment_Page {
         System.out.println("expected reason = " + arg0);
         System.out.println("actual reason = " + reason.getAttribute("textContent"));
         Assert.assertEquals(reason.getAttribute("textContent"), arg0);
+        ReusableMethods.waitFor(4);
+
     }
 
     public void enterToReasonOfCancellationSearchBox(String arg0) {
