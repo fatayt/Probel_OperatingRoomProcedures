@@ -77,7 +77,7 @@ public class CreateSurgeryList_Page {
     public WebElement operationTimeBox;
 
 
-    @FindBy(xpath = "//table[@id='lstSalonMasaListesi_DXMainTable']//tr[3]//td[5]")
+    @FindBy(xpath = "(//a[@class='LookupSelectButton text_btn text_btn_ok backWhite'][normalize-space()='Seç'])[9]")
     public WebElement selectHallButton;
 
     @FindBy(xpath = "//*[contains(text(),'Kapat')]")
@@ -386,6 +386,7 @@ public class CreateSurgeryList_Page {
         ReusableMethods.jseWithClick(Driver.getDriver(), transactionsButton);
         ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), sendToOperationRoomButton);
+        ReusableMethods.waitFor(6);
     }
 
 
@@ -609,12 +610,12 @@ public class CreateSurgeryList_Page {
     public void changeTheHallWithTheOtherHall(String text, String hall1, String hall2) {
 
         ReusableMethods.jseWithClick(Driver.getDriver(), patientTransactionButton);
-        ReusableMethods.waitFor(6);
+        //ReusableMethods.waitFor(6);
         WebElement selectChangeHall = ReusableMethods.locateSelectChangeHallByText(text);
         ReusableMethods.jseWithClick(Driver.getDriver(), selectChangeHall);
         ReusableMethods.waitFor(6);
         WebElement selectHall = ReusableMethods.locateChangeHallByText(hall2);
-        ReusableMethods.waitFor(6);
+      //  ReusableMethods.waitFor(6);
         ReusableMethods.doubleClickWithJS(Driver.getDriver(), selectHall);
         ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
@@ -1238,7 +1239,7 @@ public class CreateSurgeryList_Page {
     public void surgeryListShouldBeCreatedOutpatients() {
 
         ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
-        ReusableMethods.waitFor(6);
+      //  ReusableMethods.waitFor(6);
         ReusableMethods.waitForVisibility(notificationPopup, 5);
         Assert.assertTrue(notificationPopup.isDisplayed());
 
