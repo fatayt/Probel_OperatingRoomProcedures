@@ -89,7 +89,7 @@ public class CreateSurgeryList_Page {
     @FindBy(xpath = "(//a[contains(text(),'İşlemler')])[11]")
     public WebElement transactionsButton;
 
-    @FindBy(xpath = "//span[@title='İşlemler']")
+    @FindBy(xpath = "//span[contains(@class,'hem_button hem_border')]")
     public static WebElement patientTransactionButton;
 
     @FindBy(xpath = "//a[normalize-space()='Ameliyat Ekle']")
@@ -610,12 +610,12 @@ public class CreateSurgeryList_Page {
     public void changeTheHallWithTheOtherHall(String text, String hall1, String hall2) {
 
         ReusableMethods.jseWithClick(Driver.getDriver(), patientTransactionButton);
-        //ReusableMethods.waitFor(6);
+        ReusableMethods.waitFor(6);
         WebElement selectChangeHall = ReusableMethods.locateSelectChangeHallByText(text);
         ReusableMethods.jseWithClick(Driver.getDriver(), selectChangeHall);
         ReusableMethods.waitFor(6);
         WebElement selectHall = ReusableMethods.locateChangeHallByText(hall2);
-      //  ReusableMethods.waitFor(6);
+        ReusableMethods.waitFor(6);
         ReusableMethods.doubleClickWithJS(Driver.getDriver(), selectHall);
         ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), verifyAlert);
@@ -958,8 +958,6 @@ public class CreateSurgeryList_Page {
         ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), AmeliyatRandevuhasta);
         ReusableMethods.waitFor(6);
-        ReusableMethods.waitFor(6);
-        ReusableMethods.waitFor(6);
         ReusableMethods.doubleClickWithJS(Driver.getDriver(), AmeliyatRandevuhasta);
     }
 
@@ -998,7 +996,8 @@ public class CreateSurgeryList_Page {
         ReusableMethods.waitFor(6);
         ReusableMethods.jseWithClick(Driver.getDriver(), addHallButton);
         ReusableMethods.waitFor(6);
-        selectHallButton.click();
+        ReusableMethods.jseWithClick(Driver.getDriver(),  selectHallButton);
+       // selectHallButton.click();
 
     }
 

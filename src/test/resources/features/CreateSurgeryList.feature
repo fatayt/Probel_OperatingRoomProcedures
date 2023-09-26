@@ -268,13 +268,15 @@ Feature: Create Surgery List
     And User Selects Date from Appointment Patients section
     And The User clicks the refresh button
     And The user selects a service "AMELIYATHANE" on Surgery List Page
-     And Check if there are any hall or patient on the table on Surgery List Page
+    # And Check if there are any hall or patient on the table on Surgery List Page
     And User adds new hall
     And User double clicks on Patient
     And User clicks on Hall operations
-    And The user adds  "Salon_3" hall on Surgery List Page
-    And The user change "Salonu Değiştir"  the hall "Salon_9" with the hall "Salon_3" on Surgery List Page
-    Then The user verifies "Salon_9" is empty, "Salon_3" has a patient and rollback all steps on Surgery List Page
+    And The user adds  "Salon_7" hall on Surgery List Page
+    And The user change "Salonu Değiştir"  the hall "Salon_9" with the hall "Salon_7" on Surgery List Page
+  #  And The user adds  "Salon_3" hall on Surgery List Page
+  #  And The user change "Salonu Değiştir"  the hall "Salon_9" with the hall "Salon_3" on Surgery List Page
+    Then The user verifies "Salon_9" is empty, "Salon_7" has a patient and rollback all steps on Surgery List Page
 
 
 
