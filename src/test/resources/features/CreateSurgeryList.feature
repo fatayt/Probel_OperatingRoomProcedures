@@ -140,7 +140,7 @@ Feature: Create Surgery List
     And The user enters  "10:30" as a surgery time on Surgery List Page
     Then Only one patient should be added to a hall on Surgery List Page.
 
-  @TC0008 @Bug  @US_001
+  @TC0008 @Bug  @US_001 @Presentation
   Scenario: TC0008 Surgery list should not be created on public holidays.
     Given The user clicks on Operating Room Operations   Page
     And The user clicks on Creating a Surgery List Page

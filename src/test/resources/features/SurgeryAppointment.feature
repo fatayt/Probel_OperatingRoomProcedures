@@ -36,7 +36,7 @@ Feature: Surgery Appointment
 
 
 
-  @Smoke @TC0057 @US_008
+  @Smoke @TC0057 @US_008 @Presentation
   Scenario: TC0057 - User may postpone patient appointment
     And delete patient appt if protocol "15388830"
     When create a new appointment
@@ -271,7 +271,7 @@ Feature: Surgery Appointment
       | 999999 |
 
 
-  @Smoke @TC0071 @TC0059 @US_009
+  @Smoke @TC0071 @TC0059 @US_009 @Presentation
   Scenario: TC0059 TC0071 User can not create more appointments than the capacity and delete the appointment
     And delete patient appt if protocol "15388830"
     And delete patient appt if protocol "14028483"

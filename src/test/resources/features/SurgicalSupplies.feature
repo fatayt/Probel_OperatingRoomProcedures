@@ -7,7 +7,7 @@ Feature: Surgical Supplies
     Given The user logs in
     And The user goes Surgical Supplies page
 
-  @Smoke @TC0084 @TC0085 @US_012
+  @Smoke @TC0084 @TC0085 @US_012 @Presentation
   Scenario: TC0084 TC0085 User can add delete the material and medicine to surgery from template
     When select the surgery date "11.09.2023"
     And click refresh button
@@ -101,7 +101,7 @@ Feature: Surgical Supplies
     And assert the popup message "İlaç giriniz veya seçiniz!"
     And close the warning message
 
-  @Bug @TC0087 @US_012
+  @Bug @TC0087 @US_012 @Presentation
   Scenario: TC0087 User can create, edit and delete the template materials
     And delete template if template is "Test Abeyis"
     And close popup page

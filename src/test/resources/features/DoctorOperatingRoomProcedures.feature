@@ -8,7 +8,7 @@ Feature: Doctor Operating Room Procedures
     Given The user logs in
     And   The user goes Doctor Operating Room Procedures page
 
-  @TC0037 @Smoke @US_005
+  @TC0037 @Smoke @US_005 @Presentation
   Scenario: Surgery can be added to the patient coming from the service
     Given User enters the claim date "24.11.2023"
     And   User clicks select saloon button
