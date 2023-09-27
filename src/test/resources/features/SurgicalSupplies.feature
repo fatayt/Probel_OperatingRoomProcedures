@@ -101,7 +101,7 @@ Feature: Surgical Supplies
     And assert the popup message "İlaç giriniz veya seçiniz!"
     And close the warning message
 
-  @Bug @TC0087 @US_012 @Presentation
+  @Bug @TC0087 @US_012
   Scenario: TC0087 User can create, edit and delete the template materials
     And delete template if template is "Test Abeyis"
     And close popup page
