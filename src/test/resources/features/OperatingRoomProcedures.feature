@@ -127,7 +127,7 @@ Feature: Operating Room Procedures
 
 
 
-  @TR0034 @Bug @Presentation
+  @TR0034 @Bug
   Scenario: US_004 User can add patients to the list on the Operating Room Procedures page and chooses the necessary doctor.
     And User enters date
     And User clicks the refresh button
