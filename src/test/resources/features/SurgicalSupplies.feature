@@ -7,7 +7,7 @@ Feature: Surgical Supplies
     Given The user logs in
     And The user goes Surgical Supplies page
 
-  @Smoke @TC0084 @TC0085 @US_012
+  @Smoke @TC0084 @TC0085 @US_012 @Presentation
   Scenario: TC0084 TC0085 User can add delete the material and medicine to surgery from template
     When select the surgery date "11.09.2023"
     And click refresh button

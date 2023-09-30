@@ -144,7 +144,7 @@ Feature: Operating Room Procedures
     And User verifies that the patient has been added to the list
 
 
-  @TR0035   @Bug
+  @TR0035   @Bug @Presentation
   Scenario: US_004 User can add patients to the list on the operating room operations page and chooses an obstetrician
     And User enters date
     And User clicks the refresh button
