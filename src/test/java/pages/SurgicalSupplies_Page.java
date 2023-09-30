@@ -33,10 +33,6 @@ public class SurgicalSupplies_Page {
     @FindBy(linkText = "Şablon Uygula")
     WebElement template_button;
 
-    @FindBy(id = "lstMalzemeSablonListe_DXFREditorcol1_I")
-
-    WebElement templateCode_box;
-
     @FindBy(xpath = "//input[@class='inpt wpx300']")
     WebElement templateNewName_box;
 
@@ -421,6 +417,7 @@ public class SurgicalSupplies_Page {
     }
 
     public void deleteTemplateIfTemplateIs(String arg0) {
+        ReusableMethods.waitFor(4);
         clickTemplateDefinitionsButton();
         enterTemplateNameToNameSearchBox(arg0);
 
