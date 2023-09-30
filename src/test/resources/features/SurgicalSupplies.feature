@@ -15,49 +15,14 @@ Feature: Surgical Supplies
     And click refresh button
     And select patient
 
-    #And if material displayed delete the material "2168"
-    #And if material displayed delete the material "3901"
-    #And if medicine displayed delete the medicine "27233"
-    #And if medicine displayed delete the medicine "33568"
-
     And click apply template
     And click template name "AbeyisDeneme"
-#
-    #And click approve box for materials
-    And click materials process and update button
     And assert the popup message "Listede onaylanacak malzeme bulunmamaktadır."
     And close the warning message
-    #And click yes button
-    #And assert the popup message "Malzeme işlenemedi"
-    #And click okey button
-#
-    #And click approve box for medicine
+
     And click medicine process and update button
     And assert the popup message "Listede onaylanacak ilaç bulunmamaktadır."
     And close the warning message
-    #And click yes button
-    #And assert the popup message "İlaç işlenemedi"
-    #And click okey button
-#
-    #And delete the material "2168"
-    #And assert the popup message "Silmek İstediğinize Emin misiniz?"
-    #And click yes button
-    #And assert the material or medicine deleted "2168"
-#
-    #And delete the material "3901"
-    #And assert the popup message "Silmek İstediğinize Emin misiniz?"
-    #And click yes button
-    #And assert the material or medicine deleted "3901"
-#
-    #And delete the medicine "27233"
-    #And assert the popup message "Silmek İstediğinize Emin misiniz?"
-    #And click yes button
-    #And assert the material or medicine deleted "27233"
-#
-    #And delete the medicine "33568"
-    #And assert the popup message "Silmek İstediğinize Emin misiniz?"
-    #And click yes button
-    #And assert the material or medicine deleted "33568"
 
 
   @Bug @TC0086 @US_012
@@ -130,8 +95,6 @@ Feature: Surgical Supplies
     And enter code to official code box "G100040"
     And click save button
     Then assert new template by name "Test Abeyis"
-
-    #When click template definitions button
     And click new template add button
     And select type of template "Anestezi"
     And enter template name "Abeyis Test"
