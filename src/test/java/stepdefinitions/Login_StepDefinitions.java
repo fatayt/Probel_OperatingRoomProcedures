@@ -20,6 +20,7 @@ public class Login_StepDefinitions {
         login_page.sifre.sendKeys(ConfigReader.getProperty("password"));
         login_page.webSifre.sendKeys(ConfigReader.getProperty("web_password"));
         login_page.clickButton.click();
+        login_page.okeyButton.click();
     }
 
     @And("The user goes Create Surgery List page")

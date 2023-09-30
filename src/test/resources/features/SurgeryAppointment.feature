@@ -8,34 +8,6 @@ Feature: Surgery Appointment
     Given The user logs in
     And The user goes Surgery Appointment page
 
-  #@del
-  #Scenario: Delete canceled appt
-  #  And delete patient appt if protocol "15388636"
-  #  And delete patient appt if protocol "15388830"
-  #When create a new appointment
-  #    | code | date       | protocol | surgery | time    |
-  #    | 163  | 23.10.2023 | 15388830 | 613180  | 09 : 00 |
-  #When create a new appointment
-  #    | code | date       | protocol | surgery | time    |
-  #    | 163  | 23.10.2023 | 15388636 | 613180  | 09 : 00 |
-  #When create a new appointment
-  #  | code | date       | protocol | surgery | time    |
-  #  | 163  | 23.10.2023 | 15388830 | 613180  | 09 : 00 |
-  #When create a new appointment
-  #  | code | date       | protocol | surgery | time    |
-  #  | 163  | 23.10.2023 | 15388636 | 613180  | 09 : 00 |
-  #When create a new appointment
-  #  | code | date       | protocol | surgery | time    |
-  #  | 163  | 23.10.2023 | 15388830 | 613180  | 09 : 00 |
-  #When create a new appointment
-  #  | code | date       | protocol | surgery | time    |
-  #  | 163  | 23.10.2023 | 15388636 | 613180  | 09 : 00 |
-  #And delete patient appt if protocol "15388636"
-  #And delete patient appt if protocol "15388830"
-
-
-
-
   @Smoke @TC0057 @US_008 @Presentation
   Scenario: TC0057 - User may postpone patient appointment
     And delete patient appt if protocol "15388830"
@@ -57,9 +29,7 @@ Feature: Surgery Appointment
     Then assert the appointment date "31.10.2023"
     And delete patient appt if protocol "15388830"
 
-    #And click patient settings button
-    #And click the delete appointment button
-    #And click yes button
+
 
   @Smoke @TC0058 @US_008
   Scenario: TC0058 User can cancel patient appointment
@@ -72,7 +42,6 @@ Feature: Surgery Appointment
     And select the start date "23.10.2023"
     And select the end date "23.10.2023"
     And click on refresh button main
-    #And click on the refresh button
     And search the protocol number "15388830"
     And click patient settings button
 
@@ -85,9 +54,6 @@ Feature: Surgery Appointment
     And delete patient appt if protocol "15388830"
 
 
-    #And verify that your appointment has been canceled
-
-
   @Smoke @TC0060 @US_008
   Scenario:TC0060 - The appointment can be edited
     And delete patient appt if protocol "14028483"
@@ -98,13 +64,11 @@ Feature: Surgery Appointment
     And click patient settings button
 
     And click the fix appointment button
-    #And check that you are on the pop up page
     And select the surgery decision date and time "21.09.2023 11:11:11"
     And change the appointment number "3"
     And select the date "23.11.2023"
 
     And select the second surgery "612280"
-    #And select the illness ""
     And select the type of anesthesia "LOCAL"
     And select the side ""
     And change the service date "10.09.2023"
@@ -120,7 +84,6 @@ Feature: Surgery Appointment
 
     And click save button
     And refresh page
-    #And search the protocol number "14028483"
     And click patient settings button
     And click the fix appointment button
     And assert the surgery decision date and time "21.09.2023 11:11:11"
@@ -143,10 +106,6 @@ Feature: Surgery Appointment
 
     And close popup page
     And delete patient appt if protocol "14028483"
-
-    #And click patient settings button
-    #And click the delete appointment button
-    #Then click yes button
 
 
   @Bug @TC0061 @US_008
@@ -176,22 +135,6 @@ Feature: Surgery Appointment
     And delete patient appt if protocol "15388636"
     Then assert the service was deleted "Görüntülenecek veri yok"
 
-    #And search the protocol number "15388830"
-    #And click patient settings button
-    #And click the delete appointment button
-    #And click yes button
-    #And search the protocol number "14028483"
-    #And click patient settings button
-    #And click the delete appointment button
-    #And click yes button
-    #Then assert the service was deleted "Görüntülenecek veri yok"
-    #And search the protocol number "15388636"
-    #And click patient settings button
-    #And click the delete appointment button
-    #And click yes button
-    #Then assert the service was deleted "Görüntülenecek veri yok"
-
-
 
   @Smoke @TC0067 @US_009
   Scenario: TC0067 User can create new surgery service unit
@@ -208,14 +151,9 @@ Feature: Surgery Appointment
     And delete unit if unit code "187"
     And close popup page
 
-#    And delete a unit "187"
 
-  @TC0068 @US_009
+  @TC0068 @US_009 @RegressionSample
   Scenario: TC0068 User can not create new surgery service unit without information
-    #When click settings button
-    #And click unit definitions button
-    #And click new add button
-    #And click save button
     And delete unit if unit code "168"
     And close popup page
     And create new unit "" ""
@@ -234,12 +172,6 @@ Feature: Surgery Appointment
     And close popup page
     And create new unit "110" "10"
     Then assert the new surgery service unit "110"
-    #When click settings button
-    #And click unit definitions button
-    #And click new add button
-    #And enter service code "187" to service code box
-    #And enter the daily capacity "5"
-    #And click save button
     And close popup page
     And create new unit "110" "12"
     Then assert the warning message "Aynı Kayıttan Daha Önce Girilmiş"
@@ -252,8 +184,6 @@ Feature: Surgery Appointment
 
   @Bug @TC0070 @US_009
   Scenario: TC0070 User can change the daily surgery capacity of service unit
-    #When click settings button
-    #And click unit definitions button
     And delete unit if unit code "187"
     And close popup page
     And create new unit "187" ""
@@ -343,10 +273,6 @@ Feature: Surgery Appointment
     When click settings button
     And click unit definitions button
     And enter service code "9071" to unit code box
-    #And click edit button
-    #And click passive box
-    #And click save button
-    #And enter service code "9071" to unit code box
     Then assert the service was deleted "Görüntülenecek veri yok"
 
   @Bug @TC0075 @US_009
@@ -354,9 +280,6 @@ Feature: Surgery Appointment
     When click settings button
     And click unit definitions button
     And enter service code "9071" to unit code box
-    #And click edit button
-    #And click active box
-    #And click save button
     Then assert the unit is active
 
   @Smoke @TC0076 @US_010
@@ -466,7 +389,6 @@ Feature: Surgery Appointment
     And enter "feeling better now" to reason of cancellation box
     And click save button
     Then assert the reason "feeling better now"
-    #And enter "feeling better now" to reason of cancellation search box
     And click edit button
     And delete the reason of cancellation
     And enter "feeling perfect now" to reason of cancellation box
