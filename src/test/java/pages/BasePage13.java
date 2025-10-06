@@ -6,31 +6,13 @@ import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
-public class BasePage23 {
-    public BasePage23(){
+public class BasePage13 {
+    public BasePage13(){
         PageFactory.initElements(Driver.getDriver(),this);
     }
-
-    @FindBy(xpath ="(//a[@class='open'])[1]" )
-    WebElement patientProcedures_button44;
-
     @FindBy(xpath ="(//a[@class='open'])[1]" )
     WebElement patientProcedures_button2;
-@FindBy(xpath ="(//a[@class='open'])[1]" )
-    WebElement patientProcedures_button24;
-    @FindBy(xpath ="(//a[@class='open'])[31]" )
-    WebElement patientProcedures_button277;
-    @FindBy(xpath ="(//a[@class='open'])[1243]" )
-    WebElement patientProcedures_button2jj;@FindBy(xpath ="(//a[@class='open'])[1]" )
-    WebElement patientProcedures_button2gg;@FindBy(xpath ="(//a[@class='open'])[1]" )
-    WebElement patientProcedures_button2ff;@FindBy(xpath ="(//a[@class='open'])[1]" )
-    WebElement patientProcedures_button2dd;@FindBy(xpath ="(//a[@class='open'])[1]" )
-    WebElement patientProcedures_button2ss;@FindBy(xpath ="(//a[@class='open'])[1]" )
-    WebElement patientProcedures_button2aaa;@FindBy(xpath ="(//a[@class='open'])[1]" )
-    WebElement patientProcedures_button2hh;@FindBy(xpath ="(//a[@class='open'])[1]" )
-    WebElement patientProcedures_button2jjj;@FindBy(xpath ="(//a[@class='open'])[1]" )
-    WebElement patientProcedures_button2fff;@FindBy(xpath ="(//a[@class='open'])[1]" )
-    WebElement patientProcedures_button2gjgjg;
+
     @FindBy(xpath ="(//a[@class='open'])[1]" )
     WebElement patientProcedures_button;
 
