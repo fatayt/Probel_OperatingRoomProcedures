@@ -6,13 +6,12 @@ import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
-public class BasePage33 {
-    public BasePage33(){
+public class BasePage23 {
+    public BasePage23(){
         PageFactory.initElements(Driver.getDriver(),this);
     }
-
     @FindBy(xpath ="(//a[@class='open'])[1]" )
-    WebElement patientProcedures_button3;
+    WebElement patientProcedures_button2;
 
     @FindBy(xpath ="(//a[@class='open'])[1]" )
     WebElement patientProcedures_button;
