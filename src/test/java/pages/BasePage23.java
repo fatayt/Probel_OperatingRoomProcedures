@@ -12,7 +12,21 @@ public class BasePage23 {
     }
     @FindBy(xpath ="(//a[@class='open'])[1]" )
     WebElement patientProcedures_button2;
-
+@FindBy(xpath ="(//a[@class='open'])[1]" )
+    WebElement patientProcedures_button2;
+    @FindBy(xpath ="(//a[@class='open'])[31]" )
+    WebElement patientProcedures_button2;
+    @FindBy(xpath ="(//a[@class='open'])[1243]" )
+    WebElement patientProcedures_button2;@FindBy(xpath ="(//a[@class='open'])[1]" )
+    WebElement patientProcedures_button2;@FindBy(xpath ="(//a[@class='open'])[1]" )
+    WebElement patientProcedures_button2;@FindBy(xpath ="(//a[@class='open'])[1]" )
+    WebElement patientProcedures_button2;@FindBy(xpath ="(//a[@class='open'])[1]" )
+    WebElement patientProcedures_button2;@FindBy(xpath ="(//a[@class='open'])[1]" )
+    WebElement patientProcedures_button2;@FindBy(xpath ="(//a[@class='open'])[1]" )
+    WebElement patientProcedures_button2;@FindBy(xpath ="(//a[@class='open'])[1]" )
+    WebElement patientProcedures_button2;@FindBy(xpath ="(//a[@class='open'])[1]" )
+    WebElement patientProcedures_button2;@FindBy(xpath ="(//a[@class='open'])[1]" )
+    WebElement patientProcedures_button2;
     @FindBy(xpath ="(//a[@class='open'])[1]" )
     WebElement patientProcedures_button;
 
