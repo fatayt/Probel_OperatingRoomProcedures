@@ -11,6 +11,8 @@ public class BasePage33 {
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
+    @FindBy(xpath ="(//a[@class='open'])[1]" )
+    WebElement patientProcedures_button3;
 
     @FindBy(xpath ="(//a[@class='open'])[1]" )
     WebElement patientProcedures_button;

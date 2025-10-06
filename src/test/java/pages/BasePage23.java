@@ -10,7 +10,8 @@ public class BasePage23 {
     public BasePage23(){
         PageFactory.initElements(Driver.getDriver(),this);
     }
-
+    @FindBy(xpath ="(//a[@class='open'])[1]" )
+    WebElement patientProcedures_button2;
 
     @FindBy(xpath ="(//a[@class='open'])[1]" )
     WebElement patientProcedures_button;
